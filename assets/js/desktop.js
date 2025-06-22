@@ -1,4 +1,7 @@
 import { desktopItems } from './data.js';
+import { flapyBirdCode, calculatorCode } from './html-codes.js';
+import flappyBirdJS from './flappy-bird.js';
+import CalculatorJs from './calculator.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
 const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
 const ICON_OFFSET_X = 10;
@@ -81,8 +84,82 @@ function makeDraggable(el) {
 	});
 }
 
-// ...existing code...
+function addEventListeners(el, item) {
+	el.addEventListener('contextmenu', e => {
+		e.preventDefault();
+		e.stopPropagation();
+		const customMenu = document.querySelector('.custom-menu');
+		customMenu.innerHTML = `
+					<ul>
+					<li class="Open">Open</li>
+					<li class="copy">Copy</li>
+					<li class="cut">Cut</li>
+					<li>Delete</li>
+					<li>Rename file</li>
+					<li>About this file</li>
+				</ul>
+				`;
+		customMenu.style.display = 'block';
+		customMenu.style.top = `${e.clientY}px`;
+		customMenu.style.left = `${e.clientX}px`;
 
+		// Position menu within viewport
+		const rect = customMenu.getBoundingClientRect();
+		if (rect.right > window.innerWidth) {
+			customMenu.style.left = `${window.innerWidth - rect.width}px`;
+		}
+		if (rect.bottom > window.innerHeight) {
+			customMenu.style.top = `${window.innerHeight - rect.height}px`;
+		}
+	});
+	el.addEventListener('dblclick', () => {
+		createNewWindow(el, item);
+	});
+}
+function createNewWindow(el, item) {
+	const clutter = document.createElement('div');
+	clutter.className = 'window-wrapper';
+	clutter.innerHTML = `
+        <div class="header">
+            <div>
+                <img width="30" src="${item.icon}" alt="" />
+                <p>${item.name}</p>
+            </div>
+            <div class="controls">
+                <div class="minimize">
+                    <img class="minimize" src="assets/images/minimize.png" alt="" />
+                </div>
+                <div class="control maximize">
+                    <img src="assets/images/maximize.png" alt="" />
+                </div>
+                <div class="control close">
+                    <img src="assets/images/close.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="window-wrapper-body">
+        </div>
+        <!-- Place these inside your .window-wrapper div -->
+        <div class="window-resizer nw"></div>
+        <div class="window-resizer n"></div>
+        <div class="window-resizer ne"></div>
+        <div class="window-resizer e"></div>
+        <div class="window-resizer se"></div>
+        <div class="window-resizer s"></div>
+        <div class="window-resizer sw"></div>
+        <div class="window-resizer w"></div>
+    `;
+	document.body.appendChild(clutter);
+
+	const body = clutter.querySelector('.window-wrapper-body');
+	if (item.type === 'flappy-bird') {
+		body.innerHTML = flapyBirdCode;
+		flappyBirdJS();
+	} else if (item.type === 'calculator') {
+		body.innerHTML = calculatorCode;
+		CalculatorJs();
+	}
+}
 function createIcon(item) {
 	const el = document.createElement('div');
 	el.className = 'desktop-icon';
@@ -94,11 +171,10 @@ function createIcon(item) {
 	const { col, row } = getGridCell(item.x, item.y);
 	occupied[getCellKey(col, row)] = el;
 
-	makeDraggable(el); // Enable movement
+	makeDraggable(el);
+	addEventListeners(el, item);
 	return el;
 }
-
-// ...existing code...
 
 const createDesktop = desktopItems => {
 	const documentFragment = document.createDocumentFragment();

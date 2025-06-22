@@ -9,10 +9,10 @@
 		<link rel="stylesheet" href="assets/css/taskbar.css" />
 		<link rel="stylesheet" href="assets/css/desktop.css" />
 		<link rel="stylesheet" href="assets/css/new_window.css" />
-		<link rel="stylesheet" href="assets/css/flappy-bird.css" />
+		<!-- <link rel="stylesheet" href="assets/css/flappy-bird.css" /> -->
 	</head>
 	<body>
-		<main>
+		<main class="main">
 			<div class="desktop"></div>
 			<div class="taskbar">
 				<div class="left">
@@ -387,9 +387,6 @@
 									d="M33.812,32.595L34.236,35l-2.423-0.405L33.812,32.595z M12.293,18.052l15.945,15.945	l2.363,0.395l3-3l-0.413-2.345L17.243,13.102c-0.391-0.391-1.024-0.391-1.414,0l-3.536,3.536	C11.902,17.028,11.902,17.662,12.293,18.052z"
 								></path>
 							</svg>
-						</div>
-						<div class="icon paint taskbar-hover">
-							<img src="assets/images/paint.png" alt="" />
 						</div>
 						<div class="icon chatgpt taskbar-hover">
 							<svg
@@ -898,49 +895,6 @@
 					SHERY OS
 				</div>
 				<div>by: ASAD ALI</div>
-			</div>
-			<div class="window-wrapper">
-				<div class="header">
-					<div>
-						<img width="30" src="assets/images/flappy-bird.png" alt="" />
-						<p>Flappy Bird</p>
-					</div>
-					<div class="controls">
-						<div class="minimize">
-							<img class="minimize" src="assets/images/minimize.png" alt="" />
-						</div>
-						<div class="control maximize">
-							<img src="assets/images/maximize.png" alt="" />
-						</div>
-						<div class="control close">
-							<img src="assets/images/close.png" alt="" />
-						</div>
-					</div>
-				</div>
-				<div class="window-wrapper-body">
-					<div class="background"></div>
-					<img src="assets/images/flappy-bird/Bird.png" alt="bird-img" class="bird" id="bird-1" />
-					<div class="message">
-						Enter To Start Game
-						<p>
-							<span style="color: red">&uarr;</span>
-							ArrowUp to Control
-						</p>
-					</div>
-					<div class="score">
-						<span class="score_title"></span>
-						<span class="score_val"></span>
-					</div>
-				</div>
-				<!-- Place these inside your .window-wrapper div -->
-				<div class="window-resizer nw"></div>
-				<div class="window-resizer n"></div>
-				<div class="window-resizer ne"></div>
-				<div class="window-resizer e"></div>
-				<div class="window-resizer se"></div>
-				<div class="window-resizer s"></div>
-				<div class="window-resizer sw"></div>
-				<div class="window-resizer w"></div>
 			</div>
 		</main>
 		<script type="module" src="assets/js/main.js"></script>

@@ -3,6 +3,7 @@ const desktop = document.querySelector('.desktop');
 import { addItem } from './data.js';
 desktop.addEventListener('contextmenu', event => {
 	event.preventDefault();
+	event.stopPropagation();
 
 	const menuHeight = customMenu.offsetHeight;
 	const menuWidth = customMenu.offsetWidth;
@@ -25,19 +26,59 @@ desktop.addEventListener('contextmenu', event => {
 
 	customMenu.style.top = `${top}px`;
 	customMenu.style.left = `${left}px`;
+	customMenu.innerHTML = `
+        <ul>
+            <li class="refresh">Refresh</li>
+            <li class="new-folder">New Folder</li>
+            <li class="new-note">New Note</li>
+            <li>Settings</li>
+            <li>Terminal</li>
+            <li class="change-bg">Change Wallpaper</li>
+            <li>About</li>
+        </ul>
+    `;
 	customMenu.style.display = 'block';
+
+	// Attach event listeners after setting innerHTML
+	customMenu.querySelector('.refresh').onclick = e => {
+		const desktop = document.querySelector('.desktop');
+		desktop.style.display = 'none'; // Hide desktop
+		setTimeout(() => {
+			desktop.style.display = 'block'; // Show desktop afte r a short delay
+		}, 100); // Adjust delay as needed
+	};
+
+	customMenu.querySelector('.change-bg').onclick = () => {
+		if (currentBGIndex >= backgroundImages.length - 1) {
+			currentBGIndex = 0;
+		} else {
+			currentBGIndex++;
+		}
+		document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
+	};
+
+	customMenu.querySelector('.new-folder').onclick = async e => {
+		// customMenu.style.display = 'none';
+		setTimeout(() => {
+			const folderName = prompt('Enter folder name:');
+			if (folderName) {
+				addItem(folderName, 'assets/images/folder.png', 'folder');
+			}
+		}, 100);
+	};
+	customMenu.querySelector('.new-note').onclick = async e => {
+		// customMenu.style.display = 'none';
+		setTimeout(() => {
+			const noteNmae = prompt('Enter note name:');
+			if (noteNmae) {
+				addItem(noteNmae, 'assets/images/note.png', 'note');
+			}
+		}, 100);
+	};
 });
 
 document.addEventListener('click', () => {
 	customMenu.style.display = 'none';
-});
-
-document.querySelector('.refresh').addEventListener('click', e => {
-	const desktop = document.querySelector('.desktop');
-	desktop.style.display = 'none'; // Hide desktop
-	setTimeout(() => {
-		desktop.style.display = 'block'; // Show desktop after a short delay
-	}, 100); // Adjust delay as needed
 });
 
 const backgroundImages = [
@@ -75,8 +116,6 @@ document.querySelector('.new-note').addEventListener('click', async e => {
 	}, 100);
 });
 
-
 const newWindowSizes = {
-	'flappyBird': { width: "90%", height: "90%", top: "2%", left: "2%" },
-
-}
+	flappyBird: { width: '90%', height: '90%', top: '2%', left: '2%' },
+};

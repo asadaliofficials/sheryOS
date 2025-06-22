@@ -28,8 +28,12 @@
 	font-size: 12px;
 	color: white;
 	margin-top: 4px;
-	white-space: nowrap;
 	text-shadow: 1px 1px 2px black;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* Number of lines */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .desktop-icon:hover {
 	background-color: rgba(255, 255, 255, 0.2);
