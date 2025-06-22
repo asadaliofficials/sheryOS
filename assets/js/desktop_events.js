@@ -74,3 +74,9 @@ document.querySelector('.new-note').addEventListener('click', async e => {
 		}
 	}, 100);
 });
+
+
+const newWindowSizes = {
+	'flappyBird': { width: "90%", height: "90%", top: "2%", left: "2%" },
+
+}

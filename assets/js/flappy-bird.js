@@ -91,6 +91,7 @@ function play() {
 	function apply_gravity() {
 		if (game_state != 'Play') return;
 		bird_dy = bird_dy + grativy;
+
 		document.addEventListener('keydown', e => {
 			if (e.key == 'ArrowUp' || e.key == ' ') {
 				img.src = 'assets/images/flappy-bird/Bird-2.png';
@@ -103,16 +104,28 @@ function play() {
 				img.src = 'assets/images/flappy-bird/Bird.png';
 			}
 		});
-		if (bird_props.top <= 0 || bird_props.bottom >= background.bottom) {
+
+		// Move bird relative to the game area
+		let newTop = bird.offsetTop + bird_dy;
+		// Only clamp at top, not at bottom
+		if (newTop < 0) newTop = 0;
+		bird.style.top = newTop + 'px';
+		bird_props = bird.getBoundingClientRect();
+
+		// End game if bird touches top or bottom of game area
+		if (bird_props.top <= gameAreaRect.top || bird_props.bottom >= gameAreaRect.bottom) {
 			game_state = 'End';
 			message.innerHTML =
 				'Enter To Start Game<br><p><span style="color: red">&uarr;</span> ArrowUp to Control</p>';
 			message.classList.add('messageStyle');
 			img.style.display = 'none'; // Hide the bird
+			// Optionally, clamp bird at bottom after game over
+			if (bird_props.bottom >= gameAreaRect.bottom) {
+				bird.style.top = gameArea.offsetHeight - bird.offsetHeight + 'px';
+			}
 			return;
 		}
-		bird.style.top = bird_props.top + bird_dy + 'px';
-		bird_props = bird.getBoundingClientRect();
+
 		requestAnimationFrame(apply_gravity);
 	}
 	requestAnimationFrame(apply_gravity);
