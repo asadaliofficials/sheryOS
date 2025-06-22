@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Shery OS</title>
+		<link rel="icon" href="assets/images/sheryOS.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/taskbar.css" />
+		<link rel="stylesheet" href="assets/css/desktop.css" />
+		<link rel="stylesheet" href="assets/css/new_window.css" />
+		<link rel="stylesheet" href="assets/css/flappy-bird.css" />
+	</head>
+	<body>
+		<main>
+			<div class="desktop"></div>
+			<div class="taskbar">
+				<div class="left">
+					<div class="startButton taskbar-hover">
+						<img src="assets/images/logo-light.png" alt="win" />
+					</div>
+					<div class="search">
+						<img src="assets/images/search.svg" alt="search" />
+						<input type="text" placeholder="Search" />
+						<img src="assets/images/mountain.png" alt="" />
+					</div>
+					<div class="taskbar-icons">
+						<div class="icon task-view taskbar-hover">
+							<img src="assets/images/task view.png" alt="" />
+						</div>
+						<!-- <div class="icon ms-store taskbar-hover">
+							<img src="assets/images/ms-store.svg" alt="" />
+						</div> -->
+						<div class="icon settings taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<linearGradient
+									id="L4rKfs~Qrm~k0Pk8MRsoza_s5NUIabJrb4C_gr1"
+									x1="32.012"
+									x2="15.881"
+									y1="32.012"
+									y2="15.881"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#fff"></stop>
+									<stop offset=".242" stop-color="#f2f2f2"></stop>
+									<stop offset="1" stop-color="#ccc"></stop>
+								</linearGradient>
+								<circle
+									cx="24"
+									cy="24"
+									r="11.5"
+									fill="url(#L4rKfs~Qrm~k0Pk8MRsoza_s5NUIabJrb4C_gr1)"
+								></circle>
+								<linearGradient
+									id="L4rKfs~Qrm~k0Pk8MRsozb_s5NUIabJrb4C_gr2"
+									x1="17.45"
+									x2="28.94"
+									y1="17.45"
+									y2="28.94"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#0d61a9"></stop>
+									<stop offset=".363" stop-color="#0e5fa4"></stop>
+									<stop offset=".78" stop-color="#135796"></stop>
+									<stop offset="1" stop-color="#16528c"></stop>
+								</linearGradient>
+								<circle
+									cx="24"
+									cy="24"
+									r="7"
+									fill="url(#L4rKfs~Qrm~k0Pk8MRsozb_s5NUIabJrb4C_gr2)"
+								></circle>
+								<linearGradient
+									id="L4rKfs~Qrm~k0Pk8MRsozc_s5NUIabJrb4C_gr3"
+									x1="5.326"
+									x2="38.082"
+									y1="5.344"
+									y2="38.099"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#889097"></stop>
+									<stop offset=".331" stop-color="#848c94"></stop>
+									<stop offset=".669" stop-color="#78828b"></stop>
+									<stop offset="1" stop-color="#64717c"></stop>
+								</linearGradient>
+								<path
+									fill="url(#L4rKfs~Qrm~k0Pk8MRsozc_s5NUIabJrb4C_gr3)"
+									d="M43.407,19.243c-2.389-0.029-4.702-1.274-5.983-3.493c-1.233-2.136-1.208-4.649-0.162-6.693 c-2.125-1.887-4.642-3.339-7.43-4.188C28.577,6.756,26.435,8,24,8s-4.577-1.244-5.831-3.131c-2.788,0.849-5.305,2.301-7.43,4.188 c1.046,2.044,1.071,4.557-0.162,6.693c-1.281,2.219-3.594,3.464-5.983,3.493C4.22,20.77,4,22.358,4,24 c0,1.284,0.133,2.535,0.364,3.752c2.469-0.051,4.891,1.208,6.213,3.498c1.368,2.37,1.187,5.204-0.22,7.345 c2.082,1.947,4.573,3.456,7.34,4.375C18.827,40.624,21.221,39,24,39s5.173,1.624,6.303,3.971c2.767-0.919,5.258-2.428,7.34-4.375 c-1.407-2.141-1.588-4.975-0.22-7.345c1.322-2.29,3.743-3.549,6.213-3.498C43.867,26.535,44,25.284,44,24 C44,22.358,43.78,20.77,43.407,19.243z M24,34.5c-5.799,0-10.5-4.701-10.5-10.5c0-5.799,4.701-10.5,10.5-10.5S34.5,18.201,34.5,24 C34.5,29.799,29.799,34.5,24,34.5z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon calculator taskbar-hover">
+							<img src="assets/images/calculator.png" alt="" />
+						</div>
+						<div class="icon note taskbar-hover">
+							<img src="assets/images/note.png" alt="" />
+						</div>
+						<div class="icon folder taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<path
+									fill="#FFA000"
+									d="M40,12H22l-4-4H8c-2.2,0-4,1.8-4,4v8h40v-4C44,13.8,42.2,12,40,12z"
+								></path>
+								<path
+									fill="#FFCA28"
+									d="M40,12H8c-2.2,0-4,1.8-4,4v20c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"
+								></path>
+							</svg>
+						</div>
+
+						<div class="icon vlc taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<path
+									fill="#cf5a00"
+									d="M41,45H7c-0.552,0-1-0.448-1-1v-2h36v2C42,44.552,41.552,45,41,45z"
+								></path>
+								<radialGradient
+									id="m8iQuiuF1ivyhRlKBKJdca_bZgFYyK2uzeG_gr1"
+									cx="24.167"
+									cy="25.333"
+									r="28.964"
+									gradientTransform="matrix(1 0 0 .702 0 7.549)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#ed6b00"></stop>
+									<stop offset=".451" stop-color="#f28104"></stop>
+									<stop offset=".7" stop-color="#f7931e"></stop>
+									<stop offset=".777" stop-color="#f79b20"></stop>
+									<stop offset=".895" stop-color="#f5b026"></stop>
+									<stop offset="1" stop-color="#f4c92c"></stop>
+								</radialGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdca_bZgFYyK2uzeG_gr1)"
+									d="M36.294,29H11.706c-0.411,0-0.781,0.252-0.931,0.635L6.07,41.634 C5.813,42.291,6.297,43,7.001,43h33.999c0.704,0,1.187-0.708,0.93-1.363l-4.706-12.002C37.074,29.252,36.705,29,36.294,29z"
+								></path>
+								<radialGradient
+									id="m8iQuiuF1ivyhRlKBKJdcb_bZgFYyK2uzeG_gr2"
+									cx="23.959"
+									cy="23.583"
+									r="24.459"
+									gradientTransform="matrix(1 0 0 .862 0 3.255)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".419" stop-color="#c04e00"></stop>
+									<stop offset=".539" stop-color="#c55300"></stop>
+									<stop offset=".684" stop-color="#d46100"></stop>
+									<stop offset=".781" stop-color="#e26f00"></stop>
+									<stop offset=".826" stop-color="#ed6b00" stop-opacity="0"></stop>
+									<stop offset="1" stop-color="#ed6b00" stop-opacity=".063"></stop>
+								</radialGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdcb_bZgFYyK2uzeG_gr2)"
+									d="M36.294,29H11.706c-0.411,0-0.781,0.252-0.931,0.635L6.07,41.634 C5.813,42.291,6.297,43,7.001,43h33.999c0.704,0,1.187-0.708,0.93-1.363l-4.706-12.002C37.074,29.252,36.705,29,36.294,29z"
+								></path>
+								<radialGradient
+									id="m8iQuiuF1ivyhRlKBKJdcc_bZgFYyK2uzeG_gr3"
+									cx="24.042"
+									cy="35.583"
+									r="11.5"
+									gradientTransform="matrix(1 0 0 .3623 0 22.691)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".948" stop-color="#a1451a"></stop>
+									<stop offset=".959" stop-color="#a64818" stop-opacity=".806"></stop>
+									<stop offset=".972" stop-color="#b54f13" stop-opacity=".571"></stop>
+									<stop offset=".986" stop-color="#cd5b0b" stop-opacity=".316"></stop>
+									<stop offset="1" stop-color="#ed6b00" stop-opacity=".063"></stop>
+								</radialGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdcc_bZgFYyK2uzeG_gr3)"
+									d="M24,40.5c-6.449,0-11.5-2.196-11.5-5s5.051-5,11.5-5s11.5,2.196,11.5,5S30.449,40.5,24,40.5 z"
+								></path>
+								<radialGradient
+									id="m8iQuiuF1ivyhRlKBKJdcd_bZgFYyK2uzeG_gr4"
+									cx="13.719"
+									cy="35.865"
+									r="11.912"
+									gradientTransform="matrix(-.8804 0 0 -.3623 35.158 48.859)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".338" stop-color="#c04e00"></stop>
+									<stop offset=".473" stop-color="#c55300"></stop>
+									<stop offset=".636" stop-color="#d46200"></stop>
+									<stop offset=".813" stop-color="#ec7900"></stop>
+									<stop offset=".842" stop-color="#f17e00"></stop>
+									<stop offset=".967" stop-color="#f17e00" stop-opacity="0"></stop>
+								</radialGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdcd_bZgFYyK2uzeG_gr4)"
+									d="M23.284,40.5c-5.362,0-10.265-1.931-10.265-4.735S18.322,30.5,24,30.5 s10.125,2.196,10.125,5S28.962,40.5,23.284,40.5z"
+								></path>
+								<path
+									fill="#ed6b00"
+									d="M13.625,33c8.166-29.28,0,0,8.166-29.28C21.911,3.291,22.306,3,22.751,3h2.497 c0.445,0,0.84,0.291,0.96,0.72c8.166,29.28,0,0,8.166,29.28C34.652,33.993,35,35.201,35,35.5c0,2.485-4.925,4.5-11,4.5 s-11-2.015-11-4.5C13,35.201,13.348,33.993,13.625,33z"
+								></path>
+								<linearGradient
+									id="m8iQuiuF1ivyhRlKBKJdce_bZgFYyK2uzeG_gr5"
+									x1="-9.318"
+									x2="40.192"
+									y1="13.001"
+									y2="25.99"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".539" stop-color="#c04e00"></stop>
+									<stop offset=".554" stop-color="#d36100"></stop>
+									<stop offset=".575" stop-color="#e97600"></stop>
+									<stop offset=".588" stop-color="#f17e00"></stop>
+									<stop offset=".647" stop-color="#f17e00"></stop>
+									<stop offset=".744" stop-color="#e77400" stop-opacity="0"></stop>
+								</linearGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdce_bZgFYyK2uzeG_gr5)"
+									d="M34.375,33c-8.166-29.28,0,0-8.166-29.28C26.089,3.291,25.694,3,25.249,3h-2.497 c-0.445,0-0.84,0.291-0.96,0.72c-8.166,29.28,0,0-8.166,29.28C13.348,33.993,13,35.201,13,35.5c0,2.485,4.925,4.5,11,4.5 s11-2.015,11-4.5C35,35.201,34.652,33.993,34.375,33z"
+								></path>
+								<linearGradient
+									id="m8iQuiuF1ivyhRlKBKJdcf_bZgFYyK2uzeG_gr6"
+									x1="125.717"
+									x2="175.31"
+									y1="12.969"
+									y2="25.638"
+									gradientTransform="matrix(-1 0 0 1 184 0)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".563" stop-color="#a1451a"></stop>
+									<stop offset=".565" stop-color="#a54719"></stop>
+									<stop offset=".581" stop-color="#c25b0e"></stop>
+									<stop offset=".597" stop-color="#d66906"></stop>
+									<stop offset=".613" stop-color="#e37102"></stop>
+									<stop offset=".628" stop-color="#e77400"></stop>
+									<stop offset=".718" stop-color="#ed6b00" stop-opacity="0"></stop>
+									<stop offset="1" stop-color="#ed6b00" stop-opacity=".063"></stop>
+								</linearGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdcf_bZgFYyK2uzeG_gr6)"
+									d="M13.625,33c8.166-29.28,0,0,8.166-29.28C21.911,3.291,22.306,3,22.751,3h2.497 c0.445,0,0.84,0.291,0.96,0.72c8.166,29.28,0,0,8.166,29.28C34.652,33.993,35,35.201,35,35.5c0,2.485-4.925,4.5-11,4.5 s-11-2.015-11-4.5C13,35.201,13.348,33.993,13.625,33z"
+								></path>
+								<radialGradient
+									id="m8iQuiuF1ivyhRlKBKJdcg_bZgFYyK2uzeG_gr7"
+									cx="24.01"
+									cy="2.552"
+									r="2.662"
+									gradientTransform="matrix(1 0 0 .3693 0 1.61)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".653" stop-color="#c04e00"></stop>
+									<stop offset=".746" stop-color="#c95700" stop-opacity=".663"></stop>
+									<stop offset=".896" stop-color="#e16e00" stop-opacity=".116"></stop>
+									<stop offset=".927" stop-color="#e77400" stop-opacity="0"></stop>
+								</radialGradient>
+								<path
+									fill="url(#m8iQuiuF1ivyhRlKBKJdcg_bZgFYyK2uzeG_gr7)"
+									d="M22.158,3.195C22.461,3.374,23.172,3.5,24,3.5s1.539-0.126,1.842-0.305 C25.674,3.072,25.468,3,25.249,3h-2.497C22.532,3,22.326,3.072,22.158,3.195z"
+								></path>
+								<g>
+									<path
+										fill="#ccc"
+										d="M33.821,31C33.918,31.347,32,34,24,34s-9.918-2.653-9.821-3c0.849-3.043,1.488-5.35,1.981-7.1 c0.04,0.06,0.09,0.13,0.14,0.19C16.68,24.54,18.37,26,24,26s7.32-1.46,7.7-1.91c0.05-0.06,0.1-0.13,0.14-0.19 C32.334,25.65,32.972,27.957,33.821,31z M27.55,8.51C26.61,8.81,25.45,9,24,9s-2.61-0.19-3.55-0.49c-0.3,1.07-1.98,7.1-2.02,7.24 v0.01c0,0.19,1.63,1.24,5.57,1.24c3.89,0,5.53-1.02,5.57-1.23C29.57,15.76,27.67,8.95,27.55,8.51z"
+									></path>
+									<linearGradient
+										id="m8iQuiuF1ivyhRlKBKJdch_bZgFYyK2uzeG_gr8"
+										x1="19.367"
+										x2="38.477"
+										y1="22.326"
+										y2="17.753"
+										gradientUnits="userSpaceOnUse"
+									>
+										<stop offset="0" stop-color="#f2f2f2" stop-opacity=".06"></stop>
+										<stop offset=".42" stop-color="#ccc"></stop>
+										<stop offset=".454" stop-color="#c4c4c4"></stop>
+										<stop offset=".506" stop-color="#afafaf"></stop>
+										<stop offset=".57" stop-color="#8d8d8d"></stop>
+										<stop offset=".63" stop-color="#666"></stop>
+									</linearGradient>
+									<path
+										fill="url(#m8iQuiuF1ivyhRlKBKJdch_bZgFYyK2uzeG_gr8)"
+										d="M33.821,31C33.918,31.347,32,34,24,34s-9.918-2.653-9.821-3 c0.849-3.043,1.488-5.35,1.981-7.1c0.04,0.06,0.09,0.13,0.14,0.19C16.68,24.54,18.37,26,24,26s7.32-1.46,7.7-1.91 c0.05-0.06,0.1-0.13,0.14-0.19C32.334,25.65,32.972,27.957,33.821,31z M27.55,8.51C26.61,8.81,25.45,9,24,9s-2.61-0.19-3.55-0.49 c-0.3,1.07-1.98,7.1-2.02,7.24v0.01c0,0.19,1.63,1.24,5.57,1.24c3.89,0,5.53-1.02,5.57-1.23C29.57,15.76,27.67,8.95,27.55,8.51z"
+									></path>
+									<linearGradient
+										id="m8iQuiuF1ivyhRlKBKJdci_bZgFYyK2uzeG_gr9"
+										x1="6.155"
+										x2="35.115"
+										y1="17.11"
+										y2="23.76"
+										gradientUnits="userSpaceOnUse"
+									>
+										<stop offset=".362" stop-color="#666"></stop>
+										<stop offset=".42" stop-color="#8d8d8d" stop-opacity=".712"></stop>
+										<stop offset=".48" stop-color="#afafaf" stop-opacity=".411"></stop>
+										<stop offset=".53" stop-color="#c4c4c4" stop-opacity=".163"></stop>
+										<stop offset=".563" stop-color="#ccc" stop-opacity="0"></stop>
+										<stop offset="1" stop-color="#f2f2f2" stop-opacity=".06"></stop>
+									</linearGradient>
+									<path
+										fill="url(#m8iQuiuF1ivyhRlKBKJdci_bZgFYyK2uzeG_gr9)"
+										d="M33.821,31C33.918,31.347,32,34,24,34s-9.918-2.653-9.821-3 c0.849-3.043,1.488-5.35,1.981-7.1c0.04,0.06,0.09,0.13,0.14,0.19C16.68,24.54,18.37,26,24,26s7.32-1.46,7.7-1.91 c0.05-0.06,0.1-0.13,0.14-0.19C32.334,25.65,32.972,27.957,33.821,31z M27.55,8.51C26.61,8.81,25.45,9,24,9s-2.61-0.19-3.55-0.49 c-0.3,1.07-1.98,7.1-2.02,7.24v0.01c0,0.19,1.63,1.24,5.57,1.24c3.89,0,5.53-1.02,5.57-1.23C29.57,15.76,27.67,8.95,27.55,8.51z"
+									></path>
+								</g>
+							</svg>
+						</div>
+
+						<div class="icon image-editor taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<linearGradient
+									id="AMqdbwFXbt1rRZunQ5Enta_9kTbRIN6cDXX_gr1"
+									x1="27.068"
+									x2="23.068"
+									y1="7.254"
+									y2="29.087"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#80e81f"></stop>
+									<stop offset=".339" stop-color="#67d326"></stop>
+									<stop offset="1" stop-color="#088242"></stop>
+								</linearGradient>
+								<path
+									fill="url(#AMqdbwFXbt1rRZunQ5Enta_9kTbRIN6cDXX_gr1)"
+									d="M30,42H18c-6.627,0-12-5.373-12-12V18c0-6.627,5.373-12,12-12h24v24 C42,36.627,36.627,42,30,42z"
+								></path>
+								<rect width="36" height="6" x="6" y="26" opacity=".05"></rect>
+								<rect width="36" height="6" x="6" y="27" opacity=".07"></rect>
+								<linearGradient
+									id="AMqdbwFXbt1rRZunQ5Entb_9kTbRIN6cDXX_gr2"
+									x1="23.524"
+									x2="24.024"
+									y1="41.334"
+									y2="28.501"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#80e81f"></stop>
+									<stop offset=".258" stop-color="#71df21"></stop>
+									<stop offset="1" stop-color="#05a333"></stop>
+								</linearGradient>
+								<path
+									fill="url(#AMqdbwFXbt1rRZunQ5Entb_9kTbRIN6cDXX_gr2)"
+									d="M30,42H18c-6.627,0-12-5.373-12-12v-2h36v2C42,36.627,36.627,42,30,42z"
+								></path>
+								<path
+									d="M34.464,30.528L34.464,30.528l-0.347-1.965L17.95,12.396c-0.756-0.756-2.074-0.756-2.828,0	l-3.536,3.535C11.208,16.309,11,16.812,11,17.347c0,0.534,0.208,1.036,0.586,1.412l16.171,16.172l7.709,1.289L34.464,30.528z"
+									opacity=".05"
+								></path>
+								<path
+									d="M33.652,28.806L17.596,12.749c-0.567-0.566-1.556-0.566-2.121,0l-3.536,3.535	c-0.284,0.283-0.439,0.661-0.439,1.062c0,0.401,0.156,0.777,0.439,1.06l16.058,16.059l2.775,0.465l0-0.001l4.078,0.682	L33.652,28.806z"
+									opacity=".07"
+								></path>
+								<linearGradient
+									id="AMqdbwFXbt1rRZunQ5Entc_9kTbRIN6cDXX_gr3"
+									x1="26.625"
+									x2="21.625"
+									y1="22.458"
+									y2="27.458"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset=".305" stop-color="#f5fcff"></stop>
+									<stop offset=".704" stop-color="#d3e6d3"></stop>
+									<stop offset=".865" stop-color="#a4cba5"></stop>
+								</linearGradient>
+								<path
+									fill="url(#AMqdbwFXbt1rRZunQ5Entc_9kTbRIN6cDXX_gr3)"
+									d="M33.812,32.595L34.236,35l-2.423-0.405L33.812,32.595z M12.293,18.052l15.945,15.945	l2.363,0.395l3-3l-0.413-2.345L17.243,13.102c-0.391-0.391-1.024-0.391-1.414,0l-3.536,3.536	C11.902,17.028,11.902,17.662,12.293,18.052z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon paint taskbar-hover">
+							<img src="assets/images/paint.png" alt="" />
+						</div>
+						<div class="icon chatgpt taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 50 50"
+								fill="white"
+							>
+								<path
+									d="M45.403,25.562c-0.506-1.89-1.518-3.553-2.906-4.862c1.134-2.665,0.963-5.724-0.487-8.237	c-1.391-2.408-3.636-4.131-6.322-4.851c-1.891-0.506-3.839-0.462-5.669,0.088C28.276,5.382,25.562,4,22.647,4	c-4.906,0-9.021,3.416-10.116,7.991c-0.01,0.001-0.019-0.003-0.029-0.002c-2.902,0.36-5.404,2.019-6.865,4.549	c-1.391,2.408-1.76,5.214-1.04,7.9c0.507,1.891,1.519,3.556,2.909,4.865c-1.134,2.666-0.97,5.714,0.484,8.234	c1.391,2.408,3.636,4.131,6.322,4.851c0.896,0.24,1.807,0.359,2.711,0.359c1.003,0,1.995-0.161,2.957-0.45	C21.722,44.619,24.425,46,27.353,46c4.911,0,9.028-3.422,10.12-8.003c2.88-0.35,5.431-2.006,6.891-4.535	C45.754,31.054,46.123,28.248,45.403,25.562z M35.17,9.543c2.171,0.581,3.984,1.974,5.107,3.919c1.049,1.817,1.243,4,0.569,5.967	c-0.099-0.062-0.193-0.131-0.294-0.19l-9.169-5.294c-0.312-0.179-0.698-0.177-1.01,0.006l-10.198,6.041l-0.052-4.607l8.663-5.001	C30.733,9.26,33,8.963,35.17,9.543z M29.737,22.195l0.062,5.504l-4.736,2.805l-4.799-2.699l-0.062-5.504l4.736-2.805L29.737,22.195z M14.235,14.412C14.235,9.773,18.009,6,22.647,6c2.109,0,4.092,0.916,5.458,2.488C28,8.544,27.891,8.591,27.787,8.651l-9.17,5.294	c-0.312,0.181-0.504,0.517-0.5,0.877l0.133,11.851l-4.015-2.258V14.412z M6.528,23.921c-0.581-2.17-0.282-4.438,0.841-6.383	c1.06-1.836,2.823-3.074,4.884-3.474c-0.004,0.116-0.018,0.23-0.018,0.348V25c0,0.361,0.195,0.694,0.51,0.872l10.329,5.81	L19.11,34.03l-8.662-5.002C8.502,27.905,7.11,26.092,6.528,23.921z M14.83,40.457c-2.171-0.581-3.984-1.974-5.107-3.919	c-1.053-1.824-1.249-4.001-0.573-5.97c0.101,0.063,0.196,0.133,0.299,0.193l9.169,5.294c0.154,0.089,0.327,0.134,0.5,0.134	c0.177,0,0.353-0.047,0.51-0.14l10.198-6.041l0.052,4.607l-8.663,5.001C19.269,40.741,17.001,41.04,14.83,40.457z M35.765,35.588	c0,4.639-3.773,8.412-8.412,8.412c-2.119,0-4.094-0.919-5.459-2.494c0.105-0.056,0.216-0.098,0.32-0.158l9.17-5.294	c0.312-0.181,0.504-0.517,0.5-0.877L31.75,23.327l4.015,2.258V35.588z M42.631,32.462c-1.056,1.83-2.84,3.086-4.884,3.483	c0.004-0.12,0.018-0.237,0.018-0.357V25c0-0.361-0.195-0.694-0.51-0.872l-10.329-5.81l3.964-2.348l8.662,5.002	c1.946,1.123,3.338,2.937,3.92,5.107C44.053,28.249,43.754,30.517,42.631,32.462z"
+								></path>
+							</svg>
+						</div>
+						<!-- <div class="icon edge taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<path
+									fill="#1e88e5"
+									d="M40.69,35.42c-9.15,11.88-21.41,8.8-26.23,6.1 c-7.35-4.11-12.5-13.68-9.44-23.25c0.9-2.82,2.27-5.23,3.98-7.23c1.67,0.13,3.65,0.13,6-0.04c14-1,18,11,17,14 c-0.51,1.53-2.32,2.02-3.97,2.13c0.16-0.22,0.36-0.54,0.64-1.02c0.87-1.54,0.98-4.49-1.73-6.27c-2.61-1.7-5.43-0.65-6.88,1.28 c-1.45,1.92-0.88,4.81-0.37,6.09c2.2,5.52,6.26,6.95,9.02,7.78c2.76,0.83,6.86,0.71,9.05-0.19c2.18-0.91,2.8-1.43,3.22-0.97 C41.41,34.29,41.11,34.82,40.69,35.42z"
+								></path>
+								<path
+									fill="#0d47a1"
+									d="M40.732,35.42c-3.48,4.52-7.41,6.87-11.21,7.91 c-0.03,0.01-0.06,0.01-0.08,0.02c-2.2,0.42-3.95,0.08-5.85-0.29c-3.09-0.6-7.35-4.01-8.38-10.18c-0.88-5.31,1.63-9.81,5.59-12.54 c-0.26,0.24-0.49,0.5-0.7,0.78c-1.45,1.92-0.88,4.81-0.37,6.09c2.2,5.52,6.26,6.95,9.02,7.78c2.76,0.83,6.86,0.71,9.05-0.19 c2.18-0.91,2.8-1.43,3.22-0.97C41.452,34.29,41.152,34.82,40.732,35.42z"
+								></path>
+								<path
+									fill="#00e5ff"
+									d="M26.94,4.25c0.02,0.26,0.03,0.54,0.03,0.81c0,3.78-1.75,7.14-4.48,9.32 c-1.02-0.52-2.21-0.94-3.65-1.22c-4.07-0.78-10.63,1.1-13.3,5.77c-0.88,1.53-1.25,3.1-1.41,4.55c0.04-1.71,0.33-3.46,0.89-5.21 C8.31,8.01,17.86,3.05,26.94,4.25z"
+								></path>
+								<path
+									fill="#00e676"
+									d="M41.4,27.89c-2.76,2.78-6.27,2.86-8.67,2.73 c-2.41-0.12-3.59-0.82-4.69-1.5c-1.11-0.69-0.48-1.37-0.37-1.52c0.11-0.15,0.38-0.41,1-1.49c0.29-0.51,0.5-1.18,0.54-1.91 c4.62-3.43,7.96-8.49,9.16-14.34c2.92,2.95,4.3,6.21,4.79,7.61C44.04,19.99,44.71,24.56,41.4,27.89z"
+								></path>
+								<path
+									fill="#1de9b6"
+									d="M38.37,9.85v0.01c-1.2,5.85-4.54,10.91-9.16,14.34c0.03-0.42,0-0.87-0.1-1.32 c0-0.02-0.01-0.04-0.01-0.05c-0.25-1.47-0.99-3.33-2.22-4.77c-1.22-1.44-2.52-2.73-4.39-3.68c2.73-2.18,4.48-5.54,4.48-9.32 c0-0.27-0.01-0.55-0.03-0.81c0.4,0.05,0.79,0.11,1.19,0.19C32.74,5.33,36.04,7.49,38.37,9.85z"
+								></path>
+							</svg>
+						</div> -->
+						<div class="icon chrome taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<path
+									fill="#fff"
+									d="M34,24c0,5.521-4.479,10-10,10s-10-4.479-10-10s4.479-10,10-10S34,18.479,34,24z"
+								></path>
+								<linearGradient
+									id="Pax8JcnMzivu8f~SZ~k1ya_ejub91zEY6Sl_gr1"
+									x1="5.789"
+									x2="31.324"
+									y1="34.356"
+									y2="20.779"
+									gradientTransform="matrix(1 0 0 -1 0 50)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#4caf50"></stop>
+									<stop offset=".489" stop-color="#4aaf50"></stop>
+									<stop offset=".665" stop-color="#43ad50"></stop>
+									<stop offset=".79" stop-color="#38aa50"></stop>
+									<stop offset=".892" stop-color="#27a550"></stop>
+									<stop offset=".978" stop-color="#11a050"></stop>
+									<stop offset="1" stop-color="#0a9e50"></stop>
+								</linearGradient>
+								<path
+									fill="url(#Pax8JcnMzivu8f~SZ~k1ya_ejub91zEY6Sl_gr1)"
+									d="M31.33,29.21l-8.16,14.77C12.51,43.55,4,34.76,4,24C4,12.96,12.96,4,24,4v11 c-4.97,0-9,4.03-9,9s4.03,9,9,9C27.03,33,29.7,31.51,31.33,29.21z"
+								></path>
+								<linearGradient
+									id="Pax8JcnMzivu8f~SZ~k1yb_ejub91zEY6Sl_gr2"
+									x1="33.58"
+									x2="33.58"
+									y1="6"
+									y2="34.797"
+									gradientTransform="matrix(1 0 0 -1 0 50)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#ffd747"></stop>
+									<stop offset=".482" stop-color="#ffd645"></stop>
+									<stop offset=".655" stop-color="#fed43e"></stop>
+									<stop offset=".779" stop-color="#fccf33"></stop>
+									<stop offset=".879" stop-color="#fac922"></stop>
+									<stop offset=".964" stop-color="#f7c10c"></stop>
+									<stop offset="1" stop-color="#f5bc00"></stop>
+								</linearGradient>
+								<path
+									fill="url(#Pax8JcnMzivu8f~SZ~k1yb_ejub91zEY6Sl_gr2)"
+									d="M44,24c0,11.05-8.95,20-20,20h-0.84l8.17-14.79C32.38,27.74,33,25.94,33,24 c0-4.97-4.03-9-9-9V4c7.81,0,14.55,4.48,17.85,11C43.21,17.71,44,20.76,44,24z"
+								></path>
+								<linearGradient
+									id="Pax8JcnMzivu8f~SZ~k1yc_ejub91zEY6Sl_gr3"
+									x1="36.128"
+									x2="11.574"
+									y1="44.297"
+									y2="28.954"
+									gradientTransform="matrix(1 0 0 -1 0 50)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#f7572f"></stop>
+									<stop offset=".523" stop-color="#f7552d"></stop>
+									<stop offset=".712" stop-color="#f75026"></stop>
+									<stop offset=".846" stop-color="#f7461b"></stop>
+									<stop offset=".954" stop-color="#f7390a"></stop>
+									<stop offset="1" stop-color="#f73100"></stop>
+								</linearGradient>
+								<path
+									fill="url(#Pax8JcnMzivu8f~SZ~k1yc_ejub91zEY6Sl_gr3)"
+									d="M41.84,15H24c-4.97,0-9,4.03-9,9c0,1.49,0.36,2.89,1.01,4.13H16L7.16,13.26H7.14 C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"
+								></path>
+								<linearGradient
+									id="Pax8JcnMzivu8f~SZ~k1yd_ejub91zEY6Sl_gr4"
+									x1="19.05"
+									x2="28.95"
+									y1="30.95"
+									y2="21.05"
+									gradientTransform="matrix(1 0 0 -1 0 50)"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop offset="0" stop-color="#2aa4f4"></stop>
+									<stop offset="1" stop-color="#007ad9"></stop>
+								</linearGradient>
+								<path
+									fill="url(#Pax8JcnMzivu8f~SZ~k1yd_ejub91zEY6Sl_gr4)"
+									d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"
+								></path>
+							</svg>
+						</div>
+
+						<div class="icon vs-code taskbar-hover">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								width="29"
+								height="29"
+								viewBox="0 0 48 48"
+							>
+								<path
+									fill="#29b6f6"
+									d="M44,11.11v25.78c0,1.27-0.79,2.4-1.98,2.82l-8.82,4.14L34,33V15L33.2,4.15l8.82,4.14 C43.21,8.71,44,9.84,44,11.11z"
+								></path>
+								<path
+									fill="#0277bd"
+									d="M9,33.896L34,15V5.353c0-1.198-1.482-1.758-2.275-0.86L4.658,29.239 c-0.9,0.83-0.849,2.267,0.107,3.032c0,0,1.324,1.232,1.803,1.574C7.304,34.37,8.271,34.43,9,33.896z"
+								></path>
+								<path
+									fill="#0288d1"
+									d="M9,14.104L34,33v9.647c0,1.198-1.482,1.758-2.275,0.86L4.658,18.761 c-0.9-0.83-0.849-2.267,0.107-3.032c0,0,1.324-1.232,1.803-1.574C7.304,13.63,8.271,13.57,9,14.104z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon mongodb taskbar-hover">
+							<img src="assets/images/mongodb.png" alt="" />
+						</div>
+						<div class="icon terminal taskbar-hover">
+							<img src="assets/images/terminal.png" alt="" />
+						</div>
+					</div>
+				</div>
+
+				<div class="right">
+					<div class="icon arrow">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							width="25"
+							height="25"
+							style="opacity: 0.8"
+						>
+							<path
+								d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"
+							></path>
+						</svg>
+					</div>
+					<div class="icon cloud">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							x="0px"
+							y="0px"
+							width="20"
+							height="20"
+							viewBox="0 0 48 48"
+						>
+							<linearGradient
+								id="NqAl5bicO~9wmXV3Tvu1Ra_PnENrLMMW4eV_gr1"
+								x1="24.5"
+								x2="24.5"
+								y1="7.032"
+								y2="22.852"
+								gradientUnits="userSpaceOnUse"
+							>
+								<stop offset="0" stop-color="#0571bf"></stop>
+								<stop offset="1" stop-color="#0268ba"></stop>
+							</linearGradient>
+							<path
+								fill="url(#NqAl5bicO~9wmXV3Tvu1Ra_PnENrLMMW4eV_gr1)"
+								d="M24.5,7C16.492,7,10,13.492,10,21.5S16.492,36,24.5,36S39,29.508,39,21.5S32.508,7,24.5,7	L24.5,7z"
+							></path>
+							<linearGradient
+								id="NqAl5bicO~9wmXV3Tvu1Rb_PnENrLMMW4eV_gr2"
+								x1="14.228"
+								x2="14.228"
+								y1="14.219"
+								y2="32.761"
+								gradientUnits="userSpaceOnUse"
+							>
+								<stop offset="0" stop-color="#1684da"></stop>
+								<stop offset="1" stop-color="#107cd4"></stop>
+							</linearGradient>
+							<path
+								fill="url(#NqAl5bicO~9wmXV3Tvu1Rb_PnENrLMMW4eV_gr2)"
+								d="M16.155,14.972c-1.32-0.505-2.753-0.781-4.25-0.781C5.33,14.191,0,19.521,0,26.096	c0,2.476,0.757,4.774,2.05,6.678c0.061-0.026,16.445-6.889,26.406-10.888C22.952,18.568,17.903,15.641,16.155,14.972z"
+							></path>
+							<linearGradient
+								id="NqAl5bicO~9wmXV3Tvu1Rc_PnENrLMMW4eV_gr3"
+								x1="38.228"
+								x2="38.228"
+								y1="18.746"
+								y2="34.097"
+								gradientUnits="userSpaceOnUse"
+							>
+								<stop offset="0" stop-color="#138cdd"></stop>
+								<stop offset="1" stop-color="#0c7dd4"></stop>
+							</linearGradient>
+							<path
+								fill="url(#NqAl5bicO~9wmXV3Tvu1Rc_PnENrLMMW4eV_gr3)"
+								d="M48,28.373c0-5.317-4.31-9.627-9.627-9.627c-0.997,0-1.958,0.152-2.863,0.433	c-0.996,0.31-3.652,1.342-7.054,2.708c8.377,5.05,17.79,10.996,18.252,11.288C47.525,31.76,48,30.123,48,28.373z"
+							></path>
+							<linearGradient
+								id="NqAl5bicO~9wmXV3Tvu1Rd_PnENrLMMW4eV_gr4"
+								x1="17.13"
+								x2="31.145"
+								y1="24.083"
+								y2="41.333"
+								gradientUnits="userSpaceOnUse"
+							>
+								<stop offset="0" stop-color="#27a7ea"></stop>
+								<stop offset="1" stop-color="#1c94e3"></stop>
+							</linearGradient>
+							<path
+								fill="url(#NqAl5bicO~9wmXV3Tvu1Rd_PnENrLMMW4eV_gr4)"
+								d="M46.709,33.175c-0.463-0.292-9.875-6.238-18.252-11.288	C18.495,25.885,2.111,32.748,2.05,32.774C2.467,33.388,5.627,38,11.904,38c5.03,0,16.176,0,26.354,0	C43.669,38,46.148,34.146,46.709,33.175z"
+							></path>
+						</svg>
+					</div>
+					<div class="icon security">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							x="0px"
+							y="0px"
+							width="20"
+							height="20"
+							viewBox="0 0 48 48"
+						>
+							<path fill="#0370c8" d="M24,44c-0.552,0-1-0.448-1-1s0.448-1,1-1V44z"></path>
+							<path
+								fill="#0f5094"
+								d="M25,43c0,0.552-0.448,1-1,1v-2C24.552,42,25,42.448,25,43z"
+							></path>
+							<circle cx="42" cy="11" r="1" fill="#0883d9"></circle>
+							<circle cx="6" cy="11" r="1" fill="#33bff0"></circle>
+							<path fill="#0f5094" d="M24,43l0.427,0.907c0,0,15.144-7.9,18.08-19.907H24V43z"></path>
+							<path
+								fill="#0883d9"
+								d="M43,11l-1-1c-11.122,0-11.278-6-18-6v20h18.507C42.822,22.712,43,21.378,43,20C43,16.856,43,11,43,11	z"
+							></path>
+							<path
+								fill="#0370c8"
+								d="M24,43l-0.427,0.907c0,0-15.144-7.9-18.08-19.907H24V43z"
+							></path>
+							<path
+								fill="#33bff0"
+								d="M5,11l1-1c11.122,0,11.278-6,18-6v20H5.493C5.178,22.712,5,21.378,5,20C5,16.856,5,11,5,11z"
+							></path>
+						</svg>
+					</div>
+					<div class="icon keyboard">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-keyboard"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"
+							/>
+							<path
+								d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25z"
+							/>
+						</svg>
+					</div>
+					<div class="icon lang">
+						ENG
+						<div style="margin-top: 3px">US</div>
+					</div>
+					<div class="icon wifi-sound">
+						<img src="assets/images/wifi-line-icon.png" alt="" />
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							width="20"
+							height="20"
+							style="opacity: 0.7"
+						>
+							<path
+								d="M6.60282 10.0001L10 7.22056V16.7796L6.60282 14.0001H3V10.0001H6.60282ZM2 16.0001H5.88889L11.1834 20.3319C11.2727 20.405 11.3846 20.4449 11.5 20.4449C11.7761 20.4449 12 20.2211 12 19.9449V4.05519C12 3.93977 11.9601 3.8279 11.887 3.73857C11.7121 3.52485 11.3971 3.49335 11.1834 3.66821L5.88889 8.00007H2C1.44772 8.00007 1 8.44778 1 9.00007V15.0001C1 15.5524 1.44772 16.0001 2 16.0001ZM23 12C23 15.292 21.5539 18.2463 19.2622 20.2622L17.8445 18.8444C19.7758 17.1937 21 14.7398 21 12C21 9.26016 19.7758 6.80629 17.8445 5.15557L19.2622 3.73779C21.5539 5.75368 23 8.70795 23 12ZM18 12C18 10.0883 17.106 8.38548 15.7133 7.28673L14.2842 8.71584C15.3213 9.43855 16 10.64 16 12C16 13.36 15.3213 14.5614 14.2842 15.2841L15.7133 16.7132C17.106 15.6145 18 13.9116 18 12Z"
+							></path>
+						</svg>
+					</div>
+					<div class="icon time">
+						<div class="time-text">12:45 AM</div>
+						<div class="date-text">6/21/2025</div>
+					</div>
+				</div>
+			</div>
+			<div class="calendar">
+				<div class="calendar__picture">
+					<h2>18, Sunday</h2>
+					<h3>November</h3>
+				</div>
+				<div class="calendar__date">
+					<div class="calendar__day">M</div>
+					<div class="calendar__day">T</div>
+					<div class="calendar__day">W</div>
+					<div class="calendar__day">T</div>
+					<div class="calendar__day">F</div>
+					<div class="calendar__day">S</div>
+					<div class="calendar__day">S</div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number"></div>
+					<div class="calendar__number">1</div>
+					<div class="calendar__number">2</div>
+					<div class="calendar__number">3</div>
+					<div class="calendar__number">4</div>
+					<div class="calendar__number">5</div>
+					<div class="calendar__number">6</div>
+					<div class="calendar__number">7</div>
+					<div class="calendar__number">8</div>
+					<div class="calendar__number">9</div>
+					<div class="calendar__number">10</div>
+					<div class="calendar__number">11</div>
+					<div class="calendar__number">12</div>
+					<div class="calendar__number">13</div>
+					<div class="calendar__number">14</div>
+					<div class="calendar__number">15</div>
+					<div class="calendar__number">16</div>
+					<div class="calendar__number">17</div>
+					<div class="calendar__number calendar__number--current">18</div>
+					<div class="calendar__number">19</div>
+					<div class="calendar__number">20</div>
+					<div class="calendar__number">21</div>
+					<div class="calendar__number">22</div>
+					<div class="calendar__number">23</div>
+					<div class="calendar__number">24</div>
+					<div class="calendar__number">25</div>
+					<div class="calendar__number">26</div>
+					<div class="calendar__number">27</div>
+					<div class="calendar__number">28</div>
+					<div class="calendar__number">29</div>
+					<div class="calendar__number">30</div>
+				</div>
+			</div>
+			<div class="control-layout">
+				<div class="row">
+					<div class="div wifi">
+						<div class="icons">
+							<img src="assets/images/wifi-line-icon.png" alt="" />
+							<img src="assets/images/chevron-right.png" alt="" />
+						</div>
+						Asad Ali
+					</div>
+					<div class="div bluetooth">
+						<div class="icons">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="20"
+							>
+								<path
+									d="M14.3116 12L18.6548 16.3431L12.9979 22H10.9979V15.3137L6.63394 19.6777L5.21973 18.2635L10.9979 12.4853V11.5147L5.21973 5.73654L6.63394 4.32233L10.9979 8.68629V2H12.9979L18.6548 7.65685L14.3116 12ZM12.9979 13.5147V19.1716L15.8263 16.3431L12.9979 13.5147ZM12.9979 10.4853L15.8263 7.65685L12.9979 4.82843V10.4853Z"
+								></path>
+							</svg>
+							<img src="assets/images/chevron-right.png" alt="" />
+						</div>
+						Bluetooth
+					</div>
+					<div class="div wifi">
+						<div class="icons">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="20"
+							>
+								<path
+									d="M12 13L18 22H6L12 13ZM12 16.6L9.74 20H14.26L12 16.6ZM10.9393 10.5606C10.3536 9.97486 10.3536 9.02511 10.9393 8.43933C11.5251 7.85354 12.4749 7.85354 13.0607 8.43933C13.6464 9.02511 13.6464 9.97486 13.0607 10.5606C12.4749 11.1464 11.5251 11.1464 10.9393 10.5606ZM5.28249 2.78247L6.6967 4.19668C3.76777 7.12562 3.76777 11.8744 6.6967 14.8033L5.28249 16.2175C1.5725 12.5075 1.5725 6.49245 5.28249 2.78247ZM18.7175 2.78247C22.4275 6.49245 22.4275 12.5075 18.7175 16.2175L17.3033 14.8033C20.2322 11.8744 20.2322 7.12562 17.3033 4.19668L18.7175 2.78247ZM8.11091 5.6109L9.52513 7.02511C8.15829 8.39195 8.15829 10.608 9.52513 11.9749L8.11091 13.3891C5.96303 11.2412 5.96303 7.75878 8.11091 5.6109H8.11091ZM15.8891 5.6109C18.037 7.75878 18.037 11.2412 15.8891 13.3891L14.4749 11.9749C15.8417 10.608 15.8417 8.39195 14.4749 7.02511L15.8891 5.6109Z"
+								></path>
+							</svg>
+						</div>
+						Hotspot
+					</div>
+				</div>
+				<div class="row">
+					<div class="div wifi">
+						<div class="icons">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="20"
+							>
+								<path
+									d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
+								></path>
+							</svg>
+						</div>
+						Light
+					</div>
+					<div class="div bluetooth">
+						<div class="icons">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="20"
+							>
+								<path
+									d="M14 8.94737L22 14V16L14 13.4737V18.8333L17 20.5V22L12.5 21L8 22V20.5L11 18.8333V13.4737L3 16V14L11 8.94737V3.5C11 2.67157 11.6716 2 12.5 2C13.3284 2 14 2.67157 14 3.5V8.94737Z"
+								></path>
+							</svg>
+						</div>
+						Aero Plane
+					</div>
+					<div class="div wifi">
+						<div class="icons">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="20"
+							>
+								<path
+									d="M20.998 3V5C20.998 14.6274 15.6255 19 8.99805 19L5.24077 18.9999C5.0786 19.912 4.99805 20.907 4.99805 22H2.99805C2.99805 20.6373 3.11376 19.3997 3.34381 18.2682C3.1133 16.9741 2.99805 15.2176 2.99805 13C2.99805 7.47715 7.4752 3 12.998 3C14.998 3 16.998 4 20.998 3ZM12.998 5C8.57977 5 4.99805 8.58172 4.99805 13C4.99805 13.3624 5.00125 13.7111 5.00759 14.0459C6.26198 12.0684 8.09902 10.5048 10.5019 9.13176L11.4942 10.8682C8.6393 12.4996 6.74554 14.3535 5.77329 16.9998L8.99805 17C15.0132 17 18.8692 13.0269 18.9949 5.38766C17.6229 5.52113 16.3481 5.436 14.7754 5.20009C13.6243 5.02742 13.3988 5 12.998 5Z"
+								></path>
+							</svg>
+						</div>
+						Energy Saver
+					</div>
+				</div>
+				<hr />
+				<div class="sliders">
+					<div class="sound">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20">
+							<path
+								d="M2 16.0001H5.88889L11.1834 20.3319C11.2727 20.405 11.3846 20.4449 11.5 20.4449C11.7761 20.4449 12 20.2211 12 19.9449V4.05519C12 3.93977 11.9601 3.8279 11.887 3.73857C11.7121 3.52485 11.3971 3.49335 11.1834 3.66821L5.88889 8.00007H2C1.44772 8.00007 1 8.44778 1 9.00007V15.0001C1 15.5524 1.44772 16.0001 2 16.0001ZM23 12C23 15.292 21.5539 18.2463 19.2622 20.2622L17.8445 18.8444C19.7758 17.1937 21 14.7398 21 12C21 9.26016 19.7758 	6.80629 17.8445 5.15557L19.2622 3.73779C21.5539 5.75368 23 8.70795 23 12ZM18 12C18 10.0883 17.106 8.38548 15.7133 7.28673L14.2842 8.71584C15.3213 9.43855 16 10.64 16 12C16 13.36 15.3213 14.5614 14.2842 15.2841L15.7133 16.7132C17.106 15.6145 18 13.9116 18 12Z"
+							></path>
+						</svg>
+						<input min="0" max="100" value="50" type="range" />
+						<p>50%</p>
+					</div>
+					<div class="brigthness">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20">
+							<path
+								d="M12 21.9967C6.47715 21.9967 2 17.5196 2 11.9967C2 6.47386 6.47715 1.9967 12 1.9967C17.5228 1.9967 22 6.47386 22 11.9967C22 17.5196 17.5228 21.9967 12 21.9967ZM12 19.9967C16.4183 19.9967 20 16.415 20 11.9967C20 7.57843 16.4183 3.9967 12 3.9967C7.58172 3.9967 4 7.57843 4 11.9967C4 16.415 7.58172 19.9967 12 19.9967ZM12 17.9967V5.9967C15.3137 5.9967 18 8.683 18 11.9967C18 15.3104 15.3137 17.9967 12 17.9967Z"
+							></path>
+						</svg>
+						<input min="0" max="100" value="70" type="range" />
+						<p>70%</p>
+					</div>
+				</div>
+			</div>
+			<div class="custom-menu" id="customMenu">
+				<ul>
+					<li class="refresh">Refresh</li>
+					<li class="new-folder">New Folder</li>
+					<li class="new-note">New Note</li>
+					<li>Settings</li>
+					<li>Terminal</li>
+					<li class="change-bg">Change Wallpaper</li>
+					<li>About</li>
+				</ul>
+			</div>
+			<img class="start-img" src="assets/images/start-menu.png" alt="" />
+			<div class="branding">
+				<div>
+					<img src="assets/images/sheryOS.png" alt="" />
+					SHERY OS
+				</div>
+				<div>by: ASAD ALI</div>
+			</div>
+			<div class="window-wrapper">
+				<div class="header">
+					<div>
+						<img width="30" src="assets/images/flappy-bird.png" alt="" />
+						<p>Flappy Bird</p>
+					</div>
+					<div class="controls">
+						<div class="minimize">
+							<img class="minimize" src="assets/images/minimize.png" alt="" />
+						</div>
+						<div class="control maximize">
+							<img src="assets/images/maximize.png" alt="" />
+						</div>
+						<div class="control close">
+							<img src="assets/images/close.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<div class="window-wrapper-body">
+					<div class="background"></div>
+					<img src="assets/images/flappy-bird/Bird.png" alt="bird-img" class="bird" id="bird-1" />
+					<div class="message">
+						Enter To Start Game
+						<p>
+							<span style="color: red">&uarr;</span>
+							ArrowUp to Control
+						</p>
+					</div>
+					<div class="score">
+						<span class="score_title"></span>
+						<span class="score_val"></span>
+					</div>
+				</div>
+				<!-- Place these inside your .window-wrapper div -->
+				<div class="window-resizer nw"></div>
+				<div class="window-resizer n"></div>
+				<div class="window-resizer ne"></div>
+				<div class="window-resizer e"></div>
+				<div class="window-resizer se"></div>
+				<div class="window-resizer s"></div>
+				<div class="window-resizer sw"></div>
+				<div class="window-resizer w"></div>
+			</div>
+		</main>
+		<script type="module" src="assets/js/main.js"></script>
+		<script type="module" src="assets/js/taskbar.js"></script>
+		<script type="module" src="assets/js/desktop.js"></script>
+		<script type="module" src="assets/js/desktop_events.js"></script>
+		<script type="module" src="assets/js/flappy-bird.js"></script>
+	</body>
+</html>

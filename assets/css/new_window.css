@@ -1,0 +1,170 @@
+/* --- Window Header Styles --- */
+.window-wrapper {
+	position: absolute;
+	/* top: 30%;
+	left: 50%; */
+	/* transform: translate(-50%, -30%); */
+	background-color: #232323;
+	width: 60%;
+	height: 70%;
+
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(109, 109, 109, 0.5);
+	/* z-index: 111; */
+	overflow: hidden;
+}
+
+.window-wrapper .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #242424;
+	color: #fff;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 42px;
+	padding: 0 0 0 10px;
+	user-select: none;
+	cursor: move;
+	box-shadow: 0 1px 0 #3336;
+}
+
+.window-wrapper .header > div:first-child {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.window-wrapper .header img {
+	width: 22px;
+	height: 22px;
+	border-radius: 5px;
+	margin-right: 8px;
+	background: #222;
+	box-shadow: 0 1px 2px #0002;
+}
+
+.window-wrapper .header p {
+	font-size: 15px;
+	font-weight: 500;
+	margin: 0;
+	padding: 0 0 0 2px;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-shadow: 0 1px 2px #0006;
+}
+
+.window-wrapper .controls {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	height: 100%;
+}
+
+.window-wrapper .controls > div {
+	width: 38px;
+	height: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	margin-left: 2px;
+	transition: background 0.15s, box-shadow 0.15s;
+	cursor: pointer;
+}
+
+.window-wrapper .controls .minimize:hover {
+	background: rgba(63, 63, 63, 0.4);
+}
+.window-wrapper .controls .maximize:hover {
+	background: rgba(63, 63, 63, 0.4);
+}
+.window-wrapper .controls .close:hover {
+	background: #d72635;
+}
+
+.window-wrapper .controls img {
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	background: none;
+	border-radius: 3px;
+	pointer-events: none;
+	filter: invert(0.8);
+	transition: filter 0.15s;
+}
+
+.window-wrapper .controls .close img {
+	filter: invert(1) brightness(1.2);
+}
+
+/* --- Window Resize Handles and Cursors --- */
+.window-resizer {
+	position: absolute;
+	z-index: 20;
+	/* No background, invisible but clickable */
+}
+
+/* Corners */
+.window-resizer.nw {
+	top: -4px;
+	left: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nwse-resize;
+}
+.window-resizer.ne {
+	top: -4px;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nesw-resize;
+}
+.window-resizer.sw {
+	bottom: -4px;
+	left: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nesw-resize;
+}
+.window-resizer.se {
+	bottom: -4px;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nwse-resize;
+}
+
+/* Edges */
+.window-resizer.n {
+	top: -4px;
+	left: 12px;
+	right: 12px;
+	height: 8px;
+	cursor: ns-resize;
+}
+.window-resizer.s {
+	bottom: -4px;
+	left: 12px;
+	right: 12px;
+	height: 8px;
+	cursor: ns-resize;
+}
+.window-resizer.e {
+	top: 12px;
+	bottom: 12px;
+	right: -4px;
+	width: 8px;
+	cursor: ew-resize;
+}
+.window-resizer.w {
+	top: 12px;
+	bottom: 12px;
+	left: -4px;
+	width: 8px;
+	cursor: ew-resize;
+}
