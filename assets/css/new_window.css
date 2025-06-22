@@ -8,10 +8,11 @@
 	width: 60%;
 	height: 70%;
 
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
+	width: 90%;
+	height: 90%;
+	align-self: center;
+	top: 2%;
+	left: 2%;
 	border-radius: 10px;
 	box-shadow: 0 0 20px rgba(109, 109, 109, 0.5);
 	/* z-index: 111; */
@@ -31,6 +32,8 @@ left: 0;
 	user-select: none;
 	cursor: move;
 	box-shadow: 0 1px 0 #3336;
+	position: relative;
+	z-index: 9;
 }
 
 .window-wrapper .header > div:first-child {

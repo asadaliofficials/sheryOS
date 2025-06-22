@@ -1,5 +1,4 @@
 .window-wrapper-body {
-	background-color: red;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -49,7 +48,7 @@
 	border-radius: 5%;
 }
 .score {
-	position: fixed;
+	position: absolute;
 	z-index: 10;
 	height: 10vh;
 	font-size: 8vh;
@@ -57,7 +56,7 @@
 	color: white;
 	-webkit-text-stroke-width: 2px;
 	-webkit-text-stroke-color: black;
-	top: 50px;
+	top: 10px;
 	left: 0;
 	margin: 10px;
 	font-family: Arial, Helvetica, sans-serif;

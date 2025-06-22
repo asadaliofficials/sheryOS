@@ -18,21 +18,34 @@ message.classList.add('messageStyle');
 
 document.addEventListener('keydown', e => {
 	if (e.key == 'Enter' && game_state != 'Play') {
+		// Remove all pipes
 		document.querySelectorAll('.pipe_sprite').forEach(e => {
 			e.remove();
 		});
+		// Reset bird position
 		img.style.display = 'block';
 		bird.style.top = '40vh';
+		bird.style.left = '30vw'; // Optional: reset left if needed
+		// Reset bird image
+		img.src = 'assets/images/flappy-bird/Bird.png';
+		// Reset score and UI
 		game_state = 'Play';
 		message.innerHTML = '';
 		score_title.innerHTML = 'Score : ';
 		score_val.innerHTML = '0';
 		message.classList.remove('messageStyle');
+		// Reset bird_props and background in case window size changed
+		bird_props = bird.getBoundingClientRect();
+		background = document.querySelector('.background').getBoundingClientRect();
+		// Start the game loop again
 		play();
 	}
 });
 
 function play() {
+	const gameArea = document.querySelector('.window-wrapper-body');
+	const gameAreaRect = gameArea.getBoundingClientRect();
+
 	function move() {
 		if (game_state != 'Play') return;
 
@@ -51,9 +64,10 @@ function play() {
 					bird_props.top + bird_props.height > pipe_sprite_props.top
 				) {
 					game_state = 'End';
-					message.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
+					message.innerHTML =
+						'Enter To Start Game<br><p><span style="color: red">&uarr;</span> ArrowUp to Control</p>';
 					message.classList.add('messageStyle');
-					img.style.display = 'none';
+					img.style.display = 'none'; // Hide the bird
 					return;
 				} else {
 					if (
@@ -63,7 +77,9 @@ function play() {
 					) {
 						score_val.innerHTML = +score_val.innerHTML + 1;
 					}
-					element.style.left = pipe_sprite_props.left - move_speed + 'px';
+					// Calculate new left relative to game area
+					let newLeft = element.offsetLeft - move_speed;
+					element.style.left = newLeft + 'px';
 				}
 			}
 		});
@@ -89,9 +105,10 @@ function play() {
 		});
 		if (bird_props.top <= 0 || bird_props.bottom >= background.bottom) {
 			game_state = 'End';
-			message.style.left = '28vw';
-			// window.location.reload();
-			message.classList.remove('messageStyle');
+			message.innerHTML =
+				'Enter To Start Game<br><p><span style="color: red">&uarr;</span> ArrowUp to Control</p>';
+			message.classList.add('messageStyle');
+			img.style.display = 'none'; // Hide the bird
 			return;
 		}
 		bird.style.top = bird_props.top + bird_dy + 'px';
@@ -109,20 +126,25 @@ function play() {
 
 		if (pipe_seperation > 115) {
 			pipe_seperation = 0;
-			let pipe_posi = Math.floor(Math.random() * 43) + 8;
+			let pipe_posi = Math.floor(Math.random() * 43) + 8; // in vh
+			const gameAreaHeight = gameArea.offsetHeight;
+			const pipeGapPx = Math.floor(gameAreaHeight * (pipe_gap / 100));
+			const pipePosPx = Math.floor(gameAreaHeight * (pipe_posi / 100));
+
 			let pipe_sprite_inv = document.createElement('div');
 			pipe_sprite_inv.className = 'pipe_sprite';
-			pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
-			pipe_sprite_inv.style.left = '100vw';
+			pipe_sprite_inv.style.height = Math.floor(gameAreaHeight * 0.7) + 'px'; // 70vh of game area
+			pipe_sprite_inv.style.top = pipePosPx - Math.floor(gameAreaHeight * 0.7) + 'px';
+			pipe_sprite_inv.style.left = gameArea.offsetWidth + 'px';
+			gameArea.appendChild(pipe_sprite_inv);
 
-			document.body.appendChild(pipe_sprite_inv);
 			let pipe_sprite = document.createElement('div');
 			pipe_sprite.className = 'pipe_sprite';
-			pipe_sprite.style.top = pipe_posi + pipe_gap + 'vh';
-			pipe_sprite.style.left = '100vw';
+			pipe_sprite.style.height = Math.floor(gameAreaHeight * 0.7) + 'px'; // 70vh of game area
+			pipe_sprite.style.top = pipePosPx + pipeGapPx + 'px';
+			pipe_sprite.style.left = gameArea.offsetWidth + 'px';
 			pipe_sprite.increase_score = '1';
-
-			document.body.appendChild(pipe_sprite);
+			gameArea.appendChild(pipe_sprite);
 		}
 		pipe_seperation++;
 		requestAnimationFrame(create_pipe);
