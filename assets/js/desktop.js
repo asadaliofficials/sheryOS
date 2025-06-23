@@ -1,5 +1,12 @@
 import { desktopItems } from './data.js';
-import { flapyBirdCode, calculatorCode } from './html-codes.js';
+import {
+	flapyBirdCode,
+	calculatorCode,
+	mongodbCode,
+	vscodeCode,
+	ChromeCode,
+	settingsCode,
+} from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
@@ -119,6 +126,10 @@ function addEventListeners(el, item) {
 function createNewWindow(el, item) {
 	const clutter = document.createElement('div');
 	clutter.className = 'window-wrapper';
+	clutter.style.width = item.width || '50%';
+	clutter.style.height = item.height || '50%';
+	clutter.style.top = item.top || '25px';
+	clutter.style.left = item.left || '25%';
 	clutter.innerHTML = `
         <div class="header">
             <div>
@@ -139,15 +150,15 @@ function createNewWindow(el, item) {
         </div>
         <div class="window-wrapper-body">
         </div>
-        <!-- Place these inside your .window-wrapper div -->
-        <div class="window-resizer nw"></div>
-        <div class="window-resizer n"></div>
-        <div class="window-resizer ne"></div>
-        <div class="window-resizer e"></div>
-        <div class="window-resizer se"></div>
-        <div class="window-resizer s"></div>
-        <div class="window-resizer sw"></div>
-        <div class="window-resizer w"></div>
+        <!-- here are divs to make window resizeable -->
+				${item.isResizeable ? '<div class="window-resizer nw"></div>' : ''}
+				${item.isResizeable ? ' <div class="window-resizer n"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer ne"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer e"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer se"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer s"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer sw"></div>' : ''}
+				${item.isResizeable ? '<div class="window-resizer w"></div>' : ''}
     `;
 	document.body.appendChild(clutter);
 
@@ -158,6 +169,14 @@ function createNewWindow(el, item) {
 	} else if (item.type === 'calculator') {
 		body.innerHTML = calculatorCode;
 		CalculatorJs();
+	} else if (item.type === 'mongodb') {
+		body.innerHTML = mongodbCode;
+	} else if (item.type === 'vs-code') {
+		body.innerHTML = vscodeCode;
+	} else if (item.type === 'chrome') {
+		body.innerHTML = ChromeCode;
+	} else if (item.type === 'settings') {
+		body.innerHTML = settingsCode;
 	}
 }
 function createIcon(item) {
