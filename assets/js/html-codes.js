@@ -89,15 +89,15 @@ export const mongodbCode = `
       <pre class="mongodb-doc">
 {
   "_id": "1",
-  "name": "Alice",
-  "email": "alice@example.com"
+  "name": "Asad",
+  "email": "asad@example.com"
 }
       </pre>
       <pre class="mongodb-doc">
 {
   "_id": "2",
-  "name": "Bob",
-  "email": "bob@example.com"
+  "name": "Ali",
+  "email": "ali@example.com"
 }
       </pre>
     </div>
@@ -255,4 +255,22 @@ export const settingsCode = `
 </div>
 `;
 
-
+export const terminalCode = `
+<div class="win-terminal-app">
+  <div class="terminal-body">
+    <div class="terminal-content">
+    <div class="terminal-line">
+    <span class="terminal-path">C:\Users\Asad Ali&gt;</span>
+    <span class="terminal-text">print Hello, World!</span>
+    </div>
+    <div class="terminal-line">
+    <span>Hello, World!</span>
+    </div>
+    <div class="terminal-line">
+      <span class="terminal-path">C:\Users\Asad Ali&gt;</span>
+      <span class="terminal-cursor"></span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

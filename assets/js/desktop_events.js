@@ -5,6 +5,22 @@ desktop.addEventListener('contextmenu', event => {
 	event.preventDefault();
 	event.stopPropagation();
 
+	// Show menu off-screen to measure its height
+	customMenu.style.display = 'block';
+	customMenu.style.top = '-9999px';
+	customMenu.style.left = '-9999px';
+	customMenu.innerHTML = `
+        <ul>
+            <li class="refresh">Refresh</li>
+            <li class="new-folder">New Folder</li>
+            <li class="new-note">New Note</li>
+            <li>Settings</li>
+            <li>Terminal</li>
+            <li class="change-bg">Change Wallpaper</li>
+            <li>About</li>
+        </ul>
+    `;
+
 	const menuHeight = customMenu.offsetHeight;
 	const menuWidth = customMenu.offsetWidth;
 	const padding = 0; // space between pointer and menu
@@ -26,17 +42,6 @@ desktop.addEventListener('contextmenu', event => {
 
 	customMenu.style.top = `${top}px`;
 	customMenu.style.left = `${left}px`;
-	customMenu.innerHTML = `
-        <ul>
-            <li class="refresh">Refresh</li>
-            <li class="new-folder">New Folder</li>
-            <li class="new-note">New Note</li>
-            <li>Settings</li>
-            <li>Terminal</li>
-            <li class="change-bg">Change Wallpaper</li>
-            <li>About</li>
-        </ul>
-    `;
 	customMenu.style.display = 'block';
 
 	// Attach event listeners after setting innerHTML
@@ -87,7 +92,8 @@ const backgroundImages = [
 	'assets/images/BG3.jpg',
 	'assets/images/BG5.jpg',
 ];
-let currentBGIndex = 0;
+let currentBGIndex = 1;
+document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
 document.querySelector('.change-bg').addEventListener('click', () => {
 	if (currentBGIndex >= backgroundImages.length - 1) {
 		currentBGIndex = 0;

@@ -33,7 +33,7 @@
 	cursor: move;
 	box-shadow: 0 1px 0 #3336;
 	position: relative;
-	z-index: 9;
+	/* z-index: 1; */
 }
 
 .window-wrapper .header > div:first-child {

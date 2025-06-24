@@ -6,6 +6,7 @@ import {
 	vscodeCode,
 	ChromeCode,
 	settingsCode,
+	terminalCode,
 } from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
@@ -177,6 +178,13 @@ function createNewWindow(el, item) {
 		body.innerHTML = ChromeCode;
 	} else if (item.type === 'settings') {
 		body.innerHTML = settingsCode;
+	} else if (item.type === 'terminal') {
+		body.innerHTML = terminalCode;
+	}
+
+	if (item.type === 'flappy-bird') {
+		const header = clutter.querySelector('.header');
+		if (header) header.style.zIndex = 9;
 	}
 }
 function createIcon(item) {
