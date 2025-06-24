@@ -121,3 +121,4 @@ document.querySelector('.new-note').addEventListener('click', async e => {
 		}
 	}, 100);
 });
+

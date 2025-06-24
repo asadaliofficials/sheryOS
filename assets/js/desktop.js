@@ -163,6 +163,105 @@ function createNewWindow(el, item) {
     `;
 	document.body.appendChild(clutter);
 
+	clutter.querySelector('.close').addEventListener('click', () => {
+		clutter.remove();
+	});
+	clutter.querySelector('.maximize').addEventListener('click', () => {
+		if (item.isResizeable) {
+			if (clutter.classList.contains('maximized')) {
+				clutter.classList.remove('maximized');
+				clutter.style.width = item.width || '50%';
+				clutter.style.height = item.height || '50%';
+				clutter.style.top = item.top || '25px';
+				clutter.style.left = item.left || '25%';
+			} else {
+				clutter.classList.add('maximized');
+				clutter.style.width = '100%';
+				clutter.style.height = '100%';
+				clutter.style.top = '0';
+				clutter.style.left = '0';
+			}
+		}
+	});
+	clutter.querySelector('.minimize').addEventListener('click', () => {
+		clutter.style.display = 'none';
+	});
+	clutter.addEventListener('mousedown', () => {
+		// Bring window to front
+		const allWindows = document.querySelectorAll('.window-wrapper');
+		allWindows.forEach(win => {
+			win.style.zIndex = 1; // Reset z-index
+		});
+		clutter.style.zIndex = 10; // Bring this window to front
+	});
+	const allWindows = document.querySelectorAll('.window-wrapper');
+	allWindows.forEach(win => {
+		win.style.zIndex = 1; // Reset z-index
+	});
+	clutter.style.zIndex = 10; // Bring this window to front
+	// Add resizable functionality if needed
+	if (item.isResizeable) {
+		const resizers = clutter.querySelectorAll('.window-resizer');
+		resizers.forEach(resizer => {
+			resizer.addEventListener('mousedown', e => {
+				e.preventDefault();
+				e.stopPropagation();
+				const startX = e.clientX;
+				const startY = e.clientY;
+				const startWidth = parseInt(document.defaultView.getComputedStyle(clutter).width, 10);
+				const startHeight = parseInt(document.defaultView.getComputedStyle(clutter).height, 10);
+				const startTop = parseInt(document.defaultView.getComputedStyle(clutter).top, 10);
+				const startLeft = parseInt(document.defaultView.getComputedStyle(clutter).left, 10);
+				const direction = resizer.classList[1]; // Get the direction from class name
+				document.documentElement.addEventListener('mousemove', resize);
+				document.documentElement.addEventListener('mouseup', stopResize);
+				const MIN_WIDTH = 200;
+				const MIN_HEIGHT = 100;
+				function resize(e) {
+					if (direction.includes('e')) {
+						const newWidth = startWidth + e.clientX - startX;
+						clutter.style.width = Math.max(newWidth, MIN_WIDTH) + 'px';
+					}
+					if (direction.includes('w')) {
+						const newWidth = startWidth - (e.clientX - startX);
+						clutter.style.width = Math.max(newWidth, MIN_WIDTH) + 'px';
+						clutter.style.left = startLeft + (e.clientX - startX) + 'px';
+					}
+					if (direction.includes('s')) {
+						const newHeight = startHeight + e.clientY - startY;
+						clutter.style.height = Math.max(newHeight, MIN_HEIGHT) + 'px';
+					}
+					if (direction.includes('n')) {
+						const newHeight = startHeight - (e.clientY - startY);
+						clutter.style.height = Math.max(newHeight, MIN_HEIGHT) + 'px';
+						clutter.style.top = startTop + (e.clientY - startY) + 'px';
+					}
+				}
+
+				function stopResize() {
+					document.documentElement.removeEventListener('mousemove', resize);
+					document.documentElement.removeEventListener('mouseup', stopResize);
+				}
+			});
+		});
+	}
+
+	// move window on drag header
+	clutter.querySelector('.header').addEventListener('mousedown', e => {
+		e.preventDefault();
+		e.stopPropagation();
+		let offsetX = e.clientX - clutter.offsetLeft;
+		let offsetY = e.clientY - clutter.offsetTop;
+		document.onmousemove = e => {
+			clutter.style.left = `${e.clientX - offsetX}px`;
+			clutter.style.top = `${e.clientY - offsetY}px`;
+		};
+		document.onmouseup = () => {
+			document.onmousemove = null;
+			document.onmouseup = null;
+		};
+	});
+
 	const body = clutter.querySelector('.window-wrapper-body');
 	if (item.type === 'flappy-bird') {
 		body.innerHTML = flapyBirdCode;
