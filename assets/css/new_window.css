@@ -59,6 +59,12 @@
 	height: 100%;
 }
 
+.window-wrapper-body:focus {
+	outline: none;
+	/* Prevent scrolling into view on focus */
+	scroll-margin-top: 0 !important;
+}
+
 .window-wrapper .header p {
 	font-size: 15px;
 	font-weight: 500;

@@ -166,7 +166,9 @@ function createNewWindow(el, item) {
 	const body = clutter.querySelector('.window-wrapper-body');
 	if (item.type === 'flappy-bird') {
 		body.innerHTML = flapyBirdCode;
-		flappyBirdJS();
+		body.setAttribute('tabindex', '0');
+		if (body.focus) body.focus({ preventScroll: true });
+		flappyBirdJS(body);
 	} else if (item.type === 'calculator') {
 		body.innerHTML = calculatorCode;
 		CalculatorJs();
