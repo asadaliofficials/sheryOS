@@ -1,7 +1,7 @@
 .win11-settings-app {
 	display: flex;
 	height: 100%;
-	background: #f3f3f7;
+	background: #181a1b;
 	font-family: 'Segoe UI', Arial, sans-serif;
 	min-width: 700px;
 	min-height: 400px;
@@ -11,12 +11,12 @@
 
 .settings-sidebar {
 	width: 260px;
-	background: #f8fafd;
-	border-right: 1px solid #e0e0e0;
+	background: #202124;
+	border-right: 1px solid #23272b;
 	display: flex;
 	flex-direction: column;
 	padding: 0 0 18px 0;
-	box-shadow: 1px 0 8px #0001;
+	box-shadow: 1px 0 8px #0003;
 }
 
 .settings-user {
@@ -24,22 +24,22 @@
 	align-items: center;
 	gap: 14px;
 	padding: 32px 24px 18px 24px;
-	border-bottom: 1px solid #e0e0e0;
+	border-bottom: 1px solid #23272b;
 }
 .settings-user img {
 	width: 54px;
 	height: 54px;
 	border-radius: 50%;
-	background: #e0e0e0;
+	background: #23272b;
 }
 .settings-username {
 	font-weight: 600;
 	font-size: 17px;
-	color: #222;
+	color: #fff;
 }
 .settings-email {
 	font-size: 13px;
-	color: #888;
+	color: #aaa;
 }
 
 .settings-menu {
@@ -53,20 +53,21 @@
 	gap: 14px;
 	padding: 12px 28px;
 	font-size: 15px;
-	color: #222;
+	color: #e0e0e0;
 	border-radius: 8px;
 	cursor: pointer;
 	transition: background 0.13s, color 0.13s;
 }
 .settings-menu li.active,
 .settings-menu li:hover {
-	background: #e6f0fa;
-	color: #0078d4;
+	background: #23272b;
+	color: #4cc2ff;
 }
 .settings-menu img {
 	width: 22px;
 	height: 22px;
 	opacity: 0.85;
+	filter: invert(1);
 }
 
 .settings-main {
@@ -82,27 +83,27 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 32px 36px 18px 36px;
-	border-bottom: 1px solid #e0e0e0;
-	background: #f8fafd;
+	border-bottom: 1px solid #23272b;
+	background: #202124;
 }
 .settings-title {
 	font-size: 2rem;
 	font-weight: 600;
-	color: #222;
+	color: #fff;
 }
 .settings-search {
-	border: 1.5px solid #e0e0e0;
+	border: 1.5px solid #23272b;
 	border-radius: 8px;
 	padding: 8px 16px;
 	font-size: 15px;
-	background: #fff;
-	color: #222;
+	background: #23272b;
+	color: #fff;
 	outline: none;
 	width: 220px;
 	transition: border 0.15s;
 }
 .settings-search:focus {
-	border: 1.5px solid #0078d4;
+	border: 1.5px solid #4cc2ff;
 }
 
 .settings-cards {
@@ -112,9 +113,9 @@
 	padding: 32px 36px;
 }
 .settings-card {
-	background: #fff;
+	background: #23272b;
 	border-radius: 12px;
-	box-shadow: 0 2px 12px #0001;
+	box-shadow: 0 2px 12px #0003;
 	padding: 24px 32px;
 	min-width: 220px;
 	max-width: 260px;
@@ -122,19 +123,19 @@
 	margin-bottom: 12px;
 	cursor: pointer;
 	transition: box-shadow 0.13s, border 0.13s;
-	border: 1.5px solid #f3f3f7;
+	border: 1.5px solid #181a1b;
 }
 .settings-card:hover {
-	box-shadow: 0 4px 24px #0078d422;
-	border: 1.5px solid #0078d4;
+	box-shadow: 0 4px 24px #4cc2ff33;
+	border: 1.5px solid #4cc2ff;
 }
 .settings-card-title {
 	font-size: 1.1rem;
 	font-weight: 500;
-	color: #222;
+	color: #fff;
 	margin-bottom: 8px;
 }
 .settings-card-desc {
 	font-size: 0.97rem;
-	color: #666;
+	color: #bbb;
 }

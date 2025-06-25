@@ -125,6 +125,7 @@ function addEventListeners(el, item) {
 	});
 }
 function createNewWindow(el, item) {
+	console.log(item);
 	const clutter = document.createElement('div');
 	clutter.className = 'window-wrapper';
 	clutter.style.width = item.width || '50%';
@@ -288,6 +289,7 @@ function createNewWindow(el, item) {
 		if (header) header.style.zIndex = 9;
 	}
 }
+export { createNewWindow };
 function createIcon(item) {
 	const el = document.createElement('div');
 	el.className = 'desktop-icon';

@@ -1,6 +1,8 @@
 const customMenu = document.getElementById('customMenu');
 const desktop = document.querySelector('.desktop');
 import { addItem } from './data.js';
+import { createNewWindow } from './desktop.js';
+import { desktopItems } from './data.js';
 desktop.addEventListener('contextmenu', event => {
 	event.preventDefault();
 	event.stopPropagation();
@@ -14,8 +16,8 @@ desktop.addEventListener('contextmenu', event => {
             <li class="refresh">Refresh</li>
             <li class="new-folder">New Folder</li>
             <li class="new-note">New Note</li>
-            <li>Settings</li>
-            <li>Terminal</li>
+            <li class="settings">Settings</li>
+            <li class="terminal">Terminal</li>
             <li class="change-bg">Change Wallpaper</li>
             <li>About</li>
         </ul>
@@ -51,6 +53,14 @@ desktop.addEventListener('contextmenu', event => {
 		setTimeout(() => {
 			desktop.style.display = 'block'; // Show desktop afte r a short delay
 		}, 100); // Adjust delay as needed
+	};
+	customMenu.querySelector('.settings').onclick = e => {
+		const item = desktopItems.find(item => item.type === 'settings');
+		createNewWindow(null, item);
+	};
+	customMenu.querySelector('.terminal').onclick = e => {
+		const item = desktopItems.find(item => item.type === 'terminal');
+		createNewWindow(null, item);
 	};
 
 	customMenu.querySelector('.change-bg').onclick = () => {
@@ -121,4 +131,3 @@ document.querySelector('.new-note').addEventListener('click', async e => {
 		}
 	}, 100);
 });
-
