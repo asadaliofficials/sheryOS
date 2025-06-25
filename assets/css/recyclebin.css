@@ -1,0 +1,66 @@
+.recyclebin-app {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #23272b;
+	border-radius: 10px;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.recyclebin-toolbar {
+	display: flex;
+	gap: 10px;
+	padding: 8px 18px 8px 18px;
+	background: #181a1b;
+	border-bottom: 1px solid #333;
+}
+
+.recyclebin-toolbar button {
+	background: transparent;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 7px 18px;
+	font-size: 15px;
+	cursor: pointer;
+	transition: background 0.13s;
+}
+.recyclebin-toolbar button:hover {
+	background: #353b40;
+}
+
+.recyclebin-list {
+	flex: 1;
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	overflow-y: auto;
+}
+
+.recyclebin-item {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 12px 18px;
+	background: #292d31;
+	border-radius: 8px;
+	color: #fff;
+	font-size: 16px;
+	transition: background 0.13s;
+	user-select: none;
+}
+.recyclebin-item img {
+	width: 28px;
+	height: 28px;
+	filter: invert(1);
+}
+.recyclebin-item.folder img {
+	content: url('assets/images/folder.png');
+}
+.recyclebin-item.file img {
+	content: url('assets/images/file.png');
+}
+.recyclebin-item:hover {
+	background: #353b40;
+}

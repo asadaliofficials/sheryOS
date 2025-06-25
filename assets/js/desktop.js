@@ -8,10 +8,13 @@ import {
 	settingsCode,
 	terminalCode,
 	notepadCode,
+	recycleBinCode,
+	thisPcCode,
 } from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
 import notepadJS from './notepad.js';
+import recycleBinJS from './recyclebin.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
 const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
 const ICON_OFFSET_X = 10;
@@ -287,6 +290,11 @@ function createNewWindow(el, item) {
 	} else if (item.type === 'notepad') {
 		body.innerHTML = notepadCode;
 		notepadJS(body);
+	} else if (item.type === 'recyclebin') {
+		body.innerHTML = recycleBinCode;
+		recycleBinJS(body);
+	} else if (item.type === 'thispc') {
+		body.innerHTML = thisPcCode;
 	}
 
 	if (item.type === 'flappy-bird') {

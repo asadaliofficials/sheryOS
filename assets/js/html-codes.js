@@ -284,3 +284,73 @@ export const notepadCode = `
   <textarea class="notepad-textarea" placeholder="Start typing..."></textarea>
 </div>
 `;
+export const recycleBinCode = `
+<div class="recyclebin-app">
+  <div class="recyclebin-toolbar">
+    <button class="recyclebin-empty">Empty Recycle Bin</button>
+    <button class="recyclebin-restore">Restore All Items</button>
+  </div>
+  <div class="recyclebin-list">
+    <div class="recyclebin-item folder">
+      <img src="assets/images/folder.png" alt="Folder" />
+      <span>Temp Folder</span>
+    </div>
+    <div class="recyclebin-item file">
+      <img src="assets/images/file.png" alt="File" />
+      <span>notes.txt</span>
+    </div>
+  </div>
+</div>
+`;
+export const thisPcCode = `
+<div class="thispc-app">
+  <div class="thispc-sidebar">
+    <div class="thispc-sidebar-section">
+      <div class="thispc-sidebar-title">Quick Access</div>
+      <ul>
+        <li class="active"><img src="assets/images/this-pc.png" /> Desktop</li>
+        <li><img src="assets/images/Downloads.png" /> Downloads</li>
+        <li><img src="assets/images/documents.png" /> Documents</li>
+        <li><img src="assets/images/pictures.png" /> Pictures</li>
+        <li><img src="assets/images/music.png" /> Music</li>
+        <li><img src="assets/images/videos.png" /> Videos</li>
+      </ul>
+    </div>
+    <div class="thispc-sidebar-section">
+      <div class="thispc-sidebar-title">Devices and drives</div>
+      <ul>
+        <li><img src="assets/images/this-pc.png" /> This PC</li>
+        <li><img src="assets/images/usb.png" /> USB Drive (E:)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="thispc-main">
+    <div class="thispc-header">
+      <span class="thispc-title"><img src="assets/images/this-pc.png" /> This PC</span>
+      <input class="thispc-search" type="text" placeholder="Search This PC" />
+    </div>
+    <div class="thispc-partitions">
+      <div class="thispc-partition">
+        <img src="assets/images/drive.png" />
+        <div>
+          <div class="thispc-partition-title">Local Disk (C:)</div>
+          <div class="thispc-partition-bar">
+            <div class="thispc-partition-bar-used" style="width: 40%"></div>
+          </div>
+          <div class="thispc-partition-info">120 GB free of 256 GB</div>
+        </div>
+      </div>
+      <div class="thispc-partition">
+        <img src="assets/images/usb.png" />
+        <div>
+          <div class="thispc-partition-title">USB Drive (E:)</div>
+          <div class="thispc-partition-bar">
+            <div class="thispc-partition-bar-used" style="width: 70%"></div>
+          </div>
+          <div class="thispc-partition-info">9 GB free of 32 GB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

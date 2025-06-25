@@ -11,13 +11,13 @@
 .notepad-toolbar {
 	display: flex;
 	gap: 10px;
-	padding: 16px 18px 10px 18px;
+	padding: 8px 18px 8px 18px;
 	background: #181a1b;
 	border-bottom: 1px solid #333;
 }
 
 .notepad-toolbar button {
-	background: #4cc2ff;
+	background: transparent;
 	color: #fff;
 	border: none;
 	border-radius: 6px;
@@ -27,7 +27,7 @@
 	transition: background 0.13s;
 }
 .notepad-toolbar button:hover {
-	background: #0078d4;
+	background: #353b40;
 }
 
 .notepad-textarea {
