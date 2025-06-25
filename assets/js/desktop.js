@@ -7,9 +7,11 @@ import {
 	ChromeCode,
 	settingsCode,
 	terminalCode,
+	notepadCode,
 } from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
+import notepadJS from './notepad.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
 const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
 const ICON_OFFSET_X = 10;
@@ -282,6 +284,9 @@ function createNewWindow(el, item) {
 		body.innerHTML = settingsCode;
 	} else if (item.type === 'terminal') {
 		body.innerHTML = terminalCode;
+	} else if (item.type === 'notepad') {
+		body.innerHTML = notepadCode;
+		notepadJS(body);
 	}
 
 	if (item.type === 'flappy-bird') {

@@ -274,3 +274,13 @@ export const terminalCode = `
   </div>
 </div>
 `;
+
+export const notepadCode = `
+<div class="notepad-app">
+  <div class="notepad-toolbar">
+    <button class="notepad-save">Save</button>
+    <button class="notepad-clear">Clear</button>
+  </div>
+  <textarea class="notepad-textarea" placeholder="Start typing..."></textarea>
+</div>
+`;
