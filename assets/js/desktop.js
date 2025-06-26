@@ -10,6 +10,7 @@ import {
 	notepadCode,
 	recycleBinCode,
 	thisPcCode,
+	folderCode,
 } from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
@@ -167,6 +168,11 @@ function createNewWindow(el, item) {
 				${item.isResizeable ? '<div class="window-resizer sw"></div>' : ''}
 				${item.isResizeable ? '<div class="window-resizer w"></div>' : ''}
     `;
+	if (!item.isResizeable) {
+		clutter.querySelector('.maximize').style.opacity = '0.3';
+		clutter.querySelector('.maximize').style.pointerEvents = 'none';
+		clutter.querySelector('.maximize').style.cursor = 'not-allowed';
+	}
 	document.body.appendChild(clutter);
 
 	clutter.querySelector('.close').addEventListener('click', () => {
@@ -295,6 +301,8 @@ function createNewWindow(el, item) {
 		recycleBinJS(body);
 	} else if (item.type === 'thispc') {
 		body.innerHTML = thisPcCode;
+	} else if (item.type === 'folder') {
+		body.innerHTML = folderCode;
 	}
 
 	if (item.type === 'flappy-bird') {

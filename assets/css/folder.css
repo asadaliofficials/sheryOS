@@ -1,0 +1,78 @@
+.folder-main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	background: #23272b;
+}
+
+.folder-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 32px 12px 32px;
+	border-bottom: 1px solid #23272b;
+	background: #23272b;
+}
+.folder-title {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.folder-title img {
+	width: 28px;
+	height: 28px;
+	filter: invert(1);
+}
+.folder-search {
+	border: 1.5px solid #23272b;
+	border-radius: 8px;
+	padding: 7px 16px;
+	font-size: 15px;
+	background: #181a1b;
+	color: #fff;
+	outline: none;
+	width: 200px;
+	transition: border 0.15s;
+}
+.folder-search:focus {
+	border: 1.5px solid #4cc2ff;
+}
+
+.folder-content {
+	flex: 1;
+	padding: 32px 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	overflow-y: auto;
+}
+.folder-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	background: #292d31;
+	border-radius: 8px;
+	padding: 14px 22px;
+	color: #fff;
+	font-size: 16px;
+	transition: background 0.13s;
+	user-select: none;
+}
+.folder-row img {
+	width: 28px;
+	height: 28px;
+	filter: invert(1);
+}
+.folder-row:hover {
+	background: #353b40;
+}
+.folder-empty {
+	color: #aaa;
+	text-align: center;
+	margin-top: 40px;
+	font-size: 1.1rem;
+}

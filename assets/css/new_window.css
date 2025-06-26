@@ -29,7 +29,7 @@
 	height: 42px;
 	padding: 0 0 0 10px;
 	user-select: none;
-	cursor: move;
+	/* cursor: move; */
 	box-shadow: 0 1px 0 #3336;
 	position: relative;
 	/* z-index: 1; */

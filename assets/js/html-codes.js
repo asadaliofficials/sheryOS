@@ -354,3 +354,47 @@ export const thisPcCode = `
   </div>
 </div>
 `;
+export const folderCode = `
+<div class="thispc-app">
+  <div class="thispc-sidebar">
+    <div class="thispc-sidebar-section">
+      <div class="thispc-sidebar-title">Quick Access</div>
+      <ul>
+        <li class="active"><img src="assets/images/this-pc.png" /> Desktop</li>
+        <li><img src="assets/images/Downloads.png" /> Downloads</li>
+        <li><img src="assets/images/documents.png" /> Documents</li>
+        <li><img src="assets/images/pictures.png" /> Pictures</li>
+        <li><img src="assets/images/music.png" /> Music</li>
+        <li><img src="assets/images/videos.png" /> Videos</li>
+      </ul>
+    </div>
+    <div class="thispc-sidebar-section">
+      <div class="thispc-sidebar-title">Devices and drives</div>
+      <ul>
+        <li><img src="assets/images/this-pc.png" /> This PC</li>
+        <li><img src="assets/images/usb.png" /> USB Drive (E:)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="folder-main">
+    <div class="folder-header">
+      <span class="folder-title"><img src="assets/images/folder.png" /> Folder Name</span>
+      <input class="folder-search" type="text" placeholder="Search this folder" />
+    </div>
+    <div class="folder-content">
+      <!-- Example: Show files/folders here. If empty, show message below -->
+      <div class="folder-empty">This folder is empty</div>
+      <!--
+      <div class="folder-row">
+        <img src="assets/images/folder.png" />
+        <span>Sub Folder</span>
+      </div>
+      <div class="folder-row">
+        <img src="assets/images/file.png" />
+        <span>Document.txt</span>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+`;
