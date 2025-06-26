@@ -1,4 +1,4 @@
-import { desktopItems } from './data.js';
+import { addChildItem, desktopItems } from './data.js';
 import {
 	flapyBirdCode,
 	calculatorCode,
@@ -307,6 +307,28 @@ function createNewWindow(el, item) {
 		initializeChildrens(item, clutter);
 	}
 
+	const newFolderBtn = clutter.querySelector('.folder-btn.new-folder');
+	const newNoteBtn = clutter.querySelector('.folder-btn.new-note');
+
+	newFolderBtn.onclick = () => {
+		const folderName = prompt('Enter folder name:');
+		if (folderName) {
+			addChildItem(item.id, folderName, 'assets/images/folder.png', 'folder');
+			// Find updated item reference (since data is mutated)
+			const updatedItem = desktopItems.find(d => d.id === item.id);
+			initializeChildrens(updatedItem, clutter);
+		}
+	};
+
+	newNoteBtn.onclick = () => {
+		const noteName = prompt('Enter note name:');
+		if (noteName) {
+			addChildItem(item.id, noteName, 'assets/images/note.png', 'notepad');
+			const updatedItem = desktopItems.find(d => d.id === item.id);
+			initializeChildrens(updatedItem, clutter);
+		}
+	};
+
 	if (item.type === 'flappy-bird') {
 		const header = clutter.querySelector('.header');
 		if (header) header.style.zIndex = 9;
@@ -344,7 +366,7 @@ const createDesktop = desktopItems => {
 	});
 	console.log('desktop changed');
 	// Clear existing desktop content
-	document.querySelector('.desktop').innerHTML = ''; // Clear existing icons
+	document.querySelector('.desktop').innerHTML = '';
 	document.querySelector('.desktop').appendChild(documentFragment);
 };
 createDesktop(desktopItems);

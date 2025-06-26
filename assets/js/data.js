@@ -191,3 +191,19 @@ export const addItem = (name, icon, type) => {
 	desktopItems.push(newItem);
 	createDesktop(desktopItems);
 };
+
+export const addChildItem = (parentId, name, icon, type) => {
+	const parentItem = desktopItems.find(item => item.id === parentId);
+	const isFolder = type === 'folder';
+	if (parentItem) {
+		const newChildItem = {
+			name: name,
+			icon: icon,
+			type: type,
+			id: parentItem.childrens.length + 1,
+			...(isFolder && { childrens: [] }),
+		};
+		parentItem.childrens.push(newChildItem);
+		createDesktop(desktopItems);
+	}
+};
