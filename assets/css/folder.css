@@ -25,7 +25,7 @@
 .folder-title img {
 	width: 28px;
 	height: 28px;
-	filter: invert(1);
+	/* filter: invert(1); */
 }
 .folder-search {
 	border: 1.5px solid #23272b;
@@ -65,7 +65,7 @@
 .folder-row img {
 	width: 28px;
 	height: 28px;
-	filter: invert(1);
+	/* filter: invert(1); */
 }
 .folder-row:hover {
 	background: #353b40;

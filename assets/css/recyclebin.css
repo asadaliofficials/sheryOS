@@ -36,6 +36,7 @@
 	flex-direction: column;
 	gap: 12px;
 	overflow-y: auto;
+	padding-bottom: 2rem;
 }
 
 .recyclebin-item {
@@ -53,14 +54,9 @@
 .recyclebin-item img {
 	width: 28px;
 	height: 28px;
-	filter: invert(1);
+	/* filter: invert(1); */
 }
-.recyclebin-item.folder img {
-	content: url('assets/images/folder.png');
-}
-.recyclebin-item.file img {
-	content: url('assets/images/file.png');
-}
+
 .recyclebin-item:hover {
 	background: #353b40;
 }
