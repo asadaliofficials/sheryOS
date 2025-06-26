@@ -290,15 +290,8 @@ export const recycleBinCode = `
     <button class="recyclebin-empty">Empty Recycle Bin</button>
     <button class="recyclebin-restore">Restore All Items</button>
   </div>
-  <div class="recyclebin-list">
-    <div class="recyclebin-item folder">
-      <img src="assets/images/folder.png" alt="Folder" />
-      <span>Temp Folder</span>
-    </div>
-    <div class="recyclebin-item file">
-      <img src="assets/images/file.png" alt="File" />
-      <span>notes.txt</span>
-    </div>
+  <div class="folder-content">
+
   </div>
 </div>
 `;
@@ -378,22 +371,17 @@ export const folderCode = `
   </div>
   <div class="folder-main">
     <div class="folder-header">
-      <span class="folder-title"><img src="assets/images/folder.png" /> Folder Name</span>
+    <div class='buttons'>
+      <button class="folder-btn back">Back</button>
+  <button class="folder-btn forward">Forward</button>
+  <button class="folder-btn new-folder">New Folder</button>
+  <button class="folder-btn new-note">New Note</button>
+    </div>
       <input class="folder-search" type="text" placeholder="Search this folder" />
     </div>
+    <hr>
     <div class="folder-content">
-      <!-- Example: Show files/folders here. If empty, show message below -->
-      <div class="folder-empty">This folder is empty</div>
-      <!--
-      <div class="folder-row">
-        <img src="assets/images/folder.png" />
-        <span>Sub Folder</span>
-      </div>
-      <div class="folder-row">
-        <img src="assets/images/file.png" />
-        <span>Document.txt</span>
-      </div>
-      -->
+   <div class="folder-empty">This folder is empty</div>
     </div>
   </div>
 </div>

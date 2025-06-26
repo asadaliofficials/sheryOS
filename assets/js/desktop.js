@@ -131,7 +131,7 @@ function addEventListeners(el, item) {
 	});
 }
 function createNewWindow(el, item) {
-	console.log(item);
+	// console.log(item);
 	const clutter = document.createElement('div');
 	clutter.className = 'window-wrapper';
 	clutter.style.width = item.width || '50%';
@@ -298,11 +298,13 @@ function createNewWindow(el, item) {
 		notepadJS(body);
 	} else if (item.type === 'recyclebin') {
 		body.innerHTML = recycleBinCode;
+		initializeChildrens(item, clutter);
 		recycleBinJS(body);
 	} else if (item.type === 'thispc') {
 		body.innerHTML = thisPcCode;
 	} else if (item.type === 'folder') {
 		body.innerHTML = folderCode;
+		initializeChildrens(item, clutter);
 	}
 
 	if (item.type === 'flappy-bird') {
@@ -347,3 +349,19 @@ const createDesktop = desktopItems => {
 };
 createDesktop(desktopItems);
 export default createDesktop;
+
+function initializeChildrens(item, clutter) {
+	console.log(item);
+	if (item.childrens.length > 0) {
+		let childrensHTML = '';
+		item.childrens.forEach(child => {
+			childrensHTML += `
+				<div class="folder-row">
+					<img src="${child.icon}" />
+					<span>${child.name}</span>
+				</div>
+			`;
+		});
+		clutter.querySelector('.folder-content').innerHTML = childrensHTML;
+	}
+}
