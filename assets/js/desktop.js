@@ -308,68 +308,69 @@ function createNewWindow(el, item) {
 		clutter.folderNavIndex = 0;
 		initializeChildrens(item, clutter);
 	}
+	if (item.type === 'folder') {
+		const newFolderBtn = clutter.querySelector('.folder-btn.new-folder');
+		const newNoteBtn = clutter.querySelector('.folder-btn.new-note');
+		const backBtn = clutter.querySelector('.folder-btn.back');
+		const forwardBtn = clutter.querySelector('.folder-btn.forward');
 
-	const newFolderBtn = clutter.querySelector('.folder-btn.new-folder');
-	const newNoteBtn = clutter.querySelector('.folder-btn.new-note');
-	const backBtn = clutter.querySelector('.folder-btn.back');
-	const forwardBtn = clutter.querySelector('.folder-btn.forward');
-
-	newFolderBtn.onclick = () => {
-		const folderName = prompt('Enter folder name:');
-		// Use the current folder being viewed, not the original item
-		const current = clutter.currentFolderItem || item;
-		if (folderName) {
-			addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder');
-			const updatedItem = findItemById(desktopItems, current.id);
-			initializeChildrens(updatedItem, clutter);
-			clutter.currentFolderItem = updatedItem;
-		}
-	};
-
-	newNoteBtn.onclick = () => {
-		const noteName = prompt('Enter note name:');
-		const current = clutter.currentFolderItem || item;
-		if (noteName) {
-			addChildItem(current.id, noteName, 'assets/images/note.png', 'notepad');
-			const updatedItem = findItemById(desktopItems, current.id);
-			initializeChildrens(updatedItem, clutter);
-			clutter.currentFolderItem = updatedItem;
-		}
-	};
-
-	backBtn.onclick = () => {
-		if (clutter.folderNavStack && clutter.folderNavIndex > 0) {
-			clutter.folderNavIndex--;
-			const prevItem = clutter.folderNavStack[clutter.folderNavIndex];
-			// Update header/title
-			const folderTitle = clutter.querySelector('.folder-title');
-			if (folderTitle) {
-				folderTitle.innerHTML = `<img src="${prevItem.icon}" /> ${prevItem.name}`;
+		newFolderBtn.onclick = () => {
+			const folderName = prompt('Enter folder name:');
+			// Use the current folder being viewed, not the original item
+			const current = clutter.currentFolderItem || item;
+			if (folderName) {
+				addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder');
+				const updatedItem = findItemById(desktopItems, current.id);
+				initializeChildrens(updatedItem, clutter);
+				clutter.currentFolderItem = updatedItem;
 			}
-			const searchInput = clutter.querySelector('.folder-search');
-			if (searchInput) searchInput.value = '';
-			initializeChildrens(prevItem, clutter);
-			clutter.currentFolderItem = prevItem;
-		}
-		updateNavButtons(clutter);
-	};
+		};
 
-	forwardBtn.onclick = () => {
-		if (clutter.folderNavStack && clutter.folderNavIndex < clutter.folderNavStack.length - 1) {
-			clutter.folderNavIndex++;
-			const nextItem = clutter.folderNavStack[clutter.folderNavIndex];
-			// Update header/title
-			const folderTitle = clutter.querySelector('.folder-title');
-			if (folderTitle) {
-				folderTitle.innerHTML = `<img src="${nextItem.icon}" /> ${nextItem.name}`;
+		newNoteBtn.onclick = () => {
+			const noteName = prompt('Enter note name:');
+			const current = clutter.currentFolderItem || item;
+			if (noteName) {
+				addChildItem(current.id, noteName, 'assets/images/note.png', 'notepad');
+				const updatedItem = findItemById(desktopItems, current.id);
+				initializeChildrens(updatedItem, clutter);
+				clutter.currentFolderItem = updatedItem;
 			}
-			const searchInput = clutter.querySelector('.folder-search');
-			if (searchInput) searchInput.value = '';
-			initializeChildrens(nextItem, clutter);
-			clutter.currentFolderItem = nextItem;
-		}
-		updateNavButtons(clutter);
-	};
+		};
+
+		backBtn.onclick = () => {
+			if (clutter.folderNavStack && clutter.folderNavIndex > 0) {
+				clutter.folderNavIndex--;
+				const prevItem = clutter.folderNavStack[clutter.folderNavIndex];
+				// Update header/title
+				const folderTitle = clutter.querySelector('.folder-title');
+				if (folderTitle) {
+					folderTitle.innerHTML = `<img src="${prevItem.icon}" /> ${prevItem.name}`;
+				}
+				const searchInput = clutter.querySelector('.folder-search');
+				if (searchInput) searchInput.value = '';
+				initializeChildrens(prevItem, clutter);
+				clutter.currentFolderItem = prevItem;
+			}
+			updateNavButtons(clutter);
+		};
+
+		forwardBtn.onclick = () => {
+			if (clutter.folderNavStack && clutter.folderNavIndex < clutter.folderNavStack.length - 1) {
+				clutter.folderNavIndex++;
+				const nextItem = clutter.folderNavStack[clutter.folderNavIndex];
+				// Update header/title
+				const folderTitle = clutter.querySelector('.folder-title');
+				if (folderTitle) {
+					folderTitle.innerHTML = `<img src="${nextItem.icon}" /> ${nextItem.name}`;
+				}
+				const searchInput = clutter.querySelector('.folder-search');
+				if (searchInput) searchInput.value = '';
+				initializeChildrens(nextItem, clutter);
+				clutter.currentFolderItem = nextItem;
+			}
+			updateNavButtons(clutter);
+		};
+	}
 
 	if (item.type === 'flappy-bird') {
 		const header = clutter.querySelector('.header');
