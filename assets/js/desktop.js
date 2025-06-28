@@ -1,4 +1,4 @@
-import { addChildItem, desktopItems } from './data.js';
+import { addChildItem, desktopItems, findItemById } from './data.js';
 import {
 	flapyBirdCode,
 	calculatorCode,
@@ -31,11 +31,13 @@ function updateGridSize() {
 	GRID_COLS = Math.floor((width - ICON_OFFSET_X) / GRID_SIZE_X);
 	GRID_ROWS = Math.floor((height - ICON_OFFSET_Y) / GRID_SIZE_Y);
 }
+
 updateGridSize();
 window.addEventListener('resize', () => {
 	updateGridSize();
 	// Optionally, re-render icons here if you want them to reposition on resize
 });
+
 // Track occupied grid cells
 const occupied = {};
 
@@ -130,6 +132,7 @@ function addEventListeners(el, item) {
 		createNewWindow(el, item);
 	});
 }
+
 function createNewWindow(el, item) {
 	// console.log(item);
 	const clutter = document.createElement('div');
@@ -199,12 +202,7 @@ function createNewWindow(el, item) {
 		clutter.style.display = 'none';
 	});
 	clutter.addEventListener('mousedown', () => {
-		// Bring window to front
-		const allWindows = document.querySelectorAll('.window-wrapper');
-		allWindows.forEach(win => {
-			win.style.zIndex = 1; // Reset z-index
-		});
-		clutter.style.zIndex = 10; // Bring this window to front
+		bringWindowToFront(clutter);
 	});
 	const allWindows = document.querySelectorAll('.window-wrapper');
 	allWindows.forEach(win => {
@@ -260,6 +258,7 @@ function createNewWindow(el, item) {
 
 	// move window on drag header
 	clutter.querySelector('.header').addEventListener('mousedown', e => {
+		bringWindowToFront(clutter); // <-- Add this line
 		e.preventDefault();
 		e.stopPropagation();
 		let offsetX = e.clientX - clutter.offsetLeft;
@@ -295,7 +294,7 @@ function createNewWindow(el, item) {
 		body.innerHTML = terminalCode;
 	} else if (item.type === 'notepad') {
 		body.innerHTML = notepadCode;
-		notepadJS(body);
+		notepadJS(body, item);
 	} else if (item.type === 'recyclebin') {
 		body.innerHTML = recycleBinCode;
 		initializeChildrens(item, clutter);
@@ -304,29 +303,72 @@ function createNewWindow(el, item) {
 		body.innerHTML = thisPcCode;
 	} else if (item.type === 'folder') {
 		body.innerHTML = folderCode;
+		// Navigation stack for this window
+		clutter.folderNavStack = [item];
+		clutter.folderNavIndex = 0;
 		initializeChildrens(item, clutter);
 	}
 
 	const newFolderBtn = clutter.querySelector('.folder-btn.new-folder');
 	const newNoteBtn = clutter.querySelector('.folder-btn.new-note');
+	const backBtn = clutter.querySelector('.folder-btn.back');
+	const forwardBtn = clutter.querySelector('.folder-btn.forward');
 
 	newFolderBtn.onclick = () => {
 		const folderName = prompt('Enter folder name:');
+		// Use the current folder being viewed, not the original item
+		const current = clutter.currentFolderItem || item;
 		if (folderName) {
-			addChildItem(item.id, folderName, 'assets/images/folder.png', 'folder');
-			// Find updated item reference (since data is mutated)
-			const updatedItem = desktopItems.find(d => d.id === item.id);
+			addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder');
+			const updatedItem = findItemById(desktopItems, current.id);
 			initializeChildrens(updatedItem, clutter);
+			clutter.currentFolderItem = updatedItem;
 		}
 	};
 
 	newNoteBtn.onclick = () => {
 		const noteName = prompt('Enter note name:');
+		const current = clutter.currentFolderItem || item;
 		if (noteName) {
-			addChildItem(item.id, noteName, 'assets/images/note.png', 'notepad');
-			const updatedItem = desktopItems.find(d => d.id === item.id);
+			addChildItem(current.id, noteName, 'assets/images/note.png', 'notepad');
+			const updatedItem = findItemById(desktopItems, current.id);
 			initializeChildrens(updatedItem, clutter);
+			clutter.currentFolderItem = updatedItem;
 		}
+	};
+
+	backBtn.onclick = () => {
+		if (clutter.folderNavStack && clutter.folderNavIndex > 0) {
+			clutter.folderNavIndex--;
+			const prevItem = clutter.folderNavStack[clutter.folderNavIndex];
+			// Update header/title
+			const folderTitle = clutter.querySelector('.folder-title');
+			if (folderTitle) {
+				folderTitle.innerHTML = `<img src="${prevItem.icon}" /> ${prevItem.name}`;
+			}
+			const searchInput = clutter.querySelector('.folder-search');
+			if (searchInput) searchInput.value = '';
+			initializeChildrens(prevItem, clutter);
+			clutter.currentFolderItem = prevItem;
+		}
+		updateNavButtons(clutter);
+	};
+
+	forwardBtn.onclick = () => {
+		if (clutter.folderNavStack && clutter.folderNavIndex < clutter.folderNavStack.length - 1) {
+			clutter.folderNavIndex++;
+			const nextItem = clutter.folderNavStack[clutter.folderNavIndex];
+			// Update header/title
+			const folderTitle = clutter.querySelector('.folder-title');
+			if (folderTitle) {
+				folderTitle.innerHTML = `<img src="${nextItem.icon}" /> ${nextItem.name}`;
+			}
+			const searchInput = clutter.querySelector('.folder-search');
+			if (searchInput) searchInput.value = '';
+			initializeChildrens(nextItem, clutter);
+			clutter.currentFolderItem = nextItem;
+		}
+		updateNavButtons(clutter);
 	};
 
 	if (item.type === 'flappy-bird') {
@@ -334,7 +376,9 @@ function createNewWindow(el, item) {
 		if (header) header.style.zIndex = 9;
 	}
 }
+
 export { createNewWindow };
+
 function createIcon(item) {
 	const el = document.createElement('div');
 	el.className = 'desktop-icon';
@@ -369,21 +413,90 @@ const createDesktop = desktopItems => {
 	document.querySelector('.desktop').innerHTML = '';
 	document.querySelector('.desktop').appendChild(documentFragment);
 };
+
 createDesktop(desktopItems);
 export default createDesktop;
 
 function initializeChildrens(item, clutter) {
 	console.log(item);
+	const folderContent = clutter.querySelector('.folder-content');
 	if (item.childrens.length > 0) {
 		let childrensHTML = '';
-		item.childrens.forEach(child => {
+		item.childrens.forEach((child, idx) => {
 			childrensHTML += `
-				<div class="folder-row">
-					<img src="${child.icon}" />
-					<span>${child.name}</span>
-				</div>
-			`;
+                <div class="folder-row" data-child-idx="${idx}">
+                    <img src="${child.icon}" />
+                    <span>${child.name}</span>
+                </div>
+            `;
 		});
-		clutter.querySelector('.folder-content').innerHTML = childrensHTML;
+		folderContent.innerHTML = childrensHTML;
+
+		// Add double-click event to each child
+		const rows = folderContent.querySelectorAll('.folder-row');
+		rows.forEach(row => {
+			row.addEventListener('dblclick', () => {
+				const idx = row.getAttribute('data-child-idx');
+				const child = item.childrens[idx];
+				if (child.type === 'folder') {
+					// Navigate in the same window (as before)
+					if (clutter.folderNavStack && clutter.folderNavIndex !== undefined) {
+						clutter.folderNavStack = clutter.folderNavStack.slice(0, clutter.folderNavIndex + 1);
+						clutter.folderNavStack.push(child);
+						clutter.folderNavIndex++;
+					} else {
+						clutter.folderNavStack = [child];
+						clutter.folderNavIndex = 0;
+					}
+					// Update header/title
+					const folderTitle = clutter.querySelector('.folder-title');
+					if (folderTitle) {
+						folderTitle.innerHTML = `<img src="${child.icon}" /> ${child.name}`;
+					}
+					const searchInput = clutter.querySelector('.folder-search');
+					if (searchInput) searchInput.value = '';
+					initializeChildrens(child, clutter);
+					clutter.currentFolderItem = child;
+				} else if (child.type === 'notepad') {
+					// Open notepad in a new window
+					createNewWindow(null, child);
+				}
+			});
+		});
+	} else {
+		folderContent.innerHTML = `<div class="folder-empty">This folder is empty</div>`;
 	}
+	updateNavButtons(clutter);
+}
+function updateNavButtons(clutter) {
+	const backBtn = clutter.querySelector('.folder-btn.back');
+	const forwardBtn = clutter.querySelector('.folder-btn.forward');
+	if (!backBtn || !forwardBtn) return;
+
+	if (clutter.folderNavStack && clutter.folderNavIndex > 0) {
+		backBtn.disabled = false;
+		backBtn.style.cursor = 'pointer';
+		backBtn.style.opacity = '1';
+	} else {
+		backBtn.disabled = true;
+		backBtn.style.cursor = 'not-allowed';
+		backBtn.style.opacity = '0.5';
+	}
+
+	if (clutter.folderNavStack && clutter.folderNavIndex < clutter.folderNavStack.length - 1) {
+		forwardBtn.disabled = false;
+		forwardBtn.style.cursor = 'pointer';
+		forwardBtn.style.opacity = '1';
+	} else {
+		forwardBtn.disabled = true;
+		forwardBtn.style.cursor = 'not-allowed';
+		forwardBtn.style.opacity = '0.5';
+	}
+}
+function bringWindowToFront(clutter) {
+	const allWindows = document.querySelectorAll('.window-wrapper');
+	allWindows.forEach(win => {
+		win.style.zIndex = 1; // Reset z-index
+	});
+	clutter.style.zIndex = 10; // Bring this window to front
 }

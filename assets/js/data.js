@@ -15,24 +15,33 @@ export const desktopItems = [
 				name: 'Documents',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
+				childrens: [],
 			},
 			{
 				id: 1.2,
 				name: 'Downloads',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
+				childrens: [],
 			},
 			{
 				id: 1.3,
 				name: 'Pictures',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
+				childrens: [],
 			},
 			{
 				id: 1.4,
 				name: 'my notes',
 				icon: 'assets/images/note.png',
 				type: 'notepad',
+				isResizeable: true,
+				width: '50%',
+				height: '50%',
+				top: '25%',
+				left: '25%',
+				value: 'this is a dummy text for note!',
 			},
 		],
 	},
@@ -69,6 +78,12 @@ export const desktopItems = [
 				name: 'Deleted Notes',
 				icon: 'assets/images/note.png',
 				type: 'notepad',
+				isResizeable: true,
+				width: '50%',
+				height: '50%',
+				top: '25%',
+				left: '25%',
+				value: '',
 			},
 		],
 	},
@@ -105,6 +120,7 @@ export const desktopItems = [
 		height: '50%',
 		top: '25%',
 		left: '25%',
+		value: '',
 	},
 	// {
 	// 	id: 10,
@@ -193,17 +209,36 @@ export const addItem = (name, icon, type) => {
 };
 
 export const addChildItem = (parentId, name, icon, type) => {
-	const parentItem = desktopItems.find(item => item.id === parentId);
+	const parentItem = findItemById(desktopItems, parentId);
 	const isFolder = type === 'folder';
 	if (parentItem) {
 		const newChildItem = {
 			name: name,
 			icon: icon,
 			type: type,
-			id: parentItem.childrens.length + 1,
+			id: Date.now() + Math.random(), // Use a unique id for all children!
 			...(isFolder && { childrens: [] }),
+			...(!isFolder && {
+				isResizeable: true,
+				width: '50%',
+				height: '50%',
+				top: '25%',
+				left: '25%',
+				value: '',
+			}),
 		};
+		if (!parentItem.childrens) parentItem.childrens = [];
 		parentItem.childrens.push(newChildItem);
 		createDesktop(desktopItems);
 	}
 };
+export function findItemById(items, id) {
+	for (const item of items) {
+		if (item.id === id) return item;
+		if (item.childrens && item.childrens.length > 0) {
+			const found = findItemById(item.childrens, id);
+			if (found) return found;
+		}
+	}
+	return null;
+}

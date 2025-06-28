@@ -13,6 +13,12 @@
 	padding: 5px 32px 5px 32px;
 	border-bottom: 1px solid #23272b;
 	background: #23272b;
+	container-type: inline-size;
+}
+@container (max-width: 680px) {
+	.folder-search {
+		display: none;
+	}
 }
 .folder-title {
 	font-size: 1.3rem;
