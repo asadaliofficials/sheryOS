@@ -107,18 +107,45 @@ function addEventListeners(el, item) {
 		const customMenu = document.querySelector('.custom-menu');
 		customMenu.innerHTML = `
 					<ul>
-					<li class="Open">Open</li>
+					<li class="open">Open</li>
 					<li class="copy">Copy</li>
 					<li class="cut">Cut</li>
-					<li>Delete</li>
-					<li>Rename file</li>
-					<li>About this file</li>
+					<li class='delete'>Delete</li>
+					<li class='rename'>Rename file</li>
+					<li class='about-file'>About this file</li>
 				</ul>
 				`;
 		customMenu.style.display = 'block';
 		customMenu.style.top = `${e.clientY}px`;
 		customMenu.style.left = `${e.clientX}px`;
-
+		customMenu.querySelector('.open').addEventListener('click', e => {
+			createNewWindow(el, item);
+		});
+		customMenu.querySelector('.copy').addEventListener('click', e => {
+			setTimeout(() => {
+				alert('This logic is under construction!');
+			}, 10);
+		});
+		customMenu.querySelector('.cut').addEventListener('click', e => {
+			setTimeout(() => {
+				alert('This logic is under construction!');
+			}, 10);
+		});
+		customMenu.querySelector('.delete').addEventListener('click', e => {
+			el.remove();
+		});
+		customMenu.querySelector('.rename').addEventListener('click', e => {
+			setTimeout(() => {
+				let newName = prompt('Enter new name');
+				if (newName) {
+				}
+			}, 10);
+		});
+		customMenu.querySelector('.about-file').addEventListener('click', e => {
+			setTimeout(() => {
+				alert('This logic is under construction!');
+			}, 10);
+		});
 		// Position menu within viewport
 		const rect = customMenu.getBoundingClientRect();
 		if (rect.right > window.innerWidth) {
@@ -303,7 +330,6 @@ function createNewWindow(el, item) {
 		body.innerHTML = thisPcCode;
 	} else if (item.type === 'folder') {
 		body.innerHTML = folderCode;
-		// Navigation stack for this window
 		clutter.folderNavStack = [item];
 		clutter.folderNavIndex = 0;
 		initializeChildrens(item, clutter);

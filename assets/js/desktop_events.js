@@ -19,7 +19,7 @@ desktop.addEventListener('contextmenu', event => {
             <li class="settings">Settings</li>
             <li class="terminal">Terminal</li>
             <li class="change-bg">Change Wallpaper</li>
-            <li>About</li>
+            <li class='about'>About</li>
         </ul>
     `;
 
@@ -53,6 +53,11 @@ desktop.addEventListener('contextmenu', event => {
 		setTimeout(() => {
 			desktop.style.display = 'block'; // Show desktop afte r a short delay
 		}, 100); // Adjust delay as needed
+	};
+	customMenu.querySelector('.about').onclick = e => {
+		setTimeout(() => {
+			alert('About page is under construction!');
+		}, 10);
 	};
 	customMenu.querySelector('.settings').onclick = e => {
 		const item = desktopItems.find(item => item.type === 'settings');
