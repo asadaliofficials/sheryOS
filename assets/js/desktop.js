@@ -374,6 +374,7 @@ function createNewWindow(el, item) {
 	const body = clutter.querySelector('.window-wrapper-body');
 	if (item.type === 'flappy-bird') {
 		body.innerHTML = flapyBirdCode;
+		body.style.overflow = 'hidden';
 		body.setAttribute('tabindex', '0');
 		if (body.focus) body.focus({ preventScroll: true });
 		flappyBirdJS(body);
@@ -382,6 +383,7 @@ function createNewWindow(el, item) {
 		CalculatorJs();
 	} else if (item.type === 'mongodb') {
 		body.innerHTML = mongodbCode;
+		body.style.overflow = 'hidden';
 	} else if (item.type === 'vs-code') {
 		body.innerHTML = vscodeCode;
 	} else if (item.type === 'chrome') {

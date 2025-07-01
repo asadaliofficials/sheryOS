@@ -6,15 +6,16 @@ const searchInputBox = document.querySelector('.search input');
 const searchPanel = document.getElementById('searchPanel');
 const resultsDiv = searchPanel.querySelector('.search-panel-results');
 const searchDiv = document.querySelector('.search');
+const taskbarSearchInput = document.querySelector('.taskbar-search-input');
 
 // Helper: flatten desktop items (including folders)
-function flattenItems(items, arr = []) {
-	for (const item of items) {
-		arr.push(item);
-		if (item.childrens && item.childrens.length) flattenItems(item.childrens, arr);
-	}
-	return arr;
-}
+// function flattenItems(items, arr = []) {
+// 	for (const item of items) {
+// 		arr.push(item);
+// 		if (item.childrens && item.childrens.length) flattenItems(item.childrens, arr);
+// 	}
+// 	return arr;
+// }
 
 // Show panel on search input focus/click
 searchInputBox.addEventListener('focus', showPanel);
@@ -27,7 +28,6 @@ function showPanel() {
 	searchPanel.style.left = parentRect.left + 'px';
 	searchPanel.style.width = rect.width + 'px';
 	searchPanel.style.display = 'flex';
-	resultsDiv.innerHTML = '';
 	updateResults();
 }
 
@@ -35,6 +35,7 @@ function showPanel() {
 document.addEventListener('click', e => {
 	if (!searchPanel.contains(e.target) && !searchDiv.contains(e.target)) {
 		searchPanel.style.display = 'none';
+		taskbarSearchInput.value = '';
 	}
 });
 
@@ -52,8 +53,7 @@ function updateResults() {
 		return;
 	}
 
-	const allItems = flattenItems(desktopItems, []);
-	const matches = allItems
+	const matches = desktopItems
 		.filter(item => item.name && item.name.toLowerCase().includes(query))
 		.slice(0, 5);
 
@@ -71,6 +71,8 @@ function updateResults() {
 		div.tabIndex = 0;
 		div.innerHTML = `<img src="${item.icon}" alt="${item.name}"><span>${item.name}</span>`;
 		div.addEventListener('click', e => {
+			taskbarSearchInput.value = '';
+
 			searchPanel.style.display = 'none';
 			// Taskbar logic: open, restore, or bring to front
 			const taskbarItem = taskbarItems.find(i => i.id === item.id && i.isOpen);
@@ -89,30 +91,3 @@ function updateResults() {
 		resultsDiv.appendChild(div);
 	});
 }
-
-// Optional: Keyboard navigation for results
-searchInputBox.addEventListener('keydown', e => {
-	const results = Array.from(resultsDiv.querySelectorAll('.search-panel-result'));
-	let idx = results.findIndex(r => r.classList.contains('active'));
-	if (e.key === 'ArrowDown') {
-		if (results.length) {
-			if (idx >= 0) results[idx].classList.remove('active');
-			idx = (idx + 1) % results.length;
-			results[idx].classList.add('active');
-			results[idx].focus();
-		}
-		e.preventDefault();
-	}
-	if (e.key === 'ArrowUp') {
-		if (results.length) {
-			if (idx >= 0) results[idx].classList.remove('active');
-			idx = (idx - 1 + results.length) % results.length;
-			results[idx].classList.add('active');
-			results[idx].focus();
-		}
-		e.preventDefault();
-	}
-	if (e.key === 'Enter' && idx >= 0) {
-		results[idx].click();
-	}
-});

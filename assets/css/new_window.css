@@ -62,7 +62,6 @@
 
 .window-wrapper-body:focus {
 	outline: none;
-	/* Prevent scrolling into view on focus */
 	scroll-margin-top: 0 !important;
 }
 
