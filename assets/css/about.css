@@ -19,7 +19,7 @@
 	width: 64px;
 	height: 64px;
 	border-radius: 12px;
-	background: #fff;
+	/* background: #fff; */
 	object-fit: contain;
 	box-shadow: 0 2px 8px #0002;
 }
@@ -69,4 +69,28 @@
 	border-top: 1px solid #333;
 	padding-top: 10px;
 	letter-spacing: 0.03em;
+}
+.gradient-text {
+	background: #d56a14;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+.about-tagline {
+	color: #fbbf24;
+	font-size: 1.1rem;
+	margin-top: 2px;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+}
+.about-section-title {
+	font-size: 1.15rem;
+	font-weight: 600;
+	margin-bottom: 7px;
+	letter-spacing: 0.01em;
+}
+.about-features li {
+	margin-bottom: 7px;
+	font-size: 1.05rem;
+	line-height: 1.5;
 }

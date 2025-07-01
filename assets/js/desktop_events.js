@@ -69,10 +69,10 @@ desktop.addEventListener('contextmenu', event => {
 			icon: 'assets/images/user.png',
 			type: 'about',
 			isResizeable: true,
-			width: '50%',
-			height: '60%',
-			top: '20%',
-			left: '25%',
+			width: '60%',
+			height: '70%',
+			top: '15%',
+			left: '20%',
 		};
 		createNewWindow(null, item);
 	};
