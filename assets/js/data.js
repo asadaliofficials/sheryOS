@@ -129,8 +129,8 @@ export const desktopItems = [
 		type: 'chrome',
 		isResizeable: true,
 		width: '80%',
-		height: '80%',
-		top: '5%',
+		height: '90%',
+		top: '2%',
 		left: '10%',
 	},
 	{

@@ -184,22 +184,21 @@ export const ChromeCode = `
     <span class="chrome-nav-btn reload"></span>
     <div class="chrome-addressbar">
       <img src="assets/images/lock.png" class="chrome-lock" />
-      <input type="text" value="https://www.google.com" readonly />
+      <input type="text" class="bing-input" placeholder="Search Bing or type a URL" />
       <img src="assets/images/star.png" class="chrome-star" />
     </div>
     <span class="chrome-nav-btn more"></span>
   </div>
-  <div class="chrome-content google-dark">
-    <div class="google-logo"></div>
-    <form class="google-search">
-      <input class="google-input" type="text" placeholder="Search Google or type a URL" />
-      <div class="google-buttons">
-        <button type="button">Google Search</button>
-        <button type="button">I'm Feeling Lucky</button>
+  <div class="chrome-content bing-dark">
+    <div class="bing-logo"></div>
+    <form class="bing-search">
+      <input class="bing-search-input" type="text" placeholder="Search Bing..." />
+      <div class="bing-buttons">
+        <button type="submit">Bing Search</button>
       </div>
     </form>
-    <div class="google-footer">
-      <span>Google offered in: <a href="#">اردو</a> <a href="#">پښتو</a> <a href="#">English (UK)</a></span>
+    <div class="bing-iframe-container" style="display:none;">
+      <iframe class="bing-iframe" src="" frameborder="0" style="width:100%;height:70vh;border-radius:8px;"></iframe>
     </div>
   </div>
 </div>
@@ -376,6 +375,56 @@ export const folderCode = `
     <div class="folder-content">
    <div class="folder-empty">This folder is empty</div>
     </div>
+  </div>
+</div>
+`;
+
+export const aboutCode = `
+<div class="about-app">
+  <div class="about-header">
+    <img src="assets/images/sheryos-logo.png" alt="Shery OS Logo" class="about-logo" />
+    <div>
+      <div class="about-title">Shery OS</div>
+      <div class="about-version">Version 1.0.0</div>
+    </div>
+  </div>
+  <div class="about-body">
+    <div class="about-section">
+      <div class="about-section-title">Project Overview</div>
+      <div class="about-section-content">
+        Shery OS is a modern web-based desktop environment inspired by Windows 11.<br>
+        It features multi-window support, a terminal, notepad, file explorer, and more.<br>
+        Designed for learning, fun, and productivity in the browser.
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-section-title">Key Features</div>
+      <ul class="about-features">
+        <li>🖥️ Multi-window desktop with draggable, resizable apps</li>
+        <li>⌨️ Interactive terminal with custom commands</li>
+        <li>📝 Notepad, folders, and notes management</li>
+        <li>🌐 Built-in browser (Bing-powered)</li>
+        <li>⚙️ Settings, Recycle Bin, and more</li>
+      </ul>
+    </div>
+    <div class="about-section">
+      <div class="about-section-title">Developer</div>
+      <div class="about-section-content">
+        <strong>Asad Ali</strong><br>
+        <span style="color:#7dd3fc;">Full Stack Developer & Designer</span><br>
+        <a href="mailto:asad@example.com" style="color:#7dd3fc;text-decoration:underline;">asad@example.com</a>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-section-title">Credits & Thanks</div>
+      <div class="about-section-content">
+        Icons & images: <a href="https://icons8.com/" target="_blank" style="color:#7dd3fc;">Icons8</a>, Bing, and open source.<br>
+        Special thanks to the open source community!
+      </div>
+    </div>
+  </div>
+  <div class="about-footer">
+    &copy; 2025 Shery OS. All rights reserved.
   </div>
 </div>
 `;

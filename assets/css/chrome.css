@@ -107,6 +107,7 @@
 	margin-right: 6px;
 	margin-left: 6px;
 	opacity: 0.7;
+	filter: invert(1);
 }
 
 .chrome-content.google-dark {
@@ -119,21 +120,28 @@
 	position: relative;
 }
 
-.google-logo {
-	width: 272px;
-	height: 92px;
-	background: url('https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png')
-		no-repeat center/contain;
-	margin-bottom: 32px;
+.bing-logo {
+	width: 200px;
+	height: 60px;
+	background: url('../images/bing.png') no-repeat center/contain;
+	margin: 32px auto 24px auto;
 }
-
-.google-search {
+.bing-dark {
+	background: #202124;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+}
+.bing-search {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
 }
-.google-input {
+.bing-search-input {
 	width: 500px;
 	max-width: 90vw;
 	padding: 12px 18px;
@@ -146,15 +154,15 @@
 	margin-bottom: 24px;
 	transition: border 0.2s;
 }
-.google-input:focus {
+.bing-search-input:focus {
 	border: 1.5px solid #8ab4f8;
 	background: #303134;
 }
-.google-buttons {
+.bing-buttons {
 	display: flex;
 	gap: 12px;
 }
-.google-buttons button {
+.bing-buttons button {
 	background: #303134;
 	color: #e8eaed;
 	border: 1px solid #5f6368;
@@ -164,24 +172,11 @@
 	cursor: pointer;
 	transition: border 0.2s, background 0.2s;
 }
-.google-buttons button:hover {
+.bing-buttons button:hover {
 	border: 1.5px solid #8ab4f8;
 	background: #35363a;
 }
-.google-footer {
-	position: absolute;
-	bottom: 24px;
-	left: 0;
+.bing-iframe-container {
 	width: 100%;
-	text-align: center;
-	color: #b0b0b0;
-	font-size: 14px;
-}
-.google-footer a {
-	color: #8ab4f8;
-	text-decoration: none;
-	margin: 0 4px;
-}
-.google-footer a:hover {
-	text-decoration: underline;
+	margin-top: 24px;
 }

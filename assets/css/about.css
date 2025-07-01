@@ -1,0 +1,72 @@
+/* About App Styles */
+.about-app {
+	font-family: 'Segoe UI', 'Cascadia Mono', monospace;
+	background: #23272e;
+	color: #e8eaed;
+	border-radius: 14px;
+	padding: 0 0 18px 0;
+	min-width: 420px;
+	max-width: 520px;
+	box-shadow: 0 2px 16px #0003;
+}
+.about-header {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	padding: 24px 32px 12px 32px;
+	border-bottom: 1px solid #333;
+}
+.about-logo {
+	width: 64px;
+	height: 64px;
+	border-radius: 12px;
+	background: #fff;
+	object-fit: contain;
+	box-shadow: 0 2px 8px #0002;
+}
+.about-title {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #7dd3fc;
+	letter-spacing: 0.04em;
+}
+.about-version {
+	font-size: 1rem;
+	color: #b3b3b3;
+	margin-top: 2px;
+}
+.about-body {
+	padding: 18px 32px 0 32px;
+}
+.about-section {
+	margin-bottom: 18px;
+}
+.about-section-title {
+	font-size: 1.1rem;
+	color: #7dd3fc;
+	font-weight: 500;
+	margin-bottom: 6px;
+}
+.about-section-content {
+	color: #e8eaed;
+	font-size: 1rem;
+	line-height: 1.6;
+}
+.about-features {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+}
+.about-features li {
+	margin-bottom: 6px;
+	font-size: 1rem;
+}
+.about-footer {
+	text-align: center;
+	color: #7dd3fc;
+	font-size: 0.95rem;
+	margin-top: 18px;
+	border-top: 1px solid #333;
+	padding-top: 10px;
+	letter-spacing: 0.03em;
+}

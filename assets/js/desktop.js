@@ -17,6 +17,7 @@ import CalculatorJs from './calculator.js';
 import notepadJS from './notepad.js';
 import recycleBinJS from './recyclebin.js';
 import terminalJS from './terminal.js';
+import chromeJS from './chrome.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
 const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
 const ICON_OFFSET_X = 10;
@@ -317,6 +318,7 @@ function createNewWindow(el, item) {
 		body.innerHTML = vscodeCode;
 	} else if (item.type === 'chrome') {
 		body.innerHTML = ChromeCode;
+		chromeJS(body);
 	} else if (item.type === 'settings') {
 		body.innerHTML = settingsCode;
 	} else if (item.type === 'terminal') {

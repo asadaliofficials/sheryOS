@@ -55,9 +55,12 @@ desktop.addEventListener('contextmenu', event => {
 		}, 100); // Adjust delay as needed
 	};
 	customMenu.querySelector('.about').onclick = e => {
-		setTimeout(() => {
-			alert('About page is under construction!');
-		}, 10);
+		const item = desktopItems.find(item => item.type === 'about');
+		if (item) {
+			createNewWindow(null, item);
+		} else {
+			alert('About item not found in desktop items.');
+		}
 	};
 	customMenu.querySelector('.settings').onclick = e => {
 		const item = desktopItems.find(item => item.type === 'settings');
