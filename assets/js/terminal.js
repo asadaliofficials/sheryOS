@@ -136,7 +136,7 @@ function onEnter(input, terminalContent, initInput) {
 		addOutput(`<span>Directory created: <span style="color:orange">${folderName}</span></span>`);
 	} else if (input.trim().toLowerCase().startsWith('mknote')) {
 		const noteName = input.split(' ')[1];
-		addItem(noteName, 'assets/images/note.png', 'note');
+		addItem(noteName, 'assets/images/note.png', 'notepad');
 		addOutput(`<span>Note created: <span style="color:orange">${noteName}</span></span>`);
 	} else if (input.trim().toLowerCase().startsWith('print')) {
 		const message = input.split(' ').slice(1).join(' ');

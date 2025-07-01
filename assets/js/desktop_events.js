@@ -104,7 +104,7 @@ desktop.addEventListener('contextmenu', event => {
 		setTimeout(() => {
 			const noteNmae = prompt('Enter note name:');
 			if (noteNmae) {
-				addItem(noteNmae, 'assets/images/note.png', 'note');
+				addItem(noteNmae, 'assets/images/note.png', 'notepad');
 			}
 		}, 100);
 	};

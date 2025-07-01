@@ -482,18 +482,35 @@ if (savedData) {
 }
 import createDesktop from './desktop.js';
 export const addItem = (name, icon, type) => {
-	const newItem = {
-		name: name,
-		icon: icon,
-		type: type,
-		isResizeable: true,
-		width: '80%',
-		height: '80%',
-		top: '5%',
-		left: '10%',
-		childrens: [],
-		id: desktopItems.length + 1,
-	};
+	let newItem = null;
+	if (type === 'folder') {
+		newItem = {
+			name: name,
+			icon: icon,
+			type: type,
+			isResizeable: true,
+			width: '80%',
+			height: '80%',
+			top: '5%',
+			left: '10%',
+			childrens: [],
+			id: desktopItems.length + 1,
+		};
+	} else {
+		newItem = {
+			name: name,
+			icon: icon,
+			type: type,
+			isResizeable: true,
+			width: '50%',
+			height: '50%',
+			top: '25%',
+			left: '25%',
+			value: '',
+			id: desktopItems.length + 1,
+		};
+	}
+
 	desktopItems.push(newItem);
 	localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 	createDesktop(desktopItems);
