@@ -74,3 +74,59 @@ body {
 	/* scrollbar-width: thin; */
 	scrollbar-color: #555 #1e1e1e;
 }
+
+/* style for search panel */
+/* --- Search Panel Styles --- */
+.search-panel {
+	position: absolute;
+	left: 0;
+	bottom: 60px;
+	background: #23272e;
+	border-radius: 12px;
+	box-shadow: 0 8px 32px #000a;
+	padding: 14px 0 14px 0;
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-width: 215px; /* will be overwritten by JS */
+	min-height: 60px;
+	transition: box-shadow 0.2s;
+}
+
+.search-panel-results {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 0 14px 0 14px;
+	min-height: 32px;
+}
+.search-panel-result {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+	border-radius: 7px;
+	background: transparent;
+	color: #e8eaed;
+	cursor: pointer;
+	transition: background 0.15s;
+	font-size: 1rem;
+}
+.search-panel-result:hover,
+.search-panel-result.active {
+	background: #31343b;
+}
+.search-panel-result img {
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	object-fit: contain;
+}
+.search-panel-empty {
+	color: #aaa;
+	text-align: center;
+	padding: 18px 0 10px 0;
+	font-size: 1rem;
+	letter-spacing: 0.5px;
+}
