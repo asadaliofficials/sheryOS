@@ -1,4 +1,10 @@
-import { addChildItem, desktopItems, findItemById, deleteItemById } from './data.js';
+import {
+	addChildItem,
+	desktopItems,
+	findItemById,
+	deleteItemById,
+	renameItemById,
+} from './data.js';
 import { taskbarItems, updateTaskbar } from './taskbarData.js';
 
 import {
@@ -153,17 +159,16 @@ function addEventListeners(el, item) {
 			setTimeout(() => {
 				const newName = prompt('Enter new name:', item.name);
 				if (newName) {
-					const realItem = findItemById(desktopItems, item.id);
-					if (realItem) {
-						realItem.name = newName;
-						createDesktop(desktopItems);
-					}
+					renameItemById(desktopItems, item.id, newName);
+					createDesktop(desktopItems);
 				}
 			}, 10);
 		};
 
 		customMenu.querySelector('.about-file').onclick = () => {
-			alert(`Name: ${item.name}\nType: ${item.type}`);
+			setTimeout(() => {
+				alert(`Name: ${item.name}\nType: ${item.type}`);
+			}, 10);
 		};
 
 		// Position menu within viewport (as you already do)

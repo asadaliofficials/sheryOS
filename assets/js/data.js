@@ -1,4 +1,4 @@
-export const desktopItems = [
+export let desktopItems = [
 	{
 		id: 1,
 		name: 'My User',
@@ -473,6 +473,13 @@ export const desktopItems = [
 		],
 	},
 ];
+
+let savedData = localStorage.getItem('desktopItems');
+if (savedData) {
+	desktopItems = JSON.parse(savedData);
+} else {
+	localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
+}
 import createDesktop from './desktop.js';
 export const addItem = (name, icon, type) => {
 	const newItem = {
@@ -488,6 +495,7 @@ export const addItem = (name, icon, type) => {
 		id: desktopItems.length + 1,
 	};
 	desktopItems.push(newItem);
+	localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 	createDesktop(desktopItems);
 };
 
@@ -512,6 +520,7 @@ export const addChildItem = (parentId, name, icon, type) => {
 		};
 		if (!parentItem.childrens) parentItem.childrens = [];
 		parentItem.childrens.push(newChildItem);
+		localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 		createDesktop(desktopItems);
 	}
 };
@@ -530,10 +539,29 @@ export function deleteItemById(items, id) {
 	for (let i = 0; i < items.length; i++) {
 		if (items[i].id === id) {
 			items.splice(i, 1);
+			localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 			return true;
 		}
 		if (items[i].childrens && items[i].childrens.length > 0) {
-			if (deleteItemById(items[i].childrens, id)) return true;
+			if (deleteItemById(items[i].childrens, id)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+export function renameItemById(items, id, newName) {
+	for (const item of items) {
+		if (item.id === id) {
+			item.name = newName;
+			localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
+			return true;
+		}
+		if (item.childrens && item.childrens.length > 0) {
+			if (renameItemById(item.childrens, id, newName)) {
+				return true;
+			}
 		}
 	}
 	return false;

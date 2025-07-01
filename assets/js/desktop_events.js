@@ -117,11 +117,8 @@ desktop.addEventListener('contextmenu', event => {
 		if (clipboardItem) {
 			const newItem = { ...clipboardItem, id: Date.now() + Math.random() };
 			desktopItems.push(newItem);
+			localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 			createDesktop(desktopItems);
-			if (clipboardAction === 'cut' && clipboardSourceId != null) {
-				deleteItemById(desktopItems, clipboardSourceId);
-				clearClipboard();
-			}
 		}
 	});
 });

@@ -378,84 +378,83 @@ export const folderCode = `
   </div>
 </div>
 `;
-
 export const aboutCode = `
 <div class="about-app">
   <div class="about-header">
     <img src="assets/images/sheryOS.png" alt="Shery OS Logo" class="about-logo" />
     <div>
-      <div class="about-title gradient-text">Shery OS</div>
-      <div class="about-version">Version 8.12.24</div>
-      <div class="about-tagline">A Modern Web Desktop Environment</div>
+      <div class="about-title" style="color:#2196f3;font-weight:700;letter-spacing:1px;">Shery OS</div>
+      <div class="about-version" style="color:#b0b8c1;">Version 8.12.24</div>
+      <div class="about-tagline" style="color:#fbbf24;font-size:1.1rem;font-weight:500;">A Modern Web Desktop Environment</div>
     </div>
   </div>
   <div class="about-body">
     <div class="about-section">
-      <div class="about-section-title">✨ Project Overview</div>
-      <div class="about-section-content">
-        <span style="color:#7dd3fc;font-weight:500;">Shery OS</span> is a Windows 11-inspired, web-based desktop environment.<br>
-        <span style="color:#f472b6;">Multi-window</span> support, <span style="color:#facc15;">drag & resize</span>, <span style="color:#34d399;">context menus</span>, and a beautiful <span style="color:#60a5fa;">taskbar</span>.<br>
-        Designed for <span style="color:#a78bfa;">learning</span>, <span style="color:#fbbf24;">fun</span>, and <span style="color:#38bdf8;">productivity</span> in your browser.
+      <div class="about-section-title" style="color:#2196f3;">✨ Project Overview</div>
+      <div class="about-section-content" style="color:#b0b8c1;">
+        <strong style="color:#2196f3;">Shery OS</strong> is a Windows 11-inspired, web-based desktop environment.<br>
+        Multi-window support, drag & resize, context menus, and a beautiful taskbar.<br>
+        Designed for <span style="color:#fbbf24;">learning</span>, <span style="color:#fbbf24;">fun</span>, and <span style="color:#fbbf24;">productivity</span> in the browser.
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title">🛠️ Key Features</div>
-      <ul class="about-features">
-        <li><span style="color:#38bdf8;">🖥️</span> Multi-window desktop: draggable, resizable, and maximizable apps</li>
-        <li><span style="color:#f472b6;">📁</span> Folders & nested folders, with notes and files inside</li>
-        <li><span style="color:#facc15;">📝</span> Notepad app with instant editing</li>
-        <li><span style="color:#a78bfa;">🌐</span> Built-in Chrome browser (Bing-powered)</li>
-        <li><span style="color:#34d399;">⌨️</span> Interactive terminal with custom commands (help, mkdir, mknote, print, etc.)</li>
-        <li><span style="color:#fbbf24;">🗑️</span> Recycle Bin with restore & empty</li>
-        <li><span style="color:#7dd3fc;">🧮</span> Calculator, Flappy Bird, MongoDB UI, VS Code UI clone</li>
-        <li><span style="color:#f472b6;">⚙️</span> Settings, This PC, and more</li>
-        <li><span style="color:#facc15;">📋</span> Copy, Cut, Paste, Rename, Delete, and About for all files</li>
-        <li><span style="color:#38bdf8;">🔍</span> Taskbar search with instant app launch</li>
-        <li><span style="color:#a78bfa;">🌄</span> Changeable wallpapers</li>
-        <li><span style="color:#34d399;">🖱️</span> Right-click context menus everywhere</li>
-        <li><span style="color:#fbbf24;">🕹️</span> Minimal, responsive, and touch-friendly design</li>
+      <div class="about-section-title" style="color:#2196f3;">🛠️ Key Features</div>
+      <ul class="about-features" style="color:#b0b8c1;">
+        <li>🖥️ Multi-window desktop: draggable, resizable, maximizable apps</li>
+        <li>📁 Folders & nested folders, with notes and files inside</li>
+        <li>📝 Notepad app with instant editing</li>
+        <li>🌐 Built-in Chrome browser (Bing-powered)</li>
+        <li>⌨️ Interactive terminal with custom commands</li>
+        <li>🗑️ Recycle Bin with restore & empty</li>
+        <li>🧮 Calculator, Flappy Bird, MongoDB UI, VS Code UI clone</li>
+        <li>⚙️ Settings, This PC, and more</li>
+        <li>📋 Copy, Cut, Paste, Rename, Delete, and About for all files</li>
+        <li>🔍 Taskbar search with instant app launch</li>
+        <li>🌄 Changeable wallpapers</li>
+        <li>🖱️ Right-click context menus everywhere</li>
+        <li>🕹️ Minimal, responsive, and touch-friendly design</li>
       </ul>
     </div>
     <div class="about-section">
-      <div class="about-section-title">💻 Technologies Used</div>
-      <div class="about-section-content">
-        <span style="color:#7dd3fc;">HTML5</span>, <span style="color:#f472b6;">CSS3</span> (custom & modular), <span style="color:#facc15;">JavaScript (ES6+)</span><br>
-        <span style="color:#a78bfa;">No frameworks</span> – pure, fast, and lightweight!
+      <div class="about-section-title" style="color:#2196f3;">💻 Technologies Used</div>
+      <div class="about-section-content" style="color:#b0b8c1;">
+        HTML5, CSS3 (custom & modular), JavaScript (ES6+)<br>
+        <span style="color:#fbbf24;">No frameworks</span> – pure, fast, and lightweight!
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title">👨‍💻 Developer</div>
-      <div class="about-section-content">
-        <strong style="color:#7dd3fc;">Asad Ali s/o Khadam Hussain</strong><br>
-        <span style="color:#f472b6;">Full Stack Developer & Designer</span><br>
-        <a href="mailto:asad@example.com" style="color:#2196f3;text-decoration:underline;">message.asadali@gmail.com</a>
+      <div class="about-section-title" style="color:#2196f3;">👨‍💻 Developer</div>
+      <div class="about-section-content" style="color:#b0b8c1;">
+        <strong style="color:#2196f3;">Asad Ali s/o Khadam Hussain</strong><br>
+        Full Stack Developer & Designer<br>
+        <a href="mailto:message.asadali@gmail.com" style="color:#2196f3;text-decoration:underline;">message.asadali@gmail.com</a>
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title">🙏 Credits & Thanks</div>
- <div class="about-section-content">
-  Icons & images:
-    <a href="https://icons8.com/" target="_blank" style="color:#2196f3;">Icons8</a>,
-    <a href="https://fontawesome.com/" target="_blank" style="color:#2196f3;">Font Awesome</a>,
-    <a href="https://icons.getbootstrap.com/" target="_blank" style="color:#2196f3;">Bootstrap Icons</a>,
-    <span style="color:#7dd3fc;">Bing</span>, and
-    <span style="color:#a78bfa;">open source</span>.<br>
-  <span>
-    Partners &amp; Helpers:
-    <span style="color:#34d399;">MS Copilot</span>,
-    <span style="color:#34d399;">ChatGPT</span>,
-    <span style="color:#34d399;">Neha Sharma</span>
-    (<a href="https://www.linkedin.com/in/neha-sharma-ab34b92a5/" target="_blank" style="color:#2196f3;text-decoration:underline;">linkedin</a>),
-    <span style="color:#fbbf24;">and all my friends</span>.
-  </span><br>
-  <span style="font-weight:500;">
-    Special thanks to the <span style="color:#f472b6;font-weight:600;">Sheryians Coding School</span> community for their <span style="color:#38bdf8;">support and feedback</span>.
-  </span>
-</div>
+      <div class="about-section-title" style="color:#2196f3;">🙏 Credits & Thanks</div>
+      <div class="about-section-content" style="color:#b0b8c1;">
+        Icons & images:
+        <a href="https://icons8.com/" target="_blank" style="color:#2196f3;">Icons8</a>,
+        <a href="https://fontawesome.com/" target="_blank" style="color:#2196f3;">Font Awesome</a>,
+        <a href="https://icons.getbootstrap.com/" target="_blank" style="color:#2196f3;">Bootstrap Icons</a>,
+        Bing, and open source.<br>
+        <span>
+          Partners &amp; Helpers:
+          <span style="color:#34d399;">MS Copilot</span>,
+          <span style="color:#34d399;">ChatGPT</span>,
+          <span style="color:#34d399;">Neha Sharma</span>
+          (<a href="https://www.linkedin.com/in/neha-sharma-ab34b92a5/" target="_blank" style="color:#2196f3;text-decoration:underline;">linkedin</a>),
+          and all my friends.
+        </span><br>
+        <span style="font-weight:500;">
+          Special thanks to the <span style="color:#f472b6;font-weight:600;">Sheryians Coding School</span> community for their
+          <span style="color:#2196f3;">support and feedback</span>.
+        </span>
+      </div>
     </div>
   </div>
-  <div class="about-footer">
-    <span style="color:#7dd3fc;">&copy; 2025 Shery OS</span> &mdash; All rights reserved.
+  <div class="about-footer" style="color:#b0b8c1;">
+    <span style="color:#2196f3;">&copy; 2025 Shery OS</span> &mdash; All rights reserved.
   </div>
 </div>
 `;

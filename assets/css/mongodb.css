@@ -56,6 +56,7 @@
 	cursor: pointer;
 	font-weight: 500;
 	transition: background 0.15s;
+	margin-bottom: 1rem;
 }
 .mongodb-add-db:hover {
 	background: #345c36;
