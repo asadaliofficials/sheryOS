@@ -130,18 +130,16 @@ const backgroundImages = [
 	'assets/images/BG5.jpg',
 ];
 let currentBGIndex = 1;
-document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
-document.querySelector('.change-bg').addEventListener('click', () => {
-	if (currentBGIndex >= backgroundImages.length - 1) {
-		currentBGIndex = 0;
-	} else {
-		currentBGIndex++;
-	}
+backgroundImages.forEach(src => {
+	const img = new Image();
+	img.src = src;
+});
+
+window.addEventListener('DOMContentLoaded', () => {
 	document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
 });
 
 document.querySelector('.new-folder').addEventListener('click', async e => {
-	// customMenu.style.display = 'none';
 	setTimeout(() => {
 		const folderName = prompt('Enter folder name:');
 		if (folderName) {
@@ -150,7 +148,6 @@ document.querySelector('.new-folder').addEventListener('click', async e => {
 	}, 100);
 });
 document.querySelector('.new-note').addEventListener('click', async e => {
-	// customMenu.style.display = 'none';
 	setTimeout(() => {
 		const noteNmae = prompt('Enter note name:');
 		if (noteNmae) {

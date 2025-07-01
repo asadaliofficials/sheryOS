@@ -1,9 +1,14 @@
+body {
+	background-color: #181c24;
+	transition: background-image 0.4s ease;
+}
 .desktop {
 	position: relative;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
 	user-select: none;
+	transition: background-image 0.4s ease;
 }
 
 .desktop-icon {
