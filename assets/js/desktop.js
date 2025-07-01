@@ -409,7 +409,7 @@ function createNewWindow(el, item) {
 		});
 	} else if (item.type === 'notepad') {
 		body.innerHTML = notepadCode;
-		notepadJS(body, item);
+		notepadJS(body, item, desktopItems);
 	} else if (item.type === 'recyclebin') {
 		body.innerHTML = recycleBinCode;
 		initializeChildrens(item, clutter);
