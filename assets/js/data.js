@@ -178,7 +178,7 @@ export const desktopItems = [
 		left: '5%',
 	},
 	{
-		id: 6,
+		id: 7,
 		name: 'New Folder',
 		icon: 'assets/images/folder.png',
 		type: 'folder',
@@ -524,4 +524,17 @@ export function findItemById(items, id) {
 		}
 	}
 	return null;
+}
+
+export function deleteItemById(items, id) {
+	for (let i = 0; i < items.length; i++) {
+		if (items[i].id === id) {
+			items.splice(i, 1);
+			return true;
+		}
+		if (items[i].childrens && items[i].childrens.length > 0) {
+			if (deleteItemById(items[i].childrens, id)) return true;
+		}
+	}
+	return false;
 }

@@ -1,8 +1,17 @@
+import {
+	clipboardItem,
+	clipboardAction,
+	clipboardSourceId,
+	setClipboard,
+	clearClipboard,
+} from './clipboard.js';
+import { deleteItemById } from './data.js';
 const customMenu = document.getElementById('customMenu');
 const desktop = document.querySelector('.desktop');
 import { addItem } from './data.js';
 import { createNewWindow } from './desktop.js';
 import { desktopItems } from './data.js';
+import createDesktop from './desktop.js';
 desktop.addEventListener('contextmenu', event => {
 	event.preventDefault();
 	event.stopPropagation();
@@ -14,9 +23,9 @@ desktop.addEventListener('contextmenu', event => {
 	customMenu.innerHTML = `
         <ul>
             <li class="refresh">Refresh</li>
+            <li class="paste">Paste</li>
             <li class="new-folder">New Folder</li>
             <li class="new-note">New Note</li>
-            <li class="settings">Settings</li>
             <li class="terminal">Terminal</li>
             <li class="change-bg">Change Wallpaper</li>
             <li class='about'>About</li>
@@ -55,15 +64,16 @@ desktop.addEventListener('contextmenu', event => {
 		}, 100); // Adjust delay as needed
 	};
 	customMenu.querySelector('.about').onclick = e => {
-		const item = desktopItems.find(item => item.type === 'about');
-		if (item) {
-			createNewWindow(null, item);
-		} else {
-			alert('About item not found in desktop items.');
-		}
-	};
-	customMenu.querySelector('.settings').onclick = e => {
-		const item = desktopItems.find(item => item.type === 'settings');
+		const item = {
+			name: 'About Shery OS',
+			icon: 'assets/images/user.png',
+			type: 'about',
+			isResizeable: true,
+			width: '50%',
+			height: '60%',
+			top: '20%',
+			left: '25%',
+		};
 		createNewWindow(null, item);
 	};
 	customMenu.querySelector('.terminal').onclick = e => {
@@ -98,6 +108,22 @@ desktop.addEventListener('contextmenu', event => {
 			}
 		}, 100);
 	};
+	if (clipboardItem) {
+		customMenu.querySelector('.paste').style.display = 'block';
+	} else {
+		customMenu.querySelector('.paste').style.display = 'none';
+	}
+	customMenu.querySelector('.paste')?.addEventListener('click', () => {
+		if (clipboardItem) {
+			const newItem = { ...clipboardItem, id: Date.now() + Math.random() };
+			desktopItems.push(newItem);
+			createDesktop(desktopItems);
+			if (clipboardAction === 'cut' && clipboardSourceId != null) {
+				deleteItemById(desktopItems, clipboardSourceId);
+				clearClipboard();
+			}
+		}
+	});
 });
 
 document.addEventListener('click', () => {

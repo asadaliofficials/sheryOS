@@ -1,4 +1,11 @@
-import { addChildItem, desktopItems, findItemById } from './data.js';
+import { addChildItem, desktopItems, findItemById, deleteItemById } from './data.js';
+import {
+	clipboardItem,
+	clipboardAction,
+	clipboardSourceId,
+	setClipboard,
+	clearClipboard,
+} from './clipboard.js';
 import {
 	flapyBirdCode,
 	calculatorCode,
@@ -11,6 +18,7 @@ import {
 	recycleBinCode,
 	thisPcCode,
 	folderCode,
+	aboutCode,
 } from './html-codes.js';
 import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
@@ -107,49 +115,56 @@ function addEventListeners(el, item) {
 	el.addEventListener('contextmenu', e => {
 		e.preventDefault();
 		e.stopPropagation();
+		selectedItem = item;
 		const customMenu = document.querySelector('.custom-menu');
 		customMenu.innerHTML = `
-					<ul>
-					<li class="open">Open</li>
-					<li class="copy">Copy</li>
-					<li class="cut">Cut</li>
-					<li class='delete'>Delete</li>
-					<li class='rename'>Rename file</li>
-					<li class='about-file'>About this file</li>
-				</ul>
-				`;
+        <ul>
+            <li class="open">Open</li>
+            <li class="copy">Copy</li>
+            <li class="cut">Cut</li>
+            <li class="delete">Delete</li>
+            <li class="rename">Rename</li>
+            <li class="about-file">About this file</li>
+        </ul>
+    `;
 		customMenu.style.display = 'block';
 		customMenu.style.top = `${e.clientY}px`;
 		customMenu.style.left = `${e.clientX}px`;
-		customMenu.querySelector('.open').addEventListener('click', e => {
-			createNewWindow(el, item);
-		});
-		customMenu.querySelector('.copy').addEventListener('click', e => {
+
+		// Attach menu actions:
+		customMenu.querySelector('.open').onclick = () => createNewWindow(el, item);
+
+		customMenu.querySelector('.copy').onclick = () => {
+			setClipboard({ ...item, id: Date.now() + Math.random() }, 'copy');
+		};
+		customMenu.querySelector('.cut').onclick = () => {
 			setTimeout(() => {
-				alert('This logic is under construction!');
-			}, 10);
-		});
-		customMenu.querySelector('.cut').addEventListener('click', e => {
+				alert('this logic is not implemented yet!');
+			}, 100);
+		};
+		customMenu.querySelector('.delete').onclick = () => {
+			deleteItemById(desktopItems, item.id);
+			createDesktop(desktopItems);
+		};
+
+		customMenu.querySelector('.rename').onclick = () => {
 			setTimeout(() => {
-				alert('This logic is under construction!');
-			}, 10);
-		});
-		customMenu.querySelector('.delete').addEventListener('click', e => {
-			el.remove();
-		});
-		customMenu.querySelector('.rename').addEventListener('click', e => {
-			setTimeout(() => {
-				let newName = prompt('Enter new name');
+				const newName = prompt('Enter new name:', item.name);
 				if (newName) {
+					const realItem = findItemById(desktopItems, item.id);
+					if (realItem) {
+						realItem.name = newName;
+						createDesktop(desktopItems);
+					}
 				}
 			}, 10);
-		});
-		customMenu.querySelector('.about-file').addEventListener('click', e => {
-			setTimeout(() => {
-				alert('This logic is under construction!');
-			}, 10);
-		});
-		// Position menu within viewport
+		};
+
+		customMenu.querySelector('.about-file').onclick = () => {
+			alert(`Name: ${item.name}\nType: ${item.type}`);
+		};
+
+		// Position menu within viewport (as you already do)
 		const rect = customMenu.getBoundingClientRect();
 		if (rect.right > window.innerWidth) {
 			customMenu.style.left = `${window.innerWidth - rect.width}px`;
@@ -341,6 +356,8 @@ function createNewWindow(el, item) {
 		recycleBinJS(body);
 	} else if (item.type === 'thispc') {
 		body.innerHTML = thisPcCode;
+	} else if (item.type === 'about') {
+		body.innerHTML = aboutCode;
 	} else if (item.type === 'folder') {
 		body.innerHTML = folderCode;
 		clutter.folderNavStack = [item];
@@ -428,6 +445,7 @@ function createIcon(item) {
 	el.style.left = item.x + 'px';
 	el.style.top = item.y + 'px';
 	el.innerHTML = `<img src="${item.icon}" /><p>${item.name}</p>`;
+	el.dataset.id = item.id;
 
 	// Mark initial grid cell as occupied
 	const { col, row } = getGridCell(item.x, item.y);
@@ -545,3 +563,5 @@ function bringWindowToFront(clutter) {
 }
 
 export function onTerminalEnter() {}
+
+let selectedItem = null;
