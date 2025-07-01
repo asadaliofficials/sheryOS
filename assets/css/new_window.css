@@ -119,14 +119,11 @@
 	filter: invert(1) brightness(1.2);
 }
 
-/* --- Window Resize Handles and Cursors --- */
 .window-resizer {
 	position: absolute;
 	z-index: 20;
-	/* No background, invisible but clickable */
 }
 
-/* Corners */
 .window-resizer.nw {
 	top: -4px;
 	left: -4px;
@@ -156,7 +153,6 @@
 	cursor: nwse-resize;
 }
 
-/* Edges */
 .window-resizer.n {
 	top: -4px;
 	left: 12px;

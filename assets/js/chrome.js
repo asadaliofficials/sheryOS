@@ -8,7 +8,6 @@ export default function chromeJS(body) {
 	let bingLogo = body.querySelector('.bing-logo');
 	let bingSearch = body.querySelector('.bing-search');
 
-	// Handle Bing search form submit
 	searchForm.addEventListener('submit', e => {
 		e.preventDefault();
 		bingLogo.style.display = 'none';

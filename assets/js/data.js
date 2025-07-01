@@ -524,7 +524,7 @@ export const addChildItem = (parentId, name, icon, type) => {
 			name: name,
 			icon: icon,
 			type: type,
-			id: Date.now() + Math.random(), // Use a unique id for all children!
+			id: Date.now() + Math.random(), 
 			...(isFolder && { childrens: [] }),
 			...(!isFolder && {
 				isResizeable: true,

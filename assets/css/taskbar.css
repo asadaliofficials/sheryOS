@@ -162,10 +162,8 @@
 	transition: all 0.1s ease;
 }
 
-/* Styles for Calendar */
-
 .calendar {
-	right: -320px; /* Start hidden off-screen */
+	right: -320px;
 	bottom: 60px;
 	position: absolute;
 	width: 300px;
@@ -259,7 +257,6 @@
 	cursor: pointer;
 }
 
-/* Styles for control layout */
 .control-layout {
 	position: absolute;
 	background-color: #2b2b28;
@@ -320,7 +317,7 @@
 	}
 }
 .control-layout.control-layout--open {
-	bottom: 60px; /* Slide up to visible */
+	bottom: 60px;
 	opacity: 1;
 	pointer-events: auto;
 }
@@ -390,7 +387,7 @@
 	position: absolute;
 	object-fit: contain;
 	left: 10px;
-	bottom: -650px; /* Hide below the screen */
+	bottom: -650px;
 	border-radius: 10px;
 	/* background-color: red; */
 	box-shadow: 0 10px 20px rgba(159, 158, 158, 0.3);
@@ -434,4 +431,3 @@
 .taskbar-minimized::after {
 	background: rgba(136, 133, 133, 0.533);
 }
-

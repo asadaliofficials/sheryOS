@@ -20,7 +20,7 @@ function renderTaskbarIcons() {
 		taskbarItem.setAttribute('data-id', item.id);
 		taskbarItem.innerHTML = `<img src="${desktopItem.icon}" alt="${desktopItem.name}">`;
 
-		// Add indicator for open/minimized
+
 		if (item.isOpen) {
 			taskbarItem.classList.add('taskbar-open');
 			if (item.minimized) {
@@ -41,13 +41,13 @@ function renderTaskbarIcons() {
 					updateTaskbar();
 					bringWindowToFront(item.windowRef);
 				} else if (item.windowRef) {
-					// Always bring to front, even if not minimized
+
 					item.windowRef.style.display = 'block';
 					item.windowRef.focus();
 					bringWindowToFront(item.windowRef);
 				}
 			} else {
-				// Open window if not open
+
 				createNewWindow(null, desktopItem);
 			}
 		});
@@ -56,8 +56,8 @@ function renderTaskbarIcons() {
 	});
 }
 
-// Listen for taskbar updates
+
 window.addEventListener('taskbarUpdate', renderTaskbarIcons);
 
-// Initial render
+
 renderTaskbarIcons();

@@ -1,7 +1,6 @@
 import { addItem } from './data.js';
 
 export default function terminalJS(container) {
-	// initInput(container);
 	onEnter('help', container.querySelector('.terminal-content'), initInput);
 
 	let input = '';
@@ -23,7 +22,6 @@ export default function terminalJS(container) {
 		const terminalContent = currentContainer.querySelector('.terminal-content');
 		renderInput(terminalContent);
 
-		// Remove previous event listeners by cloning
 		const newContainer = currentContainer.cloneNode(true);
 		currentContainer.parentNode.replaceChild(newContainer, currentContainer);
 
@@ -43,7 +41,7 @@ export default function terminalJS(container) {
 				}
 				e.preventDefault();
 			} else if (e.key === 'Enter') {
-				onEnter(input, newTerminalContent, (/* no param needed */) => initInput(newContainer));
+				onEnter(input, newTerminalContent, () => initInput(newContainer));
 				input = '';
 				cursorPos = 0;
 				renderInput(newTerminalContent);
@@ -61,26 +59,23 @@ function onEnter(input, terminalContent, initInput) {
 	if (input.trim() === '') return;
 
 	const inputLine = terminalContent.querySelector('.terminal-line:last-child');
-	// Insert the command line
+
 	const commandLine = document.createElement('div');
 	commandLine.className = 'terminal-line';
 	commandLine.innerHTML = `<span class="terminal-path">C:\\Users\\Asad Ali&gt;</span> <span style="color:orange">${input}</span>`;
 	terminalContent.insertBefore(commandLine, inputLine);
 
-	// Helper to insert output below the command
 	const addOutput = msg => {
 		const outputLine = document.createElement('div');
 		outputLine.className = 'terminal-line';
 		outputLine.innerHTML = msg;
 		terminalContent.insertBefore(outputLine, inputLine);
 
-		// Add a blank line for spacing
 		const blankLine = document.createElement('div');
 		blankLine.className = 'terminal-line';
 		blankLine.innerHTML = '&nbsp;';
 		terminalContent.insertBefore(blankLine, inputLine);
 
-		// Scroll to bottom
 		terminalContent.scrollTop = terminalContent.scrollHeight;
 	};
 
@@ -110,13 +105,12 @@ function onEnter(input, terminalContent, initInput) {
                           <span style="color:#d4d4d4;margin-left:24px;">${desc}</span>`;
 			terminalContent.insertBefore(line, inputLine);
 		});
-		// Add a blank line after help
+
 		const blankLine = document.createElement('div');
 		blankLine.className = 'terminal-line';
 		blankLine.innerHTML = '&nbsp;';
 		terminalContent.insertBefore(blankLine, inputLine);
 
-		// Scroll to bottom
 		terminalContent.scrollTop = terminalContent.scrollHeight;
 	} else if (input.trim().toLowerCase() === 'date') {
 		const today = new Date();

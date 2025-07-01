@@ -31,14 +31,14 @@
 }
 .spinner {
 	box-sizing: border-box;
-	width: 60px; /* Increased size */
-	height: 60px; /* Increased size */
+	width: 60px;
+	height: 60px;
 	padding: 3px;
 	overflow: visible;
 }
 .spinner > circle {
-	stroke: #fff !important; /* White color */
-	stroke-width: 9px !important; /* Bolder stroke */
+	stroke: #fff !important;
+	stroke-width: 9px !important;
 }
 .win-loader.fade-out {
 	animation: loaderFadeOut 1s forwards;

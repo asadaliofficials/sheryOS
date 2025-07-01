@@ -34,15 +34,13 @@ import notepadJS from './notepad.js';
 import recycleBinJS from './recyclebin.js';
 import terminalJS from './terminal.js';
 import chromeJS from './chrome.js';
-const GRID_SIZE_Y = 100; // vertical gap (row height)
-const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
+const GRID_SIZE_Y = 100;
+const GRID_SIZE_X = 85;
 const ICON_OFFSET_X = 10;
 const ICON_OFFSET_Y = 30;
 
 let GRID_COLS, GRID_ROWS;
-// Initialize terminal
 
-// Calculate grid cols/rows based on window size
 function updateGridSize() {
 	const desktop = document.querySelector('.desktop');
 	const width = desktop ? desktop.clientWidth : window.innerWidth;
@@ -54,10 +52,8 @@ function updateGridSize() {
 updateGridSize();
 window.addEventListener('resize', () => {
 	updateGridSize();
-	// Optionally, re-render icons here if you want them to reposition on resize
 });
 
-// Track occupied grid cells
 const occupied = {};
 
 function getGridCell(x, y) {
@@ -82,7 +78,6 @@ function makeDraggable(el) {
 		offsetY = e.clientY - el.offsetTop;
 		el.style.zIndex = 1000;
 
-		// Save starting cell
 		const { col, row } = getGridCell(el.offsetLeft, el.offsetTop);
 		startCol = col;
 		startRow = row;
@@ -98,18 +93,15 @@ function makeDraggable(el) {
 			document.onmousemove = null;
 			document.onmouseup = null;
 
-			// Snap to nearest grid cell
 			const { col, row } = getGridCell(el.offsetLeft, el.offsetTop);
 			const key = getCellKey(col, row);
 
-			// If cell is occupied, revert to original
 			if (occupied[key] && occupied[key] !== el) {
 				el.style.left = `${startCol * GRID_SIZE_X + ICON_OFFSET_X}px`;
 				el.style.top = `${startRow * GRID_SIZE_Y + ICON_OFFSET_Y}px`;
 			} else {
-				// Free old cell
 				occupied[getCellKey(startCol, startRow)] = null;
-				// Occupy new cell
+
 				occupied[key] = el;
 				el.style.left = `${col * GRID_SIZE_X + ICON_OFFSET_X}px`;
 				el.style.top = `${row * GRID_SIZE_Y + ICON_OFFSET_Y}px`;
@@ -139,7 +131,6 @@ function addEventListeners(el, item) {
 		customMenu.style.top = `${e.clientY}px`;
 		customMenu.style.left = `${e.clientX}px`;
 
-		// Attach menu actions:
 		customMenu.querySelector('.open').onclick = () => createNewWindow(el, item);
 
 		customMenu.querySelector('.copy').onclick = () => {
@@ -171,7 +162,6 @@ function addEventListeners(el, item) {
 			}, 10);
 		};
 
-		// Position menu within viewport (as you already do)
 		const rect = customMenu.getBoundingClientRect();
 		if (rect.right > window.innerWidth) {
 			customMenu.style.left = `${window.innerWidth - rect.width}px`;
@@ -193,7 +183,6 @@ function addEventListeners(el, item) {
 }
 
 function createNewWindow(el, item) {
-	// console.log(item);
 	const clutter = document.createElement('div');
 	clutter.className = 'window-wrapper';
 	clutter.style.width = item.width || '50%';
@@ -237,7 +226,6 @@ function createNewWindow(el, item) {
 	}
 	document.body.appendChild(clutter);
 
-	// Update or add taskbar item
 	let taskbarItem = taskbarItems.find(i => i.id === item.id);
 	if (taskbarItem) {
 		taskbarItem.windowRef = clutter;
@@ -254,7 +242,6 @@ function createNewWindow(el, item) {
 	}
 	updateTaskbar();
 
-	// Close logic
 	clutter.querySelector('.close').addEventListener('click', () => {
 		clutter.remove();
 		const idx = taskbarItems.findIndex(i => i.id === item.id);
@@ -264,13 +251,12 @@ function createNewWindow(el, item) {
 				taskbarItems[idx].windowRef = null;
 				taskbarItems[idx].minimized = false;
 			} else {
-				taskbarItems.splice(idx, 1); // Remove non-pinned item
+				taskbarItems.splice(idx, 1);
 			}
 			updateTaskbar();
 		}
 	});
 
-	// Minimize logic
 	clutter.querySelector('.minimize').addEventListener('click', () => {
 		clutter.style.display = 'none';
 		const taskbarItem = taskbarItems.find(i => i.id === item.id);
@@ -309,10 +295,10 @@ function createNewWindow(el, item) {
 	});
 	const allWindows = document.querySelectorAll('.window-wrapper');
 	allWindows.forEach(win => {
-		win.style.zIndex = 1; // Reset z-index
+		win.style.zIndex = 1;
 	});
-	clutter.style.zIndex = 10; // Bring this window to front
-	// Add resizable functionality if needed
+	clutter.style.zIndex = 10;
+
 	if (item.isResizeable) {
 		const resizers = clutter.querySelectorAll('.window-resizer');
 		resizers.forEach(resizer => {
@@ -325,7 +311,7 @@ function createNewWindow(el, item) {
 				const startHeight = parseInt(document.defaultView.getComputedStyle(clutter).height, 10);
 				const startTop = parseInt(document.defaultView.getComputedStyle(clutter).top, 10);
 				const startLeft = parseInt(document.defaultView.getComputedStyle(clutter).left, 10);
-				const direction = resizer.classList[1]; // Get the direction from class name
+				const direction = resizer.classList[1];
 				document.documentElement.addEventListener('mousemove', resize);
 				document.documentElement.addEventListener('mouseup', stopResize);
 				const MIN_WIDTH = 200;
@@ -359,9 +345,8 @@ function createNewWindow(el, item) {
 		});
 	}
 
-	// move window on drag header
 	clutter.querySelector('.header').addEventListener('mousedown', e => {
-		bringWindowToFront(clutter); // <-- Add this line
+		bringWindowToFront(clutter);
 		e.preventDefault();
 		e.stopPropagation();
 		let offsetX = e.clientX - clutter.offsetLeft;
@@ -432,7 +417,6 @@ function createNewWindow(el, item) {
 
 		newFolderBtn.onclick = () => {
 			const folderName = prompt('Enter folder name:');
-			// Use the current folder being viewed, not the original item
 			const current = clutter.currentFolderItem || item;
 			if (folderName) {
 				addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder');
@@ -457,7 +441,6 @@ function createNewWindow(el, item) {
 			if (clutter.folderNavStack && clutter.folderNavIndex > 0) {
 				clutter.folderNavIndex--;
 				const prevItem = clutter.folderNavStack[clutter.folderNavIndex];
-				// Update header/title
 				const folderTitle = clutter.querySelector('.folder-title');
 				if (folderTitle) {
 					folderTitle.innerHTML = `<img src="${prevItem.icon}" /> ${prevItem.name}`;
@@ -474,7 +457,6 @@ function createNewWindow(el, item) {
 			if (clutter.folderNavStack && clutter.folderNavIndex < clutter.folderNavStack.length - 1) {
 				clutter.folderNavIndex++;
 				const nextItem = clutter.folderNavStack[clutter.folderNavIndex];
-				// Update header/title
 				const folderTitle = clutter.querySelector('.folder-title');
 				if (folderTitle) {
 					folderTitle.innerHTML = `<img src="${nextItem.icon}" /> ${nextItem.name}`;
@@ -507,7 +489,6 @@ function createIcon(item) {
 	el.innerHTML = `<img src="${item.icon}" /><p>${item.name}</p>`;
 	el.dataset.id = item.id;
 
-	// Mark initial grid cell as occupied
 	const { col, row } = getGridCell(item.x, item.y);
 	occupied[getCellKey(col, row)] = el;
 
@@ -519,7 +500,6 @@ function createIcon(item) {
 const createDesktop = desktopItems => {
 	const documentFragment = document.createDocumentFragment();
 	desktopItems.forEach((item, index) => {
-		// Place icons in columns: fill down, then next column
 		const col = Math.floor(index / GRID_ROWS);
 		const row = index % GRID_ROWS;
 		const icon = createIcon({
@@ -529,8 +509,6 @@ const createDesktop = desktopItems => {
 		});
 		documentFragment.appendChild(icon);
 	});
-	console.log('desktop changed');
-	// Clear existing desktop content
 	document.querySelector('.desktop').innerHTML = '';
 	document.querySelector('.desktop').appendChild(documentFragment);
 };
@@ -539,7 +517,6 @@ createDesktop(desktopItems);
 export default createDesktop;
 
 function initializeChildrens(item, clutter) {
-	console.log(item);
 	const folderContent = clutter.querySelector('.folder-content');
 	if (item.childrens.length > 0) {
 		let childrensHTML = '';
@@ -553,14 +530,12 @@ function initializeChildrens(item, clutter) {
 		});
 		folderContent.innerHTML = childrensHTML;
 
-		// Add double-click event to each child
 		const rows = folderContent.querySelectorAll('.folder-row');
 		rows.forEach(row => {
 			row.addEventListener('dblclick', () => {
 				const idx = row.getAttribute('data-child-idx');
 				const child = item.childrens[idx];
 				if (child.type === 'folder') {
-					// Navigate in the same window (as before)
 					if (clutter.folderNavStack && clutter.folderNavIndex !== undefined) {
 						clutter.folderNavStack = clutter.folderNavStack.slice(0, clutter.folderNavIndex + 1);
 						clutter.folderNavStack.push(child);
@@ -569,7 +544,6 @@ function initializeChildrens(item, clutter) {
 						clutter.folderNavStack = [child];
 						clutter.folderNavIndex = 0;
 					}
-					// Update header/title
 					const folderTitle = clutter.querySelector('.folder-title');
 					if (folderTitle) {
 						folderTitle.innerHTML = `<img src="${child.icon}" /> ${child.name}`;
@@ -579,7 +553,6 @@ function initializeChildrens(item, clutter) {
 					initializeChildrens(child, clutter);
 					clutter.currentFolderItem = child;
 				} else if (child.type === 'notepad') {
-					// Open notepad in a new window
 					createNewWindow(null, child);
 				}
 			});
@@ -617,9 +590,9 @@ function updateNavButtons(clutter) {
 function bringWindowToFront(clutter) {
 	const allWindows = document.querySelectorAll('.window-wrapper');
 	allWindows.forEach(win => {
-		win.style.zIndex = 1; // Reset z-index
+		win.style.zIndex = 1;
 	});
-	clutter.style.zIndex = 10; // Bring this window to front
+	clutter.style.zIndex = 10;
 }
 export { bringWindowToFront };
 export function onTerminalEnter() {}

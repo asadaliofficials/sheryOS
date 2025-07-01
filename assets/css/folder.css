@@ -82,14 +82,13 @@
 
 .folder-row span {
 	text-align: center;
-	/* word-break: break-all; */
 	margin-top: 2px;
 	font-size: 15px;
 	color: #e0e0e0;
 	width: 100%;
 	display: block;
 	display: -webkit-box;
-	-webkit-line-clamp: 2; /* Number of lines */
+	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;

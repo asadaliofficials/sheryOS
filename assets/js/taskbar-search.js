@@ -31,7 +31,7 @@ function showPanel() {
 	updateResults();
 }
 
-// Hide panel on outside click
+
 document.addEventListener('click', e => {
 	if (!searchPanel.contains(e.target) && !searchDiv.contains(e.target)) {
 		searchPanel.style.display = 'none';
@@ -39,7 +39,7 @@ document.addEventListener('click', e => {
 	}
 });
 
-// Live search
+
 searchInputBox.addEventListener('input', updateResults);
 
 function updateResults() {
@@ -74,7 +74,6 @@ function updateResults() {
 			taskbarSearchInput.value = '';
 
 			searchPanel.style.display = 'none';
-			// Taskbar logic: open, restore, or bring to front
 			const taskbarItem = taskbarItems.find(i => i.id === item.id && i.isOpen);
 			if (!taskbarItem) {
 				createNewWindow(null, item);

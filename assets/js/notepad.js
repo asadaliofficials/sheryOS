@@ -3,16 +3,16 @@ export default function notepadJS(container, item, desktopItems) {
 	const saveBtn = container.querySelector('.notepad-save');
 	const clearBtn = container.querySelector('.notepad-clear');
 
-	// Show value if present
+	
 	if (item.value != '' && item.value !== undefined) {
 		textarea.value = item.value;
 	}
 
 	saveBtn.addEventListener('click', () => {
-		// Update the value in the data structure
+
 		item.value = textarea.value;
 
-		// Also update the value in the main desktopItems array
+
 		const updateValue = items => {
 			for (let i = 0; i < items.length; i++) {
 				if (items[i].id === item.id) {

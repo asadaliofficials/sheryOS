@@ -21,8 +21,6 @@ function addZero(num) {
 updateTime();
 setInterval(updateTime, 1000);
 
-// js for slider to change values on change
-
 document
 	.querySelectorAll('.control-layout .sliders input[type="range"]')
 	.forEach(function (slider) {
@@ -30,20 +28,16 @@ document
 
 		function updateSlider() {
 			const val = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-			// Update background for Windows 11 style
+
 			slider.style.background = `linear-gradient(to right, #2196f3 ${val}%, #e0e0e0 ${val}%)`;
-			// Update percent text
+
 			if (percentText) percentText.textContent = `${Math.round(val)}%`;
 		}
 
-		// Initial update
 		updateSlider();
 
-		// Listen for input changes
 		slider.addEventListener('input', updateSlider);
 	});
-
-// js for time clicke event to show calendar
 
 const time = document.querySelector('.time');
 const calendar = document.querySelector('.calendar');
@@ -52,13 +46,9 @@ time.addEventListener('click', () => {
 	calendar.classList.toggle('calendar--open');
 });
 
-// ...existing code...
-
-// Toggle control layout with animation from bottom
 const wifiSound = document.querySelector('.wifi-sound');
 const controlLayout = document.querySelector('.control-layout');
 
-// Optional: close when clicking outside
 document.addEventListener('click', function (e) {
 	if (!controlLayout.contains(e.target) && !wifiSound.contains(e.target)) {
 		controlLayout.classList.remove('control-layout--open');
@@ -81,13 +71,11 @@ const startImg = document.querySelector('.start-img');
 startBtn.addEventListener('click', function (e) {
 	e.stopPropagation();
 	startImg.classList.toggle('start-img--open');
-	// Hide other panels when start menu opens
 	controlLayout.classList.remove('control-layout--open');
 	calendar.classList.remove('calendar--open');
 });
 
 const taskbar = document.querySelector('.taskbar');
-console.log(taskbar);
 taskbar.addEventListener('contextmenu', function (e) {
 	e.preventDefault();
 });

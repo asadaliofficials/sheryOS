@@ -16,7 +16,6 @@ desktop.addEventListener('contextmenu', event => {
 	event.preventDefault();
 	event.stopPropagation();
 
-	// Show menu off-screen to measure its height
 	customMenu.style.display = 'block';
 	customMenu.style.top = '-9999px';
 	customMenu.style.left = '-9999px';
@@ -34,18 +33,16 @@ desktop.addEventListener('contextmenu', event => {
 
 	const menuHeight = customMenu.offsetHeight;
 	const menuWidth = customMenu.offsetWidth;
-	const padding = 0; // space between pointer and menu
+	const padding = 0;
 
 	let top = event.pageY + padding;
 	let left = event.pageX;
 
-	// Check if there's enough space below, else show above
 	if (event.pageY + menuHeight + padding > window.innerHeight) {
 		top = event.pageY - menuHeight - padding;
 		if (top < 0) top = 0;
 	}
 
-	// Prevent menu from going off right edge
 	if (left + menuWidth > window.innerWidth) {
 		left = window.innerWidth - menuWidth - padding;
 		if (left < 0) left = 0;
@@ -55,13 +52,12 @@ desktop.addEventListener('contextmenu', event => {
 	customMenu.style.left = `${left}px`;
 	customMenu.style.display = 'block';
 
-	// Attach event listeners after setting innerHTML
 	customMenu.querySelector('.refresh').onclick = e => {
 		const desktop = document.querySelector('.desktop');
-		desktop.style.display = 'none'; // Hide desktop
+		desktop.style.display = 'none';
 		setTimeout(() => {
-			desktop.style.display = 'block'; // Show desktop afte r a short delay
-		}, 100); // Adjust delay as needed
+			desktop.style.display = 'block';
+		}, 100);
 	};
 	customMenu.querySelector('.about').onclick = e => {
 		const item = {
