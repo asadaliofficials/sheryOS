@@ -1,4 +1,6 @@
 import { addChildItem, desktopItems, findItemById, deleteItemById } from './data.js';
+import { taskbarItems, updateTaskbar } from './taskbarData.js';
+
 import {
 	clipboardItem,
 	clipboardAction,
@@ -174,7 +176,14 @@ function addEventListeners(el, item) {
 		}
 	});
 	el.addEventListener('dblclick', () => {
-		createNewWindow(el, item);
+		const taskbarItem = taskbarItems.find(i => i.id === item.id && i.isOpen);
+		if (!taskbarItem) {
+			createNewWindow(el, item);
+		} else if (taskbarItem.minimized && taskbarItem.windowRef) {
+			taskbarItem.windowRef.style.display = 'block';
+			taskbarItem.minimized = false;
+			updateTaskbar();
+		}
 	});
 }
 
@@ -223,8 +232,47 @@ function createNewWindow(el, item) {
 	}
 	document.body.appendChild(clutter);
 
+	// Update or add taskbar item
+	let taskbarItem = taskbarItems.find(i => i.id === item.id);
+	if (taskbarItem) {
+		taskbarItem.windowRef = clutter;
+		taskbarItem.isOpen = true;
+		taskbarItem.minimized = false;
+	} else {
+		taskbarItems.push({
+			id: item.id,
+			windowRef: clutter,
+			minimized: false,
+			isOpen: true,
+			pinned: false,
+		});
+	}
+	updateTaskbar();
+
+	// Close logic
 	clutter.querySelector('.close').addEventListener('click', () => {
 		clutter.remove();
+		const idx = taskbarItems.findIndex(i => i.id === item.id);
+		if (idx !== -1) {
+			if (taskbarItems[idx].pinned) {
+				taskbarItems[idx].isOpen = false;
+				taskbarItems[idx].windowRef = null;
+				taskbarItems[idx].minimized = false;
+			} else {
+				taskbarItems.splice(idx, 1); // Remove non-pinned item
+			}
+			updateTaskbar();
+		}
+	});
+
+	// Minimize logic
+	clutter.querySelector('.minimize').addEventListener('click', () => {
+		clutter.style.display = 'none';
+		const taskbarItem = taskbarItems.find(i => i.id === item.id);
+		if (taskbarItem) {
+			taskbarItem.minimized = true;
+			updateTaskbar();
+		}
 	});
 	clutter.querySelector('.maximize').addEventListener('click', () => {
 		if (item.isResizeable) {
@@ -245,6 +293,11 @@ function createNewWindow(el, item) {
 	});
 	clutter.querySelector('.minimize').addEventListener('click', () => {
 		clutter.style.display = 'none';
+		const taskbarItem = taskbarItems.find(i => i.id === item.id);
+		if (taskbarItem) {
+			taskbarItem.minimized = true;
+			updateTaskbar(taskbarItem);
+		}
 	});
 	clutter.addEventListener('mousedown', () => {
 		bringWindowToFront(clutter);
@@ -561,7 +614,7 @@ function bringWindowToFront(clutter) {
 	});
 	clutter.style.zIndex = 10; // Bring this window to front
 }
-
+export { bringWindowToFront };
 export function onTerminalEnter() {}
 
 let selectedItem = null;

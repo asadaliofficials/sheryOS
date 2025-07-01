@@ -111,7 +111,7 @@ export const desktopItems = [
 		left: '20%',
 	},
 	{
-		id: 7,
+		id: 6,
 		name: 'My Note',
 		icon: 'assets/images/note.png',
 		type: 'notepad',
@@ -123,7 +123,7 @@ export const desktopItems = [
 		value: '',
 	},
 	{
-		id: 10,
+		id: 7,
 		name: 'Chrome',
 		icon: 'assets/images/chrome.png',
 		type: 'chrome',
@@ -134,7 +134,7 @@ export const desktopItems = [
 		left: '10%',
 	},
 	{
-		id: 11,
+		id: 8,
 		name: 'VS Code',
 		icon: 'assets/images/vs-code.png',
 		type: 'vs-code',
@@ -145,7 +145,7 @@ export const desktopItems = [
 		left: '5%',
 	},
 	{
-		id: 12,
+		id: 9,
 		name: 'Mongo DB',
 		icon: 'assets/images/mongodb.png',
 		type: 'mongodb',
@@ -156,7 +156,7 @@ export const desktopItems = [
 		left: '20%',
 	},
 	{
-		id: 13,
+		id: 10,
 		name: 'Calculator',
 		icon: 'assets/images/calculator.png',
 		type: 'calculator',
@@ -167,7 +167,7 @@ export const desktopItems = [
 		left: '30%',
 	},
 	{
-		id: 15,
+		id: 11,
 		name: 'Flappy Bird',
 		icon: 'assets/images/flappy-bird.png',
 		type: 'flappy-bird',
@@ -178,7 +178,7 @@ export const desktopItems = [
 		left: '5%',
 	},
 	{
-		id: 7,
+		id: 12,
 		name: 'New Folder',
 		icon: 'assets/images/folder.png',
 		type: 'folder',
@@ -190,7 +190,7 @@ export const desktopItems = [
 		childrens: [],
 	},
 	{
-		id: 6,
+		id: 13,
 		name: 'Parent',
 		icon: 'assets/images/folder.png',
 		type: 'folder',
@@ -201,26 +201,26 @@ export const desktopItems = [
 		left: '10%',
 		childrens: [
 			{
-				id: 6.1,
+				id: 13.1,
 				name: 'Child',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
 				childrens: [
 					{
-						id: 6.11,
+						id: 13.11,
 						name: 'Grand Child',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.111,
+								id: 13.111,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.112,
+								id: 13.112,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -229,20 +229,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.12,
+						id: 13.12,
 						name: 'Grand Child 2',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.121,
+								id: 13.121,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.122,
+								id: 13.122,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -251,20 +251,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.13,
+						id: 13.13,
 						name: 'Grand Child 3',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.131,
+								id: 13.131,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.132,
+								id: 13.132,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -273,7 +273,7 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.14,
+						id: 13.14,
 						name: 'Grand Child Notes',
 						icon: 'assets/images/note.png',
 						type: 'notepad',
@@ -287,26 +287,26 @@ export const desktopItems = [
 				],
 			},
 			{
-				id: 6.2,
+				id: 13.2,
 				name: 'Child 2',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
 				childrens: [
 					{
-						id: 6.21,
+						id: 13.21,
 						name: 'Grand Child',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.211,
+								id: 13.211,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.222,
+								id: 13.222,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -315,20 +315,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.22,
+						id: 13.22,
 						name: 'Grand Child 2',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.221,
+								id: 13.221,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.222,
+								id: 13.222,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -337,20 +337,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.23,
+						id: 13.23,
 						name: 'Grand Child 3',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.231,
+								id: 13.231,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.232,
+								id: 13.232,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -359,7 +359,7 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.24,
+						id: 13.24,
 						name: 'Grand Child Notes',
 						icon: 'assets/images/note.png',
 						type: 'notepad',
@@ -373,26 +373,26 @@ export const desktopItems = [
 				],
 			},
 			{
-				id: 6.3,
+				id: 13.3,
 				name: 'Child 3',
 				icon: 'assets/images/folder.png',
 				type: 'folder',
 				childrens: [
 					{
-						id: 6.31,
+						id: 13.31,
 						name: 'Grand Child',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.311,
+								id: 13.311,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.312,
+								id: 13.312,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -401,20 +401,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.32,
+						id: 13.32,
 						name: 'Grand Child 2',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.321,
+								id: 13.321,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.322,
+								id: 13.322,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -423,20 +423,20 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.33,
+						id: 13.33,
 						name: 'Grand Child 3',
 						icon: 'assets/images/folder.png',
 						type: 'folder',
 						childrens: [
 							{
-								id: 6.331,
+								id: 13.331,
 								name: 'Asad',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
 								childrens: [],
 							},
 							{
-								id: 6.332,
+								id: 13.332,
 								name: 'Ali',
 								icon: 'assets/images/folder.png',
 								type: 'folder',
@@ -445,7 +445,7 @@ export const desktopItems = [
 						],
 					},
 					{
-						id: 6.34,
+						id: 13.34,
 						name: 'Grand Child Notes',
 						icon: 'assets/images/note.png',
 						type: 'notepad',
@@ -459,7 +459,7 @@ export const desktopItems = [
 				],
 			},
 			{
-				id: 6.4,
+				id: 13.4,
 				name: 'Child Notes',
 				icon: 'assets/images/note.png',
 				type: 'notepad',

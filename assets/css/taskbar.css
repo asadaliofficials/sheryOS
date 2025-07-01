@@ -32,7 +32,7 @@
 	margin-right: 4px;
 }
 .taskbar-hover:hover {
-	border-radius: 15%;
+	/* border-radius: 15%; */
 	cursor: pointer;
 	background-color: #323232;
 }
@@ -189,7 +189,7 @@
 
 .calendar__picture {
 	position: relative;
-	height: 200px;			
+	height: 200px;
 	padding: 20px;
 	color: #fff;
 	background: #262626 url('../images/calendar.png') no-repeat center / cover;
@@ -404,4 +404,33 @@
 	bottom: 60px;
 	opacity: 1;
 	pointer-events: auto;
+}
+/* .taskbar-open {
+	border-bottom: 3px solid #2196f3;
+	background: #2228;
+	border-width: 60%;
+}
+.taskbar-minimized {
+	border-bottom: 3px solid rgba(136, 133, 133, 0.533);
+} */
+.taskbar-open,
+.taskbar-minimized {
+	position: relative;
+}
+
+.taskbar-open::after,
+.taskbar-minimized::after {
+	content: '';
+	position: absolute;
+	left: 25%;
+	right: 25%;
+	bottom: 1px;
+	height: 3px;
+	border-radius: 2px;
+	background: #2196f3;
+	pointer-events: none;
+}
+
+.taskbar-minimized::after {
+	background: rgba(136, 133, 133, 0.533);
 }
