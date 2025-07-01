@@ -13,6 +13,7 @@ body {
 	height: 100vh;
 	overflow: hidden;
 	position: relative;
+	user-select: none;
 }
 
 .branding {

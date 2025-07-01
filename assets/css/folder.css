@@ -122,3 +122,6 @@
 hr {
 	opacity: 0.2;
 }
+.folder-sidebar {
+	overflow-y: auto;
+}

@@ -349,7 +349,7 @@ export const thisPcCode = `
 `;
 export const folderCode = `
 <div class="thispc-app">
-  <div class="thispc-sidebar">
+  <div class="thispc-sidebar folder-sidebar">
     <div class="thispc-sidebar-section">
       <div class="thispc-sidebar-title">Quick Access</div>
       <ul>

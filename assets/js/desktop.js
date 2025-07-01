@@ -397,6 +397,9 @@ function createNewWindow(el, item) {
 			updateNavButtons(clutter);
 		};
 	}
+	clutter.addEventListener('contextmenu', e => {
+		e.preventDefault();
+	});
 
 	if (item.type === 'flappy-bird') {
 		const header = clutter.querySelector('.header');
