@@ -16,12 +16,14 @@ import flappyBirdJS from './flappy-bird.js';
 import CalculatorJs from './calculator.js';
 import notepadJS from './notepad.js';
 import recycleBinJS from './recyclebin.js';
+import terminalJS from './terminal.js';
 const GRID_SIZE_Y = 100; // vertical gap (row height)
 const GRID_SIZE_X = 85; // horizontal gap (column width, decrease for less gap)
 const ICON_OFFSET_X = 10;
 const ICON_OFFSET_Y = 30;
 
 let GRID_COLS, GRID_ROWS;
+// Initialize terminal
 
 // Calculate grid cols/rows based on window size
 function updateGridSize() {
@@ -319,6 +321,15 @@ function createNewWindow(el, item) {
 		body.innerHTML = settingsCode;
 	} else if (item.type === 'terminal') {
 		body.innerHTML = terminalCode;
+		terminalJS(body, (input, terminalContent) => {
+			const output = document.createElement('div');
+			output.className = 'terminal-line';
+			output.innerHTML = `<span>${input ? 'You typed: ' + input : ''}</span>`;
+			terminalContent.insertBefore(
+				output,
+				terminalContent.querySelector('.terminal-line:last-child')
+			);
+		});
 	} else if (item.type === 'notepad') {
 		body.innerHTML = notepadCode;
 		notepadJS(body, item);
@@ -530,3 +541,5 @@ function bringWindowToFront(clutter) {
 	});
 	clutter.style.zIndex = 10; // Bring this window to front
 }
+
+export function onTerminalEnter() {}

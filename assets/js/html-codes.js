@@ -259,16 +259,9 @@ export const terminalCode = `
 <div class="win-terminal-app">
   <div class="terminal-body">
     <div class="terminal-content">
-    <div class="terminal-line">
-    <span class="terminal-path">C:\Users\Asad Ali&gt;</span>
-    <span class="terminal-text">print Hello, World!</span>
-    </div>
-    <div class="terminal-line">
-    <span>Hello, World!</span>
-    </div>
-    <div class="terminal-line">
-      <span class="terminal-path">C:\Users\Asad Ali&gt;</span>
-      <span class="terminal-cursor"></span>
+      <div class="terminal-line">
+        <span class="terminal-prompt">C:\\Users\\Asad&gt;</span>
+        <input type="text" class="terminal-input" placeholder="Type a command..." />
       </div>
     </div>
   </div>
