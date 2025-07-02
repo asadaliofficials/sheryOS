@@ -294,7 +294,7 @@ export const thisPcCode = `
       <div class="thispc-sidebar-title">Quick Access</div>
       <ul>
         <li class="active"><img loading="lazy" src="assets/images/this-pc.png" /> Desktop</li>
-        <li><img loading="lazy" src="assets/images/Downloads.png" /> Downloads</li>
+        <li><img loading="lazy" src="assets/images/downloads.png" /> Downloads</li>
         <li><img loading="lazy" src="assets/images/documents.png" /> Documents</li>
         <li><img loading="lazy" src="assets/images/pictures.png" /> Pictures</li>
         <li><img loading="lazy" src="assets/images/music.png" /> Music</li>
