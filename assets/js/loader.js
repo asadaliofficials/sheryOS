@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+	document.querySelector('.loader__container').style.display = 'flex';
 	setTimeout(() => {
 		const loader = document.querySelector('.win-loader');
 		loader.classList.add('fade-out');

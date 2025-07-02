@@ -13,7 +13,13 @@ import {
 	clipboardSourceId,
 	setClipboard,
 	clearClipboard,
-} from './clipboard.js';
+	flappyBirdJS,
+	calculatorJS,
+	notepadJS,
+	recycleBinJS,
+	terminalJS,
+	chromeJS,
+} from './js-codes.js';
 import {
 	flapyBirdCode,
 	calculatorCode,
@@ -28,12 +34,6 @@ import {
 	folderCode,
 	aboutCode,
 } from './html-codes.js';
-import flappyBirdJS from './flappy-bird.js';
-import CalculatorJs from './calculator.js';
-import notepadJS from './notepad.js';
-import recycleBinJS from './recyclebin.js';
-import terminalJS from './terminal.js';
-import chromeJS from './chrome.js';
 const GRID_SIZE_Y = 100;
 const GRID_SIZE_X = 85;
 const ICON_OFFSET_X = 10;
@@ -370,7 +370,7 @@ function createNewWindow(el, item) {
 		flappyBirdJS(body);
 	} else if (item.type === 'calculator') {
 		body.innerHTML = calculatorCode;
-		CalculatorJs();
+		calculatorJS();
 	} else if (item.type === 'mongodb') {
 		body.innerHTML = mongodbCode;
 		body.style.overflow = 'hidden';

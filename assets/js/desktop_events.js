@@ -4,7 +4,7 @@ import {
 	clipboardSourceId,
 	setClipboard,
 	clearClipboard,
-} from './clipboard.js';
+} from './js-codes.js';
 import { deleteItemById } from './data.js';
 const customMenu = document.getElementById('customMenu');
 const desktop = document.querySelector('.desktop');
