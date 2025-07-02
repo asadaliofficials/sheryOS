@@ -72,6 +72,7 @@ startBtn.addEventListener('click', function (e) {
 	e.stopPropagation();
 	startImg.classList.toggle('start-img--open');
 	controlLayout.classList.remove('control-layout--open');
+	document.getElementById('searchPanel').style.display = 'none';
 	calendar.classList.remove('calendar--open');
 });
 

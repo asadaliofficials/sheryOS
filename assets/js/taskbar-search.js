@@ -8,16 +8,6 @@ const resultsDiv = searchPanel.querySelector('.search-panel-results');
 const searchDiv = document.querySelector('.search');
 const taskbarSearchInput = document.querySelector('.taskbar-search-input');
 
-// Helper: flatten desktop items (including folders)
-// function flattenItems(items, arr = []) {
-// 	for (const item of items) {
-// 		arr.push(item);
-// 		if (item.childrens && item.childrens.length) flattenItems(item.childrens, arr);
-// 	}
-// 	return arr;
-// }
-
-// Show panel on search input focus/click
 searchInputBox.addEventListener('focus', showPanel);
 searchInputBox.addEventListener('click', showPanel);
 
