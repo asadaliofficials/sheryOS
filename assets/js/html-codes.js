@@ -451,7 +451,7 @@ export const aboutCode = `
           <span style="color:#2196f3;">support and feedback</span>.
         </span> <br>
         <span style="font-weight:500;">
-          Special thanks to my Teachers: <span style="color:#34d399;">Harsh Sharma</span>, <span style="color:#34d399;">Daneesh Bhaiya</span>, <span style="color:#34d399;">Sarthak Sharma</span>, <span style="color:#34d399;">Ankur Prajapati</span>, <span style="color:#34d399;">Ali Bhaiya</span>, and <span style="color:#34d399;">Adarsh vyas</span>.
+          Special thanks to my Teachers: <span style="color:#34d399;">Harsh Sharma</span>, <span style="color:#34d399;">Dhanesh Master</span>, <span style="color:#34d399;">Sarthak Sharma</span>, <span style="color:#34d399;">Ankur Prajapati</span>, <span style="color:#34d399;">Ali Bhai</span>, and <span style="color:#34d399;">Akarsh Vyas</span>.
         </span>
       </div>
     </div>
