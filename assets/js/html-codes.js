@@ -1,6 +1,6 @@
 export const flapyBirdCode = `
   			<div class="background"></div>
-					<img src="assets/images/flappy-bird/Bird.png" alt="bird-img" class="bird" id="bird-1" />
+					<img loading="lazy" loading="lazy" src="assets/images/flappy-bird/Bird.png" alt="bird-img" class="bird" id="bird-1" />
 					<div class="message">
 						Enter To Start Game
 						<p>
@@ -111,40 +111,40 @@ export const vscodeCode = `
   <div class="vscode-main">
     <div class="vscode-sidebar">
       <div class="vscode-sidebar-icon active" title="Explorer">
-        <img style="filter: invert(1)" src="assets/images/vscode-explorer.png" />
+        <img loading="lazy" style="filter: invert(1)" src="assets/images/vscode-explorer.png" />
       </div>
       <div class="vscode-sidebar-icon" title="Search">
-        <img src="assets/images/search.svg" />
+        <img loading="lazy" src="assets/images/search.svg" />
       </div>
       <div class="vscode-sidebar-icon" title="Source Control">
-        <img style="filter: invert(1)" src="assets/images/git.png" />
+        <img loading="lazy" style="filter: invert(1)" src="assets/images/git.png" />
       </div>
       <div class="vscode-sidebar-icon" title="Run & Debug">
-        <img style="filter: invert(1)" src="assets/images/run.png" />
+        <img loading="lazy" style="filter: invert(1)" src="assets/images/run.png" />
       </div>
       <div class="vscode-sidebar-icon" title="Extensions">
-        <img style="filter: invert(1)" src="assets/images/extension.png" />
+        <img loading="lazy" style="filter: invert(1)" src="assets/images/extension.png" />
       </div>
     </div>
     <div class="vscode-explorer">
       <div class="vscode-explorer-header">EXPLORER</div>
       <ul class="vscode-file-list">
-        <li class="vscode-file active"><img style="filter: invert(1)" src="assets/images/file.png" /> index.html</li>
-        <li class="vscode-file"><img style="filter: invert(1)" src="assets/images/file.png" /> style.css</li>
-        <li class="vscode-file"><img style="filter: invert(1)" src="assets/images/file.png" /> app.js</li>
-        <li class="vscode-file"><img style="filter: invert(1)" src="assets/images/folder-black.png" /> assets
+        <li class="vscode-file active"><img loading="lazy" style="filter: invert(1)" src="assets/images/file.png" /> index.html</li>
+        <li class="vscode-file"><img loading="lazy" style="filter: invert(1)" src="assets/images/file.png" /> style.css</li>
+        <li class="vscode-file"><img loading="lazy" style="filter: invert(1)" src="assets/images/file.png" /> app.js</li>
+        <li class="vscode-file"><img loading="lazy" style="filter: invert(1)" src="assets/images/folder-black.png" /> assets
         </li>
       </ul>
     </div>
     <div class="vscode-editor">
       <div class="vscode-tabs">
         <div class="vscode-tab active">
-          <img style="filter: invert(1)" width='20px' src="assets/images/file.png" />
+          <img loading="lazy" style="filter: invert(1)" width='20px' src="assets/images/file.png" />
           <span>index.html</span>
           <span class="vscode-tab-close">&times;</span>
         </div>
         <div class="vscode-tab">
-          <img style="filter: invert(1)" width='20px' src="assets/images/file.png" />
+          <img loading="lazy" style="filter: invert(1)" width='20px' src="assets/images/file.png" />
           <span>style.css</span>
           <span class="vscode-tab-close">&times;</span>
         </div>
@@ -183,9 +183,9 @@ export const ChromeCode = `
     <span class="chrome-nav-btn forward"></span>
     <span class="chrome-nav-btn reload"></span>
     <div class="chrome-addressbar">
-      <img src="assets/images/lock.png" class="chrome-lock" />
+      <img loading="lazy" src="assets/images/lock.png" class="chrome-lock" />
       <input type="text" class="bing-input" placeholder="Search Bing or type a URL" />
-      <img src="assets/images/star.png" class="chrome-star" />
+      <img loading="lazy" src="assets/images/star.png" class="chrome-star" />
     </div>
     <span class="chrome-nav-btn more"></span>
   </div>
@@ -208,23 +208,23 @@ export const settingsCode = `
 <div class="win11-settings-app">
   <div class="settings-sidebar">
     <div class="settings-user">
-      <img src="assets/images/user.png" alt="User" />
+      <img loading="lazy" src="assets/images/user.png" alt="User" />
       <div>
         <div class="settings-username">Asad Ali</div>
         <div class="settings-email">asad@example.com</div>
       </div>
     </div>
     <ul class="settings-menu">
-      <li class="active"><img src="assets/images/settings.png" /> System</li>
-      <li><img src="assets/images/bluetooth.png" /> Bluetooth & devices</li>
-      <li><img src="assets/images/network.png" /> Network & internet</li>
-      <li><img src="assets/images/personalize.png" /> Personalization</li>
-      <li><img src="assets/images/apps.png" /> Apps</li>
-      <li><img src="assets/images/account.png" /> Accounts</li>
-      <li><img src="assets/images/time.png" /> Time & language</li>
+      <li class="active"><img loading="lazy" src="assets/images/settings.png" /> System</li>
+      <li><img loading="lazy" src="assets/images/bluetooth.png" /> Bluetooth & devices</li>
+      <li><img loading="lazy" src="assets/images/network.png" /> Network & internet</li>
+      <li><img loading="lazy" src="assets/images/personalize.png" /> Personalization</li>
+      <li><img loading="lazy" src="assets/images/apps.png" /> Apps</li>
+      <li><img loading="lazy" src="assets/images/account.png" /> Accounts</li>
+      <li><img loading="lazy" src="assets/images/time.png" /> Time & language</li>
 
-      <li><img src="assets/images/privacy.png" /> Privacy & security</li>
-      <li><img src="assets/images/update.png" /> Windows Update</li>
+      <li><img loading="lazy" src="assets/images/privacy.png" /> Privacy & security</li>
+      <li><img loading="lazy" src="assets/images/update.png" /> Windows Update</li>
     </ul>
   </div>
   <div class="settings-main">
@@ -293,30 +293,30 @@ export const thisPcCode = `
     <div class="thispc-sidebar-section">
       <div class="thispc-sidebar-title">Quick Access</div>
       <ul>
-        <li class="active"><img src="assets/images/this-pc.png" /> Desktop</li>
-        <li><img src="assets/images/Downloads.png" /> Downloads</li>
-        <li><img src="assets/images/documents.png" /> Documents</li>
-        <li><img src="assets/images/pictures.png" /> Pictures</li>
-        <li><img src="assets/images/music.png" /> Music</li>
-        <li><img src="assets/images/videos.png" /> Videos</li>
+        <li class="active"><img loading="lazy" src="assets/images/this-pc.png" /> Desktop</li>
+        <li><img loading="lazy" src="assets/images/Downloads.png" /> Downloads</li>
+        <li><img loading="lazy" src="assets/images/documents.png" /> Documents</li>
+        <li><img loading="lazy" src="assets/images/pictures.png" /> Pictures</li>
+        <li><img loading="lazy" src="assets/images/music.png" /> Music</li>
+        <li><img loading="lazy" src="assets/images/videos.png" /> Videos</li>
       </ul>
     </div>
     <div class="thispc-sidebar-section">
       <div class="thispc-sidebar-title">Devices and drives</div>
       <ul>
-        <li><img src="assets/images/this-pc.png" /> This PC</li>
-        <li><img src="assets/images/usb.png" /> USB Drive (E:)</li>
+        <li><img loading="lazy" src="assets/images/this-pc.png" /> This PC</li>
+        <li><img loading="lazy" src="assets/images/usb.png" /> USB Drive (E:)</li>
       </ul>
     </div>
   </div>
   <div class="thispc-main">
     <div class="thispc-header">
-      <span class="thispc-title"><img src="assets/images/this-pc.png" /> This PC</span>
+      <span class="thispc-title"><img loading="lazy" src="assets/images/this-pc.png" /> This PC</span>
       <input class="thispc-search" type="text" placeholder="Search This PC" />
     </div>
     <div class="thispc-partitions">
       <div class="thispc-partition">
-        <img src="assets/images/drive.png" />
+        <img loading="lazy" src="assets/images/drive.png" />
         <div>
           <div class="thispc-partition-title">Local Disk (C:)</div>
           <div class="thispc-partition-bar">
@@ -326,7 +326,7 @@ export const thisPcCode = `
         </div>
       </div>
       <div class="thispc-partition">
-        <img src="assets/images/usb.png" />
+        <img loading="lazy" src="assets/images/usb.png" />
         <div>
           <div class="thispc-partition-title">USB Drive (E:)</div>
           <div class="thispc-partition-bar">
@@ -345,19 +345,19 @@ export const folderCode = `
     <div class="thispc-sidebar-section">
       <div class="thispc-sidebar-title">Quick Access</div>
       <ul>
-        <li class="active"><img src="assets/images/this-pc.png" /> Desktop</li>
-        <li><img src="assets/images/Downloads.png" /> Downloads</li>
-        <li><img src="assets/images/documents.png" /> Documents</li>
-        <li><img src="assets/images/pictures.png" /> Pictures</li>
-        <li><img src="assets/images/music.png" /> Music</li>
-        <li><img src="assets/images/videos.png" /> Videos</li>
+        <li class="active"><img loading="lazy" src="assets/images/this-pc.png" /> Desktop</li>
+        <li><img loading="lazy" src="assets/images/Downloads.png" /> Downloads</li>
+        <li><img loading="lazy" src="assets/images/documents.png" /> Documents</li>
+        <li><img loading="lazy" src="assets/images/pictures.png" /> Pictures</li>
+        <li><img loading="lazy" src="assets/images/music.png" /> Music</li>
+        <li><img loading="lazy" src="assets/images/videos.png" /> Videos</li>
       </ul>
     </div>
     <div class="thispc-sidebar-section">
       <div class="thispc-sidebar-title">Devices and drives</div>
       <ul>
-        <li><img src="assets/images/this-pc.png" /> This PC</li>
-        <li><img src="assets/images/usb.png" /> USB Drive (E:)</li>
+        <li><img loading="lazy" src="assets/images/this-pc.png" /> This PC</li>
+        <li><img loading="lazy" src="assets/images/usb.png" /> USB Drive (E:)</li>
       </ul>
     </div>
   </div>
@@ -381,7 +381,7 @@ export const folderCode = `
 export const aboutCode = `
 <div class="about-app">
   <div class="about-header">
-    <img src="assets/images/sheryOS.png" alt="Shery OS Logo" class="about-logo" />
+    <img loading="lazy" src="assets/images/sheryOS.png" alt="Shery OS Logo" class="about-logo" />
     <div>
       <div class="about-title" style="color:#2196f3;font-weight:700;letter-spacing:1px;">Shery OS</div>
       <div class="about-version" style="color:#b0b8c1;">Version 8.12.24</div>
