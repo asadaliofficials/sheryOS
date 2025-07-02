@@ -134,6 +134,15 @@ backgroundImages.forEach(src => {
 	const img = new Image();
 	img.src = src;
 });
+const flappyImages = [
+	'assets/images/flappy-bird/background-img.png',
+	'assets/images/flappy-bird/bird.png',
+	'assets/images/flappy-bird/bird-2.png',
+];
+flappyImages.forEach(src => {
+	const img = new Image();
+	img.src = src;
+});
 
 window.addEventListener('DOMContentLoaded', () => {
 	document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
