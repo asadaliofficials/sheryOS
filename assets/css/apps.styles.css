@@ -226,6 +226,10 @@
 .bing-iframe-container {
 	width: 100%;
 	margin-top: 24px;
+	height: 100%;
+}
+.bing-iframe-container iframe {
+	height: 100% !important;
 }
 
 /* Flappy Bird Styles */
