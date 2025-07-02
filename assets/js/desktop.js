@@ -238,6 +238,7 @@ function createNewWindow(el, item) {
 			minimized: false,
 			isOpen: true,
 			pinned: false,
+			justOpened: true,
 		});
 	}
 	updateTaskbar();

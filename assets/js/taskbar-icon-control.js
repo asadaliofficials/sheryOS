@@ -20,6 +20,14 @@ function renderTaskbarIcons() {
 		taskbarItem.setAttribute('data-id', item.id);
 		taskbarItem.innerHTML = `<img src="${desktopItem.icon}" alt="${desktopItem.name}">`;
 
+		// Animation: Add animate-in class if just opened
+		if (item.justOpened) {
+			taskbarItem.classList.add('taskbar-icon-animate-in');
+			setTimeout(() => {
+				taskbarItem.classList.remove('taskbar-icon-animate-in');
+				item.justOpened = false;
+			}, 400);
+		}
 
 		if (item.isOpen) {
 			taskbarItem.classList.add('taskbar-open');
@@ -41,23 +49,33 @@ function renderTaskbarIcons() {
 					updateTaskbar();
 					bringWindowToFront(item.windowRef);
 				} else if (item.windowRef) {
-
 					item.windowRef.style.display = 'block';
 					item.windowRef.focus();
 					bringWindowToFront(item.windowRef);
 				}
 			} else {
-
 				createNewWindow(null, desktopItem);
 			}
 		});
 
 		taskbarIcons.appendChild(taskbarItem);
 	});
+
+	// Animate out icons that are being removed (not open and not pinned)
+	const currentIds = taskbarItems.map(i => i.id);
+	const existingIcons = taskbarIcons.querySelectorAll('.icon[data-id]');
+	existingIcons.forEach(icon => {
+		const id = Number(icon.getAttribute('data-id'));
+		const item = taskbarItems.find(i => i.id === id);
+		if (!item || (!item.isOpen && !item.pinned)) {
+			icon.classList.add('taskbar-icon-animate-out');
+			setTimeout(() => {
+				if (icon.parentNode) icon.parentNode.removeChild(icon);
+			}, 320);
+		}
+	});
 }
 
-
 window.addEventListener('taskbarUpdate', renderTaskbarIcons);
-
 
 renderTaskbarIcons();
