@@ -383,14 +383,14 @@ export const aboutCode = `
   <div class="about-header">
     <img loading="lazy" src="assets/images/sheryOS.png" alt="Shery OS Logo" class="about-logo" />
     <div>
-      <div class="about-title" style="color:#2196f3;font-weight:700;letter-spacing:1px;">Shery OS</div>
+      <div class="about-title" style="color:#dbb921;font-weight:700;letter-spacing:1px;">Shery OS</div>
       <div class="about-version" style="color:#b0b8c1;">Version 8.12.24</div>
       <div class="about-tagline" style="color:#fbbf24;font-size:1.1rem;font-weight:500;">A Modern Web Desktop Environment</div>
     </div>
   </div>
   <div class="about-body">
     <div class="about-section">
-      <div class="about-section-title" style="color:#2196f3;">✨ Project Overview</div>
+      <div class="about-section-title" style="color:#dbb921;">✨ Project Overview</div>
       <div class="about-section-content" style="color:#b0b8c1;">
         <strong style="color:#2196f3;">Shery OS</strong> is a Windows 11-inspired, web-based desktop environment.<br>
         Multi-window support, drag & resize, context menus, and a beautiful taskbar.<br>
@@ -398,7 +398,7 @@ export const aboutCode = `
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title" style="color:#2196f3;">🛠️ Key Features</div>
+      <div class="about-section-title" style="color:#dbb921;">🛠️ Key Features</div>
       <ul class="about-features" style="color:#b0b8c1;">
         <li>🖥️ Multi-window desktop: draggable, resizable, maximizable apps</li>
         <li>📁 Folders & nested folders, with notes and files inside</li>
@@ -416,14 +416,14 @@ export const aboutCode = `
       </ul>
     </div>
     <div class="about-section">
-      <div class="about-section-title" style="color:#2196f3;">💻 Technologies Used</div>
+      <div class="about-section-title" style="color:#dbb921;">💻 Technologies Used</div>
       <div class="about-section-content" style="color:#b0b8c1;">
         HTML5, CSS3 (custom & modular), JavaScript (ES6+)<br>
         <span style="color:#fbbf24;">No frameworks</span> – pure, fast, and lightweight!
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title" style="color:#2196f3;">👨‍💻 Developer</div>
+      <div class="about-section-title" style="color:#dbb921;">👨‍💻 Developer</div>
       <div class="about-section-content" style="color:#b0b8c1;">
         <strong style="color:#2196f3;">Asad Ali s/o Khadam Hussain</strong><br>
         Full Stack Developer & Designer<br>
@@ -431,7 +431,7 @@ export const aboutCode = `
       </div>
     </div>
     <div class="about-section">
-      <div class="about-section-title" style="color:#2196f3;">🙏 Credits & Thanks</div>
+      <div class="about-section-title" style="color:#dbb921;">🙏 Credits & Thanks</div>
       <div class="about-section-content" style="color:#b0b8c1;">
         Icons & images:
         <a href="https://icons8.com/" target="_blank" style="color:#2196f3;">Icons8</a>,
@@ -440,7 +440,7 @@ export const aboutCode = `
         Bing, and open source.<br>
         <span>
           Partners &amp; Helpers:
-          <span style="color:#34d399;">MS Copilot</span>,
+          <span style="color:#34d399;">Copilot</span>,
           <span style="color:#34d399;">ChatGPT</span>,
           <span style="color:#34d399;">Neha Sharma</span>
           (<a href="https://www.linkedin.com/in/neha-sharma-ab34b92a5/" target="_blank" style="color:#2196f3;text-decoration:underline;">linkedin</a>),
@@ -449,6 +449,9 @@ export const aboutCode = `
         <span style="font-weight:500;">
           Special thanks to the <span style="color:#f472b6;font-weight:600;">Sheryians Coding School</span> community for their
           <span style="color:#2196f3;">support and feedback</span>.
+        </span> <br>
+        <span style="font-weight:500;">
+          Special thanks to my Teachers: <span style="color:#34d399;">Harsh Sharma</span>, <span style="color:#34d399;">Daneesh Bhaiya</span>, <span style="color:#34d399;">Sarthak Sharma</span>, <span style="color:#34d399;">Ankur Prajapati</span>, and <span style="color:#34d399;">Ali Bhaiya</span>.
         </span>
       </div>
     </div>

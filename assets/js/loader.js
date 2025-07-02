@@ -12,3 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		);
 	}, 3000);
 });
+
+document.querySelector('.win-loader').addEventListener('contextmenu', e => {
+	e.preventDefault();
+});

@@ -88,6 +88,17 @@ export let desktopItems = [
 		],
 	},
 	{
+		id: 234.432,
+		name: 'About OS',
+		icon: 'assets/images/user.png',
+		type: 'about',
+		isResizeable: true,
+		width: '60%',
+		height: '70%',
+		top: '15%',
+		left: '20%',
+	},
+	{
 		id: 4,
 		name: 'Settings',
 		icon: 'assets/images/settings.png',
@@ -524,7 +535,7 @@ export const addChildItem = (parentId, name, icon, type) => {
 			name: name,
 			icon: icon,
 			type: type,
-			id: Date.now() + Math.random(), 
+			id: Date.now() + Math.random(),
 			...(isFolder && { childrens: [] }),
 			...(!isFolder && {
 				isResizeable: true,

@@ -60,16 +60,7 @@ desktop.addEventListener('contextmenu', event => {
 		}, 100);
 	};
 	customMenu.querySelector('.about').onclick = e => {
-		const item = {
-			name: 'About Shery OS',
-			icon: 'assets/images/user.png',
-			type: 'about',
-			isResizeable: true,
-			width: '60%',
-			height: '70%',
-			top: '15%',
-			left: '20%',
-		};
+		const item = desktopItems.find(item => item.type === 'about');
 		createNewWindow(null, item);
 	};
 	customMenu.querySelector('.terminal').onclick = e => {
