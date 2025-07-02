@@ -136,8 +136,8 @@ backgroundImages.forEach(src => {
 });
 const flappyImages = [
 	'assets/images/flappy-bird/background-img.png',
-	'assets/images/flappy-bird/bird.png',
-	'assets/images/flappy-bird/bird-2.png',
+	'assets/images/flappy-bird/Bird.png',
+	'assets/images/flappy-bird/Bird-2.png',
 ];
 flappyImages.forEach(src => {
 	const img = new Image();
