@@ -491,8 +491,8 @@ if (savedData) {
 } else {
 	localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
 }
-import createDesktop from './desktop.js';
-export const addItem = (name, icon, type) => {
+// import createDesktop from './desktop.js';
+export const addItem = (name, icon, type, createDesktopFun) => {
 	let newItem = null;
 	if (type === 'folder') {
 		newItem = {
@@ -524,10 +524,10 @@ export const addItem = (name, icon, type) => {
 
 	desktopItems.push(newItem);
 	localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
-	createDesktop(desktopItems);
+	createDesktopFun(desktopItems);
 };
 
-export const addChildItem = (parentId, name, icon, type) => {
+export const addChildItem = (parentId, name, icon, type, createDesktopFun) => {
 	const parentItem = findItemById(desktopItems, parentId);
 	const isFolder = type === 'folder';
 	if (parentItem) {
@@ -549,7 +549,7 @@ export const addChildItem = (parentId, name, icon, type) => {
 		if (!parentItem.childrens) parentItem.childrens = [];
 		parentItem.childrens.push(newChildItem);
 		localStorage.setItem('desktopItems', JSON.stringify(desktopItems));
-		createDesktop(desktopItems);
+		createDesktopFun(desktopItems);
 	}
 };
 export function findItemById(items, id) {

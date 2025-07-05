@@ -82,7 +82,7 @@ desktop.addEventListener('contextmenu', event => {
 		setTimeout(() => {
 			const folderName = prompt('Enter folder name:');
 			if (folderName) {
-				addItem(folderName, 'assets/images/folder.png', 'folder');
+				addItem(folderName, 'assets/images/folder.png', 'folder', createDesktop);
 			}
 		}, 100);
 	};
@@ -91,7 +91,7 @@ desktop.addEventListener('contextmenu', event => {
 		setTimeout(() => {
 			const noteNmae = prompt('Enter note name:');
 			if (noteNmae) {
-				addItem(noteNmae, 'assets/images/note.png', 'notepad');
+				addItem(noteNmae, 'assets/images/note.png', 'notepad', createDesktop);
 			}
 		}, 100);
 	};
@@ -143,7 +143,7 @@ document.querySelector('.new-folder').addEventListener('click', async e => {
 	setTimeout(() => {
 		const folderName = prompt('Enter folder name:');
 		if (folderName) {
-			addItem(folderName, 'assets/images/folder.png', 'folder');
+			addItem(folderName, 'assets/images/folder.png', 'folder', createDesktop);
 		}
 	}, 100);
 });
@@ -151,7 +151,7 @@ document.querySelector('.new-note').addEventListener('click', async e => {
 	setTimeout(() => {
 		const noteNmae = prompt('Enter note name:');
 		if (noteNmae) {
-			addItem(noteNmae, 'assets/images/note.png', 'note');
+			addItem(noteNmae, 'assets/images/note.png', 'note', createDesktop);
 		}
 	}, 100);
 });

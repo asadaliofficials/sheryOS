@@ -420,7 +420,7 @@ function createNewWindow(el, item) {
 			const folderName = prompt('Enter folder name:');
 			const current = clutter.currentFolderItem || item;
 			if (folderName) {
-				addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder');
+				addChildItem(current.id, folderName, 'assets/images/folder.png', 'folder', createDesktop);
 				const updatedItem = findItemById(desktopItems, current.id);
 				initializeChildrens(updatedItem, clutter);
 				clutter.currentFolderItem = updatedItem;
@@ -431,7 +431,7 @@ function createNewWindow(el, item) {
 			const noteName = prompt('Enter note name:');
 			const current = clutter.currentFolderItem || item;
 			if (noteName) {
-				addChildItem(current.id, noteName, 'assets/images/note.png', 'notepad');
+				addChildItem(current.id, noteName, 'assets/images/note.png', 'notepad', createDesktop);
 				const updatedItem = findItemById(desktopItems, current.id);
 				initializeChildrens(updatedItem, clutter);
 				clutter.currentFolderItem = updatedItem;
