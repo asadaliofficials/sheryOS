@@ -95,12 +95,14 @@ desktop.addEventListener('contextmenu', event => {
 			}
 		}, 100);
 	};
+	const pasteMenuItem = customMenu.querySelector('.paste');
 	if (clipboardItem) {
-		customMenu.querySelector('.paste').style.display = 'block';
+		pasteMenuItem.classList.remove('disabled');
 	} else {
-		customMenu.querySelector('.paste').style.display = 'none';
+		pasteMenuItem.classList.add('disabled');
 	}
-	customMenu.querySelector('.paste')?.addEventListener('click', () => {
+	pasteMenuItem.addEventListener('click', () => {
+		if (pasteMenuItem.classList.contains('disabled')) return;
 		if (clipboardItem) {
 			const newItem = { ...clipboardItem, id: Date.now() + Math.random() };
 			desktopItems.push(newItem);

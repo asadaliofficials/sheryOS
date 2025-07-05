@@ -251,6 +251,12 @@ body {
 .custom-menu ul li:hover {
 	background-color: #484848;
 }
+.paste.disabled {
+	color: #888 !important;
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: default;
+}
 
 /* styles for taskbar */
 .taskbar {
