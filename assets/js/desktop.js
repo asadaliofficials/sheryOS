@@ -14,6 +14,7 @@ import {
 	recycleBinJS,
 	terminalJS,
 	chromeJS,
+	setClipboard,
 } from './js-codes.js';
 import {
 	flapyBirdCode,
