@@ -1,4 +1,3 @@
-import getMainHtml from './index.htmlCode.js';
 document.addEventListener('DOMContentLoaded', () => {
 	const loadingAR = document.querySelector('.loadingAR');
 	let dots = 1;

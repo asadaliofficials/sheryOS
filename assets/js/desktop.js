@@ -8,11 +8,6 @@ import {
 import { taskbarItems, updateTaskbar } from './taskbarData.js';
 
 import {
-	clipboardItem,
-	clipboardAction,
-	clipboardSourceId,
-	setClipboard,
-	clearClipboard,
 	flappyBirdJS,
 	calculatorJS,
 	notepadJS,

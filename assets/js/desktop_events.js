@@ -1,11 +1,4 @@
-import {
-	clipboardItem,
-	clipboardAction,
-	clipboardSourceId,
-	setClipboard,
-	clearClipboard,
-} from './js-codes.js';
-import { deleteItemById } from './data.js';
+import { clipboardItem } from './js-codes.js';
 const customMenu = document.getElementById('customMenu');
 const desktop = document.querySelector('.desktop');
 import { addItem } from './data.js';
