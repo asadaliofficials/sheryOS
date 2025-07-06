@@ -1,5 +1,5 @@
 import { addItem } from './data.js';
-
+import createDesktop from './desktop.js';
 // terminalJS Code
 export function terminalJS(container) {
 	onEnter('help', container.querySelector('.terminal-content'), initInput);
@@ -126,12 +126,12 @@ function onEnter(input, terminalContent, initInput) {
 			`<span>Shery OS Terminal &copy; 2025. <span style="color:orange">Made by Asad Ali</span></span>`
 		);
 	} else if (input.trim().toLowerCase().startsWith('mkdir')) {
-		const folderName = input.split(' ')[1];
-		addItem(folderName, 'assets/images/folder.png', 'folder');
+		const folderName = input.trim().slice(6).trim();
+		addItem(folderName, 'assets/images/folder.png', 'folder', createDesktop);
 		addOutput(`<span>Directory created: <span style="color:orange">${folderName}</span></span>`);
 	} else if (input.trim().toLowerCase().startsWith('mknote')) {
-		const noteName = input.split(' ')[1];
-		addItem(noteName, 'assets/images/note.png', 'notepad');
+		const noteName = input.trim().slice(7).trim();
+		addItem(noteName, 'assets/images/note.png', 'notepad', createDesktop);
 		addOutput(`<span>Note created: <span style="color:orange">${noteName}</span></span>`);
 	} else if (input.trim().toLowerCase().startsWith('print')) {
 		const message = input.split(' ').slice(1).join(' ');
