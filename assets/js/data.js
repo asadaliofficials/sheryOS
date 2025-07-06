@@ -164,7 +164,7 @@ export let desktopItems = [
 		width: '1100px',
 		height: '570px',
 		top: '15px',
-		left: '20%',
+		left: '8%',
 	},
 	{
 		id: 10,

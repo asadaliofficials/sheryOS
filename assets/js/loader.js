@@ -1,6 +1,5 @@
 import getMainHtml from './index.htmlCode.js';
 document.addEventListener('DOMContentLoaded', () => {
-	document.querySelector('.loader__container').style.display = 'flex';
 	const loadingAR = document.querySelector('.loadingAR');
 	let dots = 1;
 	setInterval(() => {
