@@ -136,11 +136,6 @@ flappyImages.forEach(src => {
 	const img = new Image();
 	img.src = src;
 });
-
-window.addEventListener('DOMContentLoaded', () => {
-	document.body.style.backgroundImage = `url(${backgroundImages[currentBGIndex]})`;
-});
-
 document.querySelector('.new-folder').addEventListener('click', async e => {
 	setTimeout(() => {
 		const folderName = prompt('Enter folder name:');
