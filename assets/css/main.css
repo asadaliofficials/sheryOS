@@ -171,7 +171,7 @@ body {
 .desktop {
 	position: relative;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - 50px); /* <-- Only take space above the taskbar */
 	overflow: hidden;
 	-webkit-user-select: none;
 	-moz-user-select: none;

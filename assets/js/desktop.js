@@ -37,19 +37,6 @@ const ICON_OFFSET_Y = 30;
 
 let GRID_COLS, GRID_ROWS;
 
-function updateGridSize() {
-	const desktop = document.querySelector('.desktop');
-	const width = desktop ? desktop.clientWidth : window.innerWidth;
-	const height = desktop ? desktop.clientHeight : window.innerHeight;
-	GRID_COLS = Math.floor((width - ICON_OFFSET_X) / GRID_SIZE_X);
-	GRID_ROWS = Math.floor((height - ICON_OFFSET_Y) / GRID_SIZE_Y);
-}
-
-updateGridSize();
-window.addEventListener('resize', () => {
-	updateGridSize();
-});
-
 const occupied = {};
 
 function getGridCell(x, y) {
@@ -595,3 +582,16 @@ export { bringWindowToFront };
 export function onTerminalEnter() {}
 
 let selectedItem = null;
+function updateGridSize() {
+	const desktop = document.querySelector('.desktop');
+	const width = desktop ? desktop.clientWidth : window.innerWidth;
+	const height = desktop ? desktop.clientHeight : window.innerHeight;
+	GRID_COLS = Math.floor((width - ICON_OFFSET_X) / GRID_SIZE_X);
+	GRID_ROWS = Math.floor((height - ICON_OFFSET_Y) / GRID_SIZE_Y);
+	createDesktop(desktopItems); // <-- Add this line to re-render icons
+}
+
+updateGridSize();
+window.addEventListener('resize', () => {
+	updateGridSize();
+});
