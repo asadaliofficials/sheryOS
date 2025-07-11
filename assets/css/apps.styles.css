@@ -1669,6 +1669,18 @@ hr {
 .folder-sidebar {
 	overflow-y: auto;
 }
+.folder-path {
+	color: #b9c3cf !important;
+	font-size: 17px !important;
+	opacity: 0.85 !important;
+	margin: 14px 0 10px 0 !important;
+	padding-left: 30px !important;
+	padding-top: 4px !important;
+	font-weight: 500 !important;
+	letter-spacing: 0.02em !important;
+	user-select: text !important;
+	line-height: 1.5 !important;
+}
 
 /* terminal styles */
 .win-terminal-app {

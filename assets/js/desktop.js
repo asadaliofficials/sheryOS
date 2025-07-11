@@ -435,6 +435,7 @@ function createNewWindow(el, item) {
 				clutter.currentFolderItem = prevItem;
 			}
 			updateNavButtons(clutter);
+			renderFolderPath(clutter, prevItem); // for back
 		};
 
 		forwardBtn.onclick = () => {
@@ -451,6 +452,7 @@ function createNewWindow(el, item) {
 				clutter.currentFolderItem = nextItem;
 			}
 			updateNavButtons(clutter);
+			renderFolderPath(clutter, nextItem); // for forward
 		};
 	}
 	clutter.addEventListener('contextmenu', e => {
@@ -536,6 +538,7 @@ function initializeChildrens(item, clutter) {
 					if (searchInput) searchInput.value = '';
 					initializeChildrens(child, clutter);
 					clutter.currentFolderItem = child;
+					renderFolderPath(clutter, child); // <-- Add here for folder open
 				} else if (child.type === 'notepad') {
 					createNewWindow(null, child);
 				}
@@ -545,6 +548,7 @@ function initializeChildrens(item, clutter) {
 		folderContent.innerHTML = `<div class="folder-empty">This folder is empty</div>`;
 	}
 	updateNavButtons(clutter);
+	renderFolderPath(clutter, item); // <-- Always update path on any folder load
 }
 function updateNavButtons(clutter) {
 	const backBtn = clutter.querySelector('.folder-btn.back');
@@ -595,3 +599,11 @@ updateGridSize();
 window.addEventListener('resize', () => {
 	updateGridSize();
 });
+
+function renderFolderPath(clutter, item) {
+	const pathDiv = clutter.querySelector('.folder-path');
+	if (!pathDiv) return;
+	let stack = clutter.folderNavStack || [item];
+	let names = stack.slice(0, (clutter.folderNavIndex ?? stack.length - 1) + 1).map(i => i.name);
+	pathDiv.textContent = names.join(' > ');
+}

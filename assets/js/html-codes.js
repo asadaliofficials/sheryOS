@@ -372,6 +372,7 @@ export const folderCode = `
       <input class="folder-search" type="text" placeholder="Search this folder" />
     </div>
     <hr>
+        <div class="folder-path" style="color:#b0b8c1;font-size:13px;opacity:0.7;margin:6px 0 8px 0;padding-left:8px;"></div>
     <div class="folder-content">
    <div class="folder-empty">This folder is empty</div>
     </div>
