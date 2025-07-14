@@ -385,7 +385,7 @@ export const aboutCode = `
     <img loading="lazy" src="assets/images/sheryOS.png" alt="Shery OS Logo" class="about-logo" />
     <div>
       <div class="about-title" style="color:#dbb921;font-weight:700;letter-spacing:1px;">Shery OS</div>
-      <div class="about-version" style="color:#b0b8c1;">Version 8.12.24</div>
+      <div class="about-version" style="color:#b0b8c1;">Version 8.12.36</div>
       <div class="about-tagline" style="color:#fbbf24;font-size:1.1rem;font-weight:500;">A Modern Web Desktop Environment</div>
     </div>
   </div>
